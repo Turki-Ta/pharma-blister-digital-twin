@@ -1,0 +1,186 @@
+########################################################################################
+#  OMNI_USD_RESOLVER_MDL_BUILTIN_BYPASS is overridden to 'true'.  Default is 'false'.  #
+########################################################################################
+2026-09-18T01:04:44Z [773ms] [Error] [omni.rtx] FindAppliedAPIPrimDefinition('OmniRtxSettingsGlobalRtAdvancedAPI_1') returned nothing
+2026-09-18T01:04:44Z [773ms] [Error] [omni.rtx] Could not find UsdPrimDefinition for 'OmniRtxSettingsGlobalRtAdvancedAPI_1'
+2026-09-18T01:04:44Z [773ms] [Error] [omni.rtx] FindAppliedAPIPrimDefinition('OmniRtxSettingsGlobalPtAdvancedAPI_1') returned nothing
+2026-09-18T01:04:44Z [773ms] [Error] [omni.rtx] Could not find UsdPrimDefinition for 'OmniRtxSettingsGlobalPtAdvancedAPI_1'
+2026-09-18T01:04:44Z [773ms] [Error] [omni.rtx] FindAppliedAPIPrimDefinition('OmniRtxSettingsGlobalCommonAPI_1') returned nothing
+2026-09-18T01:04:44Z [773ms] [Error] [omni.rtx] Could not find UsdPrimDefinition for 'OmniRtxSettingsGlobalCommonAPI_1'
+2026-09-18T01:04:44Z [773ms] [Error] [omni.rtx] FindAppliedAPIPrimDefinition('OmniRtxSettingsCommonAPI_1') returned nothing
+2026-09-18T01:04:44Z [773ms] [Error] [omni.rtx] Could not find UsdPrimDefinition for 'OmniRtxSettingsCommonAPI_1'
+2026-09-18T01:04:44Z [773ms] [Error] [omni.rtx] FindAppliedAPIPrimDefinition('OmniRtxSettingsCommonAdvancedAPI_1') returned nothing
+2026-09-18T01:04:44Z [773ms] [Error] [omni.rtx] Could not find UsdPrimDefinition for 'OmniRtxSettingsCommonAdvancedAPI_1'
+2026-09-18T01:04:44Z [774ms] [Error] [omni.rtx] FindAppliedAPIPrimDefinition('OmniRtxSettingsMinimalAPI_1') returned nothing
+2026-09-18T01:04:44Z [774ms] [Error] [omni.rtx] Could not find UsdPrimDefinition for 'OmniRtxSettingsMinimalAPI_1'
+2026-09-18T01:04:44Z [774ms] [Error] [omni.rtx] FindAppliedAPIPrimDefinition('OmniRtxSettingsRtAPI_1') returned nothing
+2026-09-18T01:04:44Z [774ms] [Error] [omni.rtx] Could not find UsdPrimDefinition for 'OmniRtxSettingsRtAPI_1'
+2026-09-18T01:04:44Z [774ms] [Error] [omni.rtx] FindAppliedAPIPrimDefinition('OmniRtxSettingsRtAdvancedAPI_1') returned nothing
+2026-09-18T01:04:44Z [774ms] [Error] [omni.rtx] Could not find UsdPrimDefinition for 'OmniRtxSettingsRtAdvancedAPI_1'
+2026-09-18T01:04:44Z [774ms] [Error] [omni.rtx] FindAppliedAPIPrimDefinition('OmniRtxSettingsPtAPI_1') returned nothing
+2026-09-18T01:04:44Z [774ms] [Error] [omni.rtx] Could not find UsdPrimDefinition for 'OmniRtxSettingsPtAPI_1'
+2026-09-18T01:04:44Z [774ms] [Error] [omni.rtx] FindAppliedAPIPrimDefinition('OmniRtxSettingsPtAdvancedAPI_1') returned nothing
+2026-09-18T01:04:44Z [774ms] [Error] [omni.rtx] Could not find UsdPrimDefinition for 'OmniRtxSettingsPtAdvancedAPI_1'
+2026-09-18T01:04:44Z [774ms] [Error] [omni.rtx] FindAppliedAPIPrimDefinition('OmniRtxCameraExposureAPI_1') returned nothing
+2026-09-18T01:04:44Z [774ms] [Error] [omni.rtx] Could not find UsdPrimDefinition for 'OmniRtxCameraExposureAPI_1'
+2026-09-18T01:04:44Z [774ms] [Error] [omni.rtx] FindAppliedAPIPrimDefinition('OmniRtxCameraAutoExposureAPI_1') returned nothing
+2026-09-18T01:04:44Z [774ms] [Error] [omni.rtx] Could not find UsdPrimDefinition for 'OmniRtxCameraAutoExposureAPI_1'
+2026-09-18T01:04:44Z [774ms] [Error] [omni.rtx] FindAppliedAPIPrimDefinition('OmniRtxRollingShutterAPI') returned nothing
+2026-09-18T01:04:44Z [774ms] [Error] [omni.rtx] Could not find UsdPrimDefinition for 'OmniRtxRollingShutterAPI'
+2026-09-18T01:04:44Z [774ms] [Error] [omni.rtx] FindAppliedAPIPrimDefinition('OmniRtxPostColorGradingAPI_1') returned nothing
+2026-09-18T01:04:44Z [774ms] [Error] [omni.rtx] Could not find UsdPrimDefinition for 'OmniRtxPostColorGradingAPI_1'
+2026-09-18T01:04:44Z [774ms] [Error] [omni.rtx] FindAppliedAPIPrimDefinition('OmniRtxPostChromaticAberrationAPI_1') returned nothing
+2026-09-18T01:04:44Z [774ms] [Error] [omni.rtx] Could not find UsdPrimDefinition for 'OmniRtxPostChromaticAberrationAPI_1'
+2026-09-18T01:04:44Z [774ms] [Error] [omni.rtx] FindAppliedAPIPrimDefinition('OmniRtxPostBloomPhysicalAPI_1') returned nothing
+2026-09-18T01:04:44Z [774ms] [Error] [omni.rtx] Could not find UsdPrimDefinition for 'OmniRtxPostBloomPhysicalAPI_1'
+2026-09-18T01:04:44Z [774ms] [Error] [omni.rtx] FindAppliedAPIPrimDefinition('OmniRtxPostMatteObjectAPI_1') returned nothing
+2026-09-18T01:04:44Z [774ms] [Error] [omni.rtx] Could not find UsdPrimDefinition for 'OmniRtxPostMatteObjectAPI_1'
+2026-09-18T01:04:44Z [774ms] [Error] [omni.rtx] FindAppliedAPIPrimDefinition('OmniRtxPostCompositingAPI_1') returned nothing
+2026-09-18T01:04:44Z [774ms] [Error] [omni.rtx] Could not find UsdPrimDefinition for 'OmniRtxPostCompositingAPI_1'
+2026-09-18T01:04:44Z [774ms] [Error] [omni.rtx] FindAppliedAPIPrimDefinition('OmniRtxPostTonemapAPI_1') returned nothing
+2026-09-18T01:04:44Z [774ms] [Error] [omni.rtx] Could not find UsdPrimDefinition for 'OmniRtxPostTonemapAPI_1'
+2026-09-18T01:04:44Z [774ms] [Error] [omni.rtx] FindAppliedAPIPrimDefinition('OmniRtxPostTonemapIrayReinhardAPI_1') returned nothing
+2026-09-18T01:04:44Z [774ms] [Error] [omni.rtx] Could not find UsdPrimDefinition for 'OmniRtxPostTonemapIrayReinhardAPI_1'
+2026-09-18T01:04:44Z [774ms] [Error] [omni.rtx] FindAppliedAPIPrimDefinition('OmniRtxPostDofAPI_1') returned nothing
+2026-09-18T01:04:44Z [774ms] [Error] [omni.rtx] Could not find UsdPrimDefinition for 'OmniRtxPostDofAPI_1'
+2026-09-18T01:04:44Z [774ms] [Error] [omni.rtx] FindAppliedAPIPrimDefinition('OmniRtxPostMotionBlurAPI_1') returned nothing
+2026-09-18T01:04:44Z [774ms] [Error] [omni.rtx] Could not find UsdPrimDefinition for 'OmniRtxPostMotionBlurAPI_1'
+2026-09-18T01:04:44Z [774ms] [Error] [omni.rtx] FindAppliedAPIPrimDefinition('OmniRtxPostTvNoiseAPI_1') returned nothing
+2026-09-18T01:04:44Z [774ms] [Error] [omni.rtx] Could not find UsdPrimDefinition for 'OmniRtxPostTvNoiseAPI_1'
+2026-09-18T01:04:44Z [774ms] [Error] [omni.rtx] FindAppliedAPIPrimDefinition('OmniRtxDebugSettingsAPI_1') returned nothing
+2026-09-18T01:04:44Z [774ms] [Error] [omni.rtx] Could not find UsdPrimDefinition for 'OmniRtxDebugSettingsAPI_1'
+2026-09-18T01:04:44Z [774ms] [Error] [omni.rtx] FindAppliedAPIPrimDefinition('OmniRtxPostDebugSettingsAPI_1') returned nothing
+2026-09-18T01:04:44Z [774ms] [Error] [omni.rtx] Could not find UsdPrimDefinition for 'OmniRtxPostDebugSettingsAPI_1'
+2026-09-18T01:04:44Z [774ms] [Error] [omni.rtx] FindAppliedAPIPrimDefinition('OmniRtxXrAPI_1') returned nothing
+2026-09-18T01:04:44Z [774ms] [Error] [omni.rtx] Could not find UsdPrimDefinition for 'OmniRtxXrAPI_1'
+2026-09-18T01:04:44Z [774ms] [Error] [omni.rtx] FindAppliedAPIPrimDefinition('OmniRtxSettingsParticleFieldAPI_1') returned nothing
+2026-09-18T01:04:44Z [774ms] [Error] [omni.rtx] Could not find UsdPrimDefinition for 'OmniRtxSettingsParticleFieldAPI_1'
+setup 8.8 s | lockstep | pool 16 packs (belt 6 + reject transit 2 + spare 1 reserved -> outfeed bodies <= 7, FIFO keeps 5) | physics 240 Hz | line 1.6 m/s, nozzle 0.3 m, pitch 0.12 m
+{
+ "mode": "lockstep",
+ "packs": 30,
+ "pool": 16,
+ "wall_s": 3.8,
+ "sim_s": 2.983,
+ "rtf": 0.789,
+ "physics_steps": 716,
+ "renders_guarded": 100,
+ "frames_pushed": 30,
+ "capture_path": "cuda-dlpack",
+ "kicks": 21,
+ "bin_confirmed": 21,
+ "lost": 0,
+ "confirmation_events": 21,
+ "ledger": {
+  "triggers": 30,
+  "verdicts": 30,
+  "actions": 30,
+  "ok": true
+ },
+ "controller": {
+  "frames": 30,
+  "inferences": 30,
+  "overflow": 0,
+  "dropped_frames": 0,
+  "timeouts": 0,
+  "late_actuations": 0,
+  "watchdog_events": 0,
+  "errors": [],
+  "audit_records": 30,
+  "verdict_ms_median": 6.0,
+  "verdict_ms_p99": 17.11
+ },
+ "rejected_by_controller": 21,
+ "rejected_ejected_confirmed": 21,
+ "passed_by_controller": 9,
+ "passed_without_deviation": 9,
+ "scheduled_defective": 21,
+ "scheduled_defective_ejected": 21,
+ "scheduled_nominal": 9,
+ "scheduled_nominal_passed_clean": 9,
+ "verdict_matches_scheduled": 30,
+ "trigger_wall_ms_median": 34.2,
+ "verdict_wait_ms_median": 6.7,
+ "barrier_wait_ms_median": 0.0,
+ "max_nominal_dev_mm": 0.01,
+ "passed_reached_outfeed": 9,
+ "passed_stacked": 9,
+ "outfeed": {
+  "entered": 9,
+  "settled": 9,
+  "recycled": 4,
+  "forced_recycles": 0,
+  "lost": 0,
+  "settled_outside": 0,
+  "settle_timeouts": 0,
+  "max_in_tote": 8,
+  "in_tote_at_end": 5,
+  "fifo_capacity": 5,
+  "max_bodies": 7,
+  "settle_s_median": 0.5,
+  "settle_s_max": 1.229
+ },
+ "vram": {
+  "before_setup": {
+   "torch_alloc_mb": 0.0,
+   "torch_reserved_mb": 0.0,
+   "torch_peak_alloc_mb": 0.0,
+   "gpu_used_mb": 2027.0
+  },
+  "after_setup": {
+   "torch_alloc_mb": 4.9,
+   "torch_reserved_mb": 56.0,
+   "torch_peak_alloc_mb": 20.8,
+   "gpu_used_mb": 6238.0
+  },
+  "after_run": {
+   "torch_alloc_mb": 8.5,
+   "torch_reserved_mb": 56.0,
+   "torch_peak_alloc_mb": 25.2,
+   "gpu_used_mb": 6328.0
+  },
+  "after_close": {
+   "torch_alloc_mb": 0.0,
+   "torch_reserved_mb": 56.0,
+   "torch_peak_alloc_mb": 25.2,
+   "gpu_used_mb": 6120.0
+  }
+ }
+}
+ id  sched verdict action           physical  conf  dev mm  lat ms  reason
+  0 REJECT  REJECT reject  ejected_confirmed  True    None   19.92  defect:cavity_empty,foil_damaged;under_occupancy:6/10
+  1   PASS    PASS   pass      passed_nozzle  None     0.0    5.37  10/10_pill_ok
+  2 REJECT  REJECT reject  ejected_confirmed  True    None    3.82  defect:cavity_empty,pill_damaged;under_occupancy:7/10
+  3   PASS    PASS   pass      passed_nozzle  None    0.01    4.95  10/10_pill_ok
+  4 REJECT  REJECT reject  ejected_confirmed  True    None   10.24  defect:cavity_empty,foil_damaged;under_occupancy:6/10
+  5 REJECT  REJECT reject  ejected_confirmed  True    None    6.44  defect:cavity_empty,foil_damaged;under_occupancy:5/10
+  6   PASS    PASS   pass      passed_nozzle  None     0.0    3.77  10/10_pill_ok
+  7 REJECT  REJECT reject  ejected_confirmed  True    None    4.87  defect:cavity_empty,pill_damaged;under_occupancy:6/10
+  8 REJECT  REJECT reject  ejected_confirmed  True    None    4.99  defect:cavity_empty,foil_damaged,pill_damaged;under_occupancy:3/10
+  9 REJECT  REJECT reject  ejected_confirmed  True    None     6.9  defect:cavity_empty,foil_damaged;under_occupancy:7/10
+ 10 REJECT  REJECT reject  ejected_confirmed  True    None     4.9  defect:cavity_empty,foil_damaged;under_occupancy:7/10
+ 11   PASS    PASS   pass      passed_nozzle  None     0.0    6.35  10/10_pill_ok
+ 12 REJECT  REJECT reject  ejected_confirmed  True    None    5.01  defect:foil_damaged;under_occupancy:9/10
+ 13 REJECT  REJECT reject  ejected_confirmed  True    None    6.73  defect:foil_damaged,pill_damaged;under_occupancy:8/10
+ 14 REJECT  REJECT reject  ejected_confirmed  True    None    3.78  defect:cavity_empty,foil_damaged,pill_damaged;under_occupancy:5/10
+ 15 REJECT  REJECT reject  ejected_confirmed  True    None    6.99  defect:cavity_empty,foil_damaged,pill_damaged;under_occupancy:3/10
+ 16   PASS    PASS   pass      passed_nozzle  None    0.01    6.49  10/10_pill_ok
+ 17 REJECT  REJECT reject  ejected_confirmed  True    None    6.73  defect:cavity_empty,foil_damaged,pill_damaged;under_occupancy:5/10
+ 18   PASS    PASS   pass      passed_nozzle  None    0.01    4.77  10/10_pill_ok
+ 19 REJECT  REJECT reject  ejected_confirmed  True    None    4.06  defect:cavity_empty,foil_damaged,pill_damaged;under_occupancy:7/10
+ 20 REJECT  REJECT reject  ejected_confirmed  True    None    7.83  defect:cavity_empty,foil_damaged,pill_damaged;under_occupancy:7/10
+ 21 REJECT  REJECT reject  ejected_confirmed  True    None    7.36  defect:cavity_empty,pill_damaged;under_occupancy:7/10
+ 22   PASS    PASS   pass      passed_nozzle  None     0.0     6.2  10/10_pill_ok
+ 23 REJECT  REJECT reject  ejected_confirmed  True    None    6.64  defect:foil_damaged,pill_damaged;under_occupancy:6/10
+ 24   PASS    PASS   pass      passed_nozzle  None     0.0    7.29  10/10_pill_ok
+ 25 REJECT  REJECT reject  ejected_confirmed  True    None    6.08  defect:cavity_empty,pill_damaged;under_occupancy:7/10
+ 26   PASS    PASS   pass      passed_nozzle  None     0.0    5.92  10/10_pill_ok
+ 27 REJECT  REJECT reject  ejected_confirmed  True    None    4.86  defect:cavity_empty,pill_damaged;under_occupancy:8/10
+ 28 REJECT  REJECT reject  ejected_confirmed  True    None    4.04  defect:cavity_empty,foil_damaged,pill_damaged;under_occupancy:3/10
+ 29 REJECT  REJECT reject  ejected_confirmed  True    None    4.78  defect:cavity_empty,pill_damaged;under_occupancy:8/10
+outfeed: 9 accepted packs left the belt, 9 stacked in the tote, 4 recycled by the FIFO (keeps 5, bodies <= 7), 5 in the tote at the end, max 8 outfeed bodies at once | settle median 0.5 s max 1.229 s, timeouts 0 | forced 0, lost 0, outside 0
+vram: torch alloc 5 -> 8 MB (peak 25), gpu used 6238.0 -> 6328.0 MB over the run
+DEMO: PASS
+[Warning] [usdrt.population.plugin] synchronizeToFabric: updating time to the default time code is not supported
+[Warning] [omni_physx_sdk] [ovphysx] Auto-warmup: performing initial simulation step to populate GPU buffers. Call ovphysx_warmup_gpu() explicitly to control when this happens.
+2026-09-18T01:04:53Z [9,257ms] [Warning] [rtx.scenedb] [InstanceTransformStorage] The amount of world update transforms WorldUpdateStorageWindow 17 needed to cover is larger than max allowed storage MaxHistoryTransformCount 8.            Motions may be wrong for long exposure sensors/cameras. Consider allow a larger storage for transforms through --/rtx/scenedb/maxHistoryTransformCount=17

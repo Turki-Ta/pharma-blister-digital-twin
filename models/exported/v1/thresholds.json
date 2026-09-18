@@ -1,0 +1,71 @@
+{
+  "engine": "yolo11n_rtx5090_fp16.engine",
+  "engine_sha256": "c6c82f87397adb5fcf7bf422d4f9868e3adf14e340efcdfe08c81a8b37dd751d",
+  "derived": "2026-09-10T23:26:56.025736-04:00",
+  "frames": 500,
+  "miss_budget": 0.001,
+  "seconds": 6.1,
+  "thresholds": {
+    "conf_ok": 0.1712,
+    "conf_defect": 0.0892,
+    "per_class": {
+      "pill_ok": 0.1712,
+      "pill_damaged": 0.0892,
+      "cavity_empty": 0.108,
+      "foil_damaged": 0.0908
+    },
+    "nms_iou": 0.7,
+    "dedupe_iou": 0.45
+  },
+  "class_stats": {
+    "pill_ok": {
+      "gt_boxes": 3766,
+      "matched_score_p0.1": 0.1712,
+      "matched_score_p1": 0.2191,
+      "matched_score_median": 0.4158,
+      "matched_score_max": 0.6893,
+      "gt_unmatched_at_iou0.5": 0,
+      "fp_above_thr": 0,
+      "fp_max": 0.0
+    },
+    "pill_damaged": {
+      "gt_boxes": 387,
+      "matched_score_p0.1": 0.0892,
+      "matched_score_p1": 0.1051,
+      "matched_score_median": 0.216,
+      "matched_score_max": 0.4321,
+      "gt_unmatched_at_iou0.5": 0,
+      "fp_above_thr": 0,
+      "fp_max": 0.0
+    },
+    "cavity_empty": {
+      "gt_boxes": 449,
+      "matched_score_p0.1": 0.108,
+      "matched_score_p1": 0.1382,
+      "matched_score_median": 0.2775,
+      "matched_score_max": 0.5273,
+      "gt_unmatched_at_iou0.5": 0,
+      "fp_above_thr": 0,
+      "fp_max": 0.0
+    },
+    "foil_damaged": {
+      "gt_boxes": 398,
+      "matched_score_p0.1": 0.0908,
+      "matched_score_p1": 0.0977,
+      "matched_score_median": 0.1974,
+      "matched_score_max": 0.3794,
+      "gt_unmatched_at_iou0.5": 0,
+      "fp_above_thr": 0,
+      "fp_max": 0.0
+    }
+  },
+  "pack_level_on_val": {
+    "nominal_packs": 169,
+    "false_rejects": 1,
+    "false_reject_rate": 0.0059,
+    "defective_packs": 331,
+    "escapes": 0,
+    "escape_rate": 0.0
+  },
+  "note": "5-epoch baseline is under-confident (pill_ok scores ~0.5); thresholds are recall-driven quantiles on the synthetic validation split and must be re-derived after any retraining or re-export."
+}

@@ -1,0 +1,29 @@
+{
+  "sha256": "cf4551b5660fc3bb4b735252fc37953e9a41e90153e40deae297d3178f1b8606",
+  "line": {
+    "pitch_m": 0.12,
+    "pack_l_m": 0.09,
+    "pack_w_m": 0.045,
+    "fov_along_m": 0.2,
+    "standoff_m": 0.3,
+    "v_belt_mps": 1.6,
+    "strobe_s": 5e-05
+  },
+  "camera": {
+    "width": 1280,
+    "height": 720,
+    "focal_mm": 50.0,
+    "aperture_h_mm": 36.0,
+    "aperture_v_mm": 20.25,
+    "height_m": 0.2777777777777778,
+    "gsd_m": 0.00015625,
+    "f_px": 1777.7777777777778
+  },
+  "classes": {
+    "pill_ok": 0,
+    "pill_damaged": 1,
+    "cavity_empty": 2,
+    "foil_damaged": 3
+  },
+  "glass_mode": "omniglass"
+}

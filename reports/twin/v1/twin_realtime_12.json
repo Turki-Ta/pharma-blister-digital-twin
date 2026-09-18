@@ -1,0 +1,201 @@
+{
+  "metrics": {
+    "mode": "realtime",
+    "packs": 12,
+    "pool": 10,
+    "wall_s": 3.7,
+    "sim_s": 1.512,
+    "rtf": 0.405,
+    "physics_steps": 363,
+    "renders_guarded": 166,
+    "frames_pushed": 12,
+    "capture_path": "cuda-dlpack",
+    "kicks": 10,
+    "bin_confirmed": 10,
+    "lost": 0,
+    "confirmation_events": 10,
+    "ledger": {
+      "triggers": 12,
+      "verdicts": 12,
+      "actions": 12,
+      "ok": true
+    },
+    "controller": {
+      "frames": 12,
+      "inferences": 12,
+      "overflow": 0,
+      "dropped_frames": 0,
+      "timeouts": 1,
+      "late_actuations": 0,
+      "watchdog_events": 1,
+      "errors": [],
+      "audit_records": 12,
+      "verdict_ms_median": 10.72,
+      "verdict_ms_p99": 34.91
+    },
+    "rejected_by_controller": 10,
+    "rejected_ejected_confirmed": 10,
+    "passed_by_controller": 2,
+    "passed_without_deviation": 2,
+    "scheduled_defective": 10,
+    "scheduled_defective_ejected": 10,
+    "scheduled_nominal": 2,
+    "scheduled_nominal_passed_clean": 2,
+    "verdict_matches_scheduled": 12,
+    "trigger_wall_ms_median": 43.3,
+    "verdict_wait_ms_median": null,
+    "barrier_wait_ms_median": null,
+    "max_nominal_dev_mm": 0.03,
+    "dashboard": {
+      "display_frames": 60,
+      "capture_every_steps": 8,
+      "playback_speed": 1.0,
+      "fps": 30,
+      "renderer_steps_per_frame": 2,
+      "stopped_by_operator": false,
+      "ms_median": {
+        "mirror": 2.49,
+        "overview_render": 28.53,
+        "hud_compose": 13.32,
+        "encode": 0.0
+      },
+      "video": null
+    },
+    "trigger_render_ms_median": 39.82,
+    "trigger_snapshot_ms_median": 0.45
+  },
+  "rows": [
+    {
+      "pack_id": 0,
+      "scheduled": "REJECT",
+      "verdict": "REJECT",
+      "reason": "inference_timeout:36.8ms>25ms|defect:cavity_empty,pill_damaged;under_occupancy:6/10",
+      "action": "reject",
+      "physical": "ejected_confirmed",
+      "confirmed": true,
+      "max_abs_y_mm": null,
+      "verdict_ms": 36.83
+    },
+    {
+      "pack_id": 1,
+      "scheduled": "REJECT",
+      "verdict": "REJECT",
+      "reason": "defect:cavity_empty,pill_damaged;under_occupancy:6/10",
+      "action": "reject",
+      "physical": "ejected_confirmed",
+      "confirmed": true,
+      "max_abs_y_mm": null,
+      "verdict_ms": 12.02
+    },
+    {
+      "pack_id": 2,
+      "scheduled": "REJECT",
+      "verdict": "REJECT",
+      "reason": "defect:pill_damaged;under_occupancy:8/10",
+      "action": "reject",
+      "physical": "ejected_confirmed",
+      "confirmed": true,
+      "max_abs_y_mm": null,
+      "verdict_ms": 11.76
+    },
+    {
+      "pack_id": 3,
+      "scheduled": "REJECT",
+      "verdict": "REJECT",
+      "reason": "defect:cavity_empty,foil_damaged,pill_damaged;under_occupancy:2/10",
+      "action": "reject",
+      "physical": "ejected_confirmed",
+      "confirmed": true,
+      "max_abs_y_mm": null,
+      "verdict_ms": 9.18
+    },
+    {
+      "pack_id": 4,
+      "scheduled": "PASS",
+      "verdict": "PASS",
+      "reason": "10/10_pill_ok",
+      "action": "pass",
+      "physical": "passed_nozzle",
+      "confirmed": null,
+      "max_abs_y_mm": 0.03,
+      "verdict_ms": 5.59
+    },
+    {
+      "pack_id": 5,
+      "scheduled": "REJECT",
+      "verdict": "REJECT",
+      "reason": "defect:cavity_empty,pill_damaged;under_occupancy:6/10",
+      "action": "reject",
+      "physical": "ejected_confirmed",
+      "confirmed": true,
+      "max_abs_y_mm": null,
+      "verdict_ms": 11.18
+    },
+    {
+      "pack_id": 6,
+      "scheduled": "REJECT",
+      "verdict": "REJECT",
+      "reason": "defect:cavity_empty,foil_damaged;under_occupancy:7/10",
+      "action": "reject",
+      "physical": "ejected_confirmed",
+      "confirmed": true,
+      "max_abs_y_mm": null,
+      "verdict_ms": 11.83
+    },
+    {
+      "pack_id": 7,
+      "scheduled": "PASS",
+      "verdict": "PASS",
+      "reason": "10/10_pill_ok",
+      "action": "pass",
+      "physical": "passed_nozzle",
+      "confirmed": null,
+      "max_abs_y_mm": 0.01,
+      "verdict_ms": 7.34
+    },
+    {
+      "pack_id": 8,
+      "scheduled": "REJECT",
+      "verdict": "REJECT",
+      "reason": "defect:cavity_empty,pill_damaged;under_occupancy:7/10",
+      "action": "reject",
+      "physical": "ejected_confirmed",
+      "confirmed": true,
+      "max_abs_y_mm": null,
+      "verdict_ms": 19.43
+    },
+    {
+      "pack_id": 9,
+      "scheduled": "REJECT",
+      "verdict": "REJECT",
+      "reason": "defect:cavity_empty,foil_damaged,pill_damaged;under_occupancy:6/10",
+      "action": "reject",
+      "physical": "ejected_confirmed",
+      "confirmed": true,
+      "max_abs_y_mm": null,
+      "verdict_ms": 10.21
+    },
+    {
+      "pack_id": 10,
+      "scheduled": "REJECT",
+      "verdict": "REJECT",
+      "reason": "defect:cavity_empty,foil_damaged;under_occupancy:7/10",
+      "action": "reject",
+      "physical": "ejected_confirmed",
+      "confirmed": true,
+      "max_abs_y_mm": null,
+      "verdict_ms": 10.27
+    },
+    {
+      "pack_id": 11,
+      "scheduled": "REJECT",
+      "verdict": "REJECT",
+      "reason": "defect:cavity_empty,foil_damaged;under_occupancy:6/10",
+      "action": "reject",
+      "physical": "ejected_confirmed",
+      "confirmed": true,
+      "max_abs_y_mm": null,
+      "verdict_ms": 9.75
+    }
+  ]
+}

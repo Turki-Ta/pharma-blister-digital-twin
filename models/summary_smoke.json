@@ -1,0 +1,50 @@
+{
+  "backend": {
+    "tf32": "fp32_precision API",
+    "memory_fraction": 0.94,
+    "cap_gb": 32.1,
+    "cv2_threads": 0
+  },
+  "data": "C:\\Users\\NoBody\\Documents\\recreating blister pack project\\data\\smoke\\data.yaml",
+  "baseline": {
+    "batch": 8,
+    "epochs": 1,
+    "wall_s": 17.6,
+    "steps": 1,
+    "step_ms_median": null,
+    "step_ms_p95": null,
+    "nonfinite_total": 0,
+    "skipped_steps": 0,
+    "peak_alloc_gb": 0.31,
+    "run_dir": "C:\\Users\\NoBody\\Documents\\recreating blister pack project\\models\\ckpt_smoke\\smoke",
+    "val": {
+      "map50": 0.0,
+      "map50_95": 0.0,
+      "per_class": {
+        "pill_ok": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "ap50": 0.0,
+          "ap50_95": 0.0
+        },
+        "foil_damaged": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "ap50": 0.0,
+          "ap50_95": 0.0
+        }
+      }
+    },
+    "results_csv": [
+      "1,3.21585,0.70747,3.81798,0.8905,0,0,0,0,0.92955,4.16891,0.94425,0.00125,0.00125,0.00125"
+    ],
+    "checkpoints": [
+      "ckpt_e0000.pt",
+      "latest.pt"
+    ],
+    "weights": [
+      "best.pt",
+      "last.pt"
+    ]
+  }
+}

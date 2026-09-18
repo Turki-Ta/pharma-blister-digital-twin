@@ -1,0 +1,32 @@
+[project]
+name = "recreating-blister-pack-project"
+version = "0.1.0"
+description = "Closed-loop digital twin + real-time defect inspection for a pharmaceutical blister packaging line (RTX 5090 host / Jetson Orin target)"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "torch==2.10.0+cu130",
+    "torchvision==0.25.0+cu130",
+    "numpy>=2.1",
+    "pillow>=10.4",
+    "tqdm>=4.66",
+    "ovrtx==0.4.1.364340",
+    "ovstage==0.1.1.355824",
+    "ovphysx==0.5.11",
+    "ultralytics==8.4.146",
+    "onnx==1.22.0",
+    "onnxruntime-gpu==1.30.0",
+    "tensorrt-cu13==11.3.0.99",
+    "onnxslim>=0.1.96",
+    "onnxconverter-common>=1.16.0",
+    "opencv-python==5.0.0.93",   # twin dashboard (drawing, MP4 fallback); already pinned via ultralytics
+]
+
+[[tool.uv.index]]
+name = "pytorch"
+url = "https://download.pytorch.org/whl/cu130"
+explicit = true
+
+[tool.uv.sources]
+torch = { index = "pytorch" }
+torchvision = { index = "pytorch" }

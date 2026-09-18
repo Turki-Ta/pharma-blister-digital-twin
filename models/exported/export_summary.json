@@ -1,0 +1,283 @@
+{
+  "onnx_fp32": {
+    "path": "C:\\Users\\NoBody\\Documents\\recreating blister pack project\\models\\exported\\yolo11n_blister.onnx",
+    "sha256": "21e4fe5834e9810a9056da7d7eb553ef7b26699383a5e9a66bc5a68b0092a6c1",
+    "bytes": 10606399,
+    "opset": 17,
+    "input": {
+      "name": "images",
+      "shape": [
+        1,
+        3,
+        640,
+        640
+      ],
+      "dtype": "float32",
+      "layout": "NCHW RGB, /255, letterbox 640x640 pad 114"
+    },
+    "output": {
+      "name": "output0",
+      "shape": [
+        1,
+        8,
+        8400
+      ],
+      "dtype": "float32",
+      "rows": [
+        "cx",
+        "cy",
+        "w",
+        "h",
+        "pill_ok",
+        "pill_damaged",
+        "cavity_empty",
+        "foil_damaged"
+      ]
+    },
+    "initializer_dtypes": [
+      "FLOAT",
+      "INT64"
+    ],
+    "nodes": 320,
+    "names": {
+      "0": "pill_ok",
+      "1": "pill_damaged",
+      "2": "cavity_empty",
+      "3": "foil_damaged"
+    },
+    "stripped_metadata_keys": [
+      "args",
+      "author",
+      "batch",
+      "channels",
+      "date",
+      "description",
+      "docs",
+      "end2end",
+      "head",
+      "imgsz",
+      "license",
+      "names",
+      "stride",
+      "task",
+      "version"
+    ]
+  },
+  "onnx_fp16": {
+    "path": "C:\\Users\\NoBody\\Documents\\recreating blister pack project\\models\\exported\\yolo11n_blister_fp16io32.onnx",
+    "sha256": "064af01f37e83a2444f07bb108aebd704b21a5a1154bb4edef94284e2462d3c2",
+    "head_prefix": "/model.23/",
+    "fp32_blocked_nodes": 24,
+    "fp16_initializers": 175,
+    "fp32_initializers": 6,
+    "casts": 7,
+    "nodes": 327
+  },
+  "orin_package": [
+    "C:\\Users\\NoBody\\Documents\\recreating blister pack project\\models\\exported\\build_orin_engine.sh",
+    "C:\\Users\\NoBody\\Documents\\recreating blister pack project\\models\\exported\\int8_calibrate_orin.py",
+    "C:\\Users\\NoBody\\Documents\\recreating blister pack project\\models\\exported\\yolo11n_blister.onnx.sha256"
+  ],
+  "engine_fp16": {
+    "engine": "C:\\Users\\NoBody\\Documents\\recreating blister pack project\\models\\exported\\yolo11n_rtx5090_fp16.engine",
+    "engine_sha256": "c06db0d342e597a465b610482258cc1cf931f9c459bfe5905f3d53d003d4078d",
+    "bytes": 6501460,
+    "build_s": 8.7,
+    "onnx": "yolo11n_blister_fp16io32.onnx",
+    "onnx_sha256": "064af01f37e83a2444f07bb108aebd704b21a5a1154bb4edef94284e2462d3c2",
+    "precision": "fp16 (typed graph, fp32 I/O, fp32 box decode)",
+    "strongly_typed": true,
+    "workspace_bytes": 2147483648,
+    "tensorrt": "11.3.0.99",
+    "cuda": "13.0",
+    "torch": "2.10.0+cu130",
+    "gpu": "NVIDIA GeForce RTX 5090",
+    "compute_capability": "12.0",
+    "io": [
+      {
+        "name": "images",
+        "mode": "INPUT",
+        "shape": [
+          1,
+          3,
+          640,
+          640
+        ],
+        "dtype": "FLOAT"
+      },
+      {
+        "name": "output0",
+        "mode": "OUTPUT",
+        "shape": [
+          1,
+          8,
+          8400
+        ],
+        "dtype": "FLOAT"
+      }
+    ],
+    "built": "2026-09-17T12:46:10.644269-04:00",
+    "portable": false,
+    "note": "TensorRT engines are bound to this GPU architecture and TensorRT version; build Jetson engines on the Jetson from the ONNX."
+  },
+  "engine_fp32": {
+    "engine": "C:\\Users\\NoBody\\Documents\\recreating blister pack project\\models\\exported\\yolo11n_rtx5090_fp32.engine",
+    "engine_sha256": "90c1cc56a02c1d0aa54bf94d0e9c6b3945e9535b7dc1acf70326ea1df0cbb2c7",
+    "bytes": 13344444,
+    "build_s": 4.6,
+    "onnx": "yolo11n_blister.onnx",
+    "onnx_sha256": "21e4fe5834e9810a9056da7d7eb553ef7b26699383a5e9a66bc5a68b0092a6c1",
+    "precision": "fp32 (+TF32)",
+    "strongly_typed": false,
+    "workspace_bytes": 2147483648,
+    "tensorrt": "11.3.0.99",
+    "cuda": "13.0",
+    "torch": "2.10.0+cu130",
+    "gpu": "NVIDIA GeForce RTX 5090",
+    "compute_capability": "12.0",
+    "io": [
+      {
+        "name": "images",
+        "mode": "INPUT",
+        "shape": [
+          1,
+          3,
+          640,
+          640
+        ],
+        "dtype": "FLOAT"
+      },
+      {
+        "name": "output0",
+        "mode": "OUTPUT",
+        "shape": [
+          1,
+          8,
+          8400
+        ],
+        "dtype": "FLOAT"
+      }
+    ],
+    "built": "2026-09-17T12:46:16.596881-04:00",
+    "portable": false,
+    "note": "TensorRT engines are bound to this GPU architecture and TensorRT version; build Jetson engines on the Jetson from the ONNX."
+  },
+  "parity": {
+    "images": 20,
+    "ort_provider": "CUDAExecutionProvider",
+    "boxes_in_reference": 200,
+    "raw_tensor": {
+      "torch_vs_ort[CUDAExecutionProvider]": {
+        "max_abs_err_max": 0.00043,
+        "max_abs_err_boxes_px_max": 0.0004,
+        "max_abs_err_boxes_px_conf_max": 0.0001,
+        "max_abs_err_scores_max": 2e-06,
+        "mean_abs_err_mean": 5e-06,
+        "cosine_min": 1.0,
+        "cosine_mean": 1.0,
+        "cosine_conf_min": 1.0,
+        "cosine_conf_mean": 1.0
+      },
+      "torch_vs_trt_fp16": {
+        "max_abs_err_max": 6.51495,
+        "max_abs_err_boxes_px_max": 6.515,
+        "max_abs_err_boxes_px_conf_max": 0.0566,
+        "max_abs_err_scores_max": 0.011886,
+        "mean_abs_err_mean": 0.052777,
+        "cosine_min": 0.999999,
+        "cosine_mean": 1.0,
+        "cosine_conf_min": 1.0,
+        "cosine_conf_mean": 1.0
+      },
+      "torch_vs_trt_fp32": {
+        "max_abs_err_max": 6.84174,
+        "max_abs_err_boxes_px_max": 6.8417,
+        "max_abs_err_boxes_px_conf_max": 0.0142,
+        "max_abs_err_scores_max": 0.009252,
+        "mean_abs_err_mean": 0.027011,
+        "cosine_min": 1.0,
+        "cosine_mean": 1.0,
+        "cosine_conf_min": 1.0,
+        "cosine_conf_mean": 1.0
+      },
+      "ort_vs_trt_fp16": {
+        "max_abs_err_max": 6.51489,
+        "max_abs_err_boxes_px_max": 6.5149,
+        "max_abs_err_boxes_px_conf_max": 0.0566,
+        "max_abs_err_scores_max": 0.011886,
+        "mean_abs_err_mean": 0.052776,
+        "cosine_min": 0.999999,
+        "cosine_mean": 1.0,
+        "cosine_conf_min": 1.0,
+        "cosine_conf_mean": 1.0
+      },
+      "ort_vs_trt_fp32": {
+        "max_abs_err_max": 6.8414,
+        "max_abs_err_boxes_px_max": 6.8414,
+        "max_abs_err_boxes_px_conf_max": 0.0142,
+        "max_abs_err_scores_max": 0.009253,
+        "mean_abs_err_mean": 0.02701,
+        "cosine_min": 1.0,
+        "cosine_mean": 1.0,
+        "cosine_conf_min": 1.0,
+        "cosine_conf_mean": 1.0
+      }
+    },
+    "decoded_boxes": {
+      "torch_vs_trt_fp16": {
+        "n_ref_total": 200,
+        "n_other_total": 200,
+        "min_iou_min": 0.9786,
+        "min_iou_mean": 0.996045,
+        "mean_iou_mean": 0.999005,
+        "frac_iou_ge_098_min": 0.9,
+        "frac_iou_ge_098_mean": 0.995,
+        "class_mismatch_max": 0
+      },
+      "torch_vs_trt_fp32": {
+        "n_ref_total": 200,
+        "n_other_total": 200,
+        "min_iou_min": 0.9899,
+        "min_iou_mean": 0.99919,
+        "mean_iou_mean": 0.999795,
+        "frac_iou_ge_098_min": 1.0,
+        "frac_iou_ge_098_mean": 1.0,
+        "class_mismatch_max": 0
+      },
+      "torch_vs_ort": {
+        "n_ref_total": 200,
+        "n_other_total": 200,
+        "min_iou_min": 1.0,
+        "min_iou_mean": 1.0,
+        "mean_iou_mean": 1.0,
+        "frac_iou_ge_098_min": 1.0,
+        "frac_iou_ge_098_mean": 1.0,
+        "class_mismatch_max": 0
+      }
+    }
+  },
+  "latency": {
+    "trt_fp16": {
+      "warmup": 50,
+      "iters": 500,
+      "median_ms": 1.209,
+      "p99_ms": 1.467,
+      "mean_ms": 1.218,
+      "min_ms": 1.032
+    },
+    "trt_fp32": {
+      "warmup": 50,
+      "iters": 500,
+      "median_ms": 1.317,
+      "p99_ms": 1.578,
+      "mean_ms": 1.32,
+      "min_ms": 1.111
+    },
+    "torch_fp32_eager": {
+      "warmup": 50,
+      "iters": 200,
+      "median_ms": 3.307,
+      "p99_ms": 4.274
+    }
+  }
+}

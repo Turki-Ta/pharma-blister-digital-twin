@@ -1,0 +1,123 @@
+########################################################################################
+#  OMNI_USD_RESOLVER_MDL_BUILTIN_BYPASS is overridden to 'true'.  Default is 'false'.  #
+########################################################################################
+2026-09-11T04:24:09Z [609ms] [Error] [omni.rtx] FindAppliedAPIPrimDefinition('OmniRtxSettingsGlobalRtAdvancedAPI_1') returned nothing
+2026-09-11T04:24:09Z [609ms] [Error] [omni.rtx] Could not find UsdPrimDefinition for 'OmniRtxSettingsGlobalRtAdvancedAPI_1'
+2026-09-11T04:24:09Z [609ms] [Error] [omni.rtx] FindAppliedAPIPrimDefinition('OmniRtxSettingsGlobalPtAdvancedAPI_1') returned nothing
+2026-09-11T04:24:09Z [609ms] [Error] [omni.rtx] Could not find UsdPrimDefinition for 'OmniRtxSettingsGlobalPtAdvancedAPI_1'
+2026-09-11T04:24:09Z [609ms] [Error] [omni.rtx] FindAppliedAPIPrimDefinition('OmniRtxSettingsGlobalCommonAPI_1') returned nothing
+2026-09-11T04:24:09Z [609ms] [Error] [omni.rtx] Could not find UsdPrimDefinition for 'OmniRtxSettingsGlobalCommonAPI_1'
+2026-09-11T04:24:09Z [609ms] [Error] [omni.rtx] FindAppliedAPIPrimDefinition('OmniRtxSettingsCommonAPI_1') returned nothing
+2026-09-11T04:24:09Z [609ms] [Error] [omni.rtx] Could not find UsdPrimDefinition for 'OmniRtxSettingsCommonAPI_1'
+2026-09-11T04:24:09Z [609ms] [Error] [omni.rtx] FindAppliedAPIPrimDefinition('OmniRtxSettingsCommonAdvancedAPI_1') returned nothing
+2026-09-11T04:24:09Z [609ms] [Error] [omni.rtx] Could not find UsdPrimDefinition for 'OmniRtxSettingsCommonAdvancedAPI_1'
+2026-09-11T04:24:09Z [609ms] [Error] [omni.rtx] FindAppliedAPIPrimDefinition('OmniRtxSettingsMinimalAPI_1') returned nothing
+2026-09-11T04:24:09Z [609ms] [Error] [omni.rtx] Could not find UsdPrimDefinition for 'OmniRtxSettingsMinimalAPI_1'
+2026-09-11T04:24:09Z [609ms] [Error] [omni.rtx] FindAppliedAPIPrimDefinition('OmniRtxSettingsRtAPI_1') returned nothing
+2026-09-11T04:24:09Z [609ms] [Error] [omni.rtx] Could not find UsdPrimDefinition for 'OmniRtxSettingsRtAPI_1'
+2026-09-11T04:24:09Z [609ms] [Error] [omni.rtx] FindAppliedAPIPrimDefinition('OmniRtxSettingsRtAdvancedAPI_1') returned nothing
+2026-09-11T04:24:09Z [609ms] [Error] [omni.rtx] Could not find UsdPrimDefinition for 'OmniRtxSettingsRtAdvancedAPI_1'
+2026-09-11T04:24:09Z [609ms] [Error] [omni.rtx] FindAppliedAPIPrimDefinition('OmniRtxSettingsPtAPI_1') returned nothing
+2026-09-11T04:24:09Z [609ms] [Error] [omni.rtx] Could not find UsdPrimDefinition for 'OmniRtxSettingsPtAPI_1'
+2026-09-11T04:24:09Z [609ms] [Error] [omni.rtx] FindAppliedAPIPrimDefinition('OmniRtxSettingsPtAdvancedAPI_1') returned nothing
+2026-09-11T04:24:09Z [609ms] [Error] [omni.rtx] Could not find UsdPrimDefinition for 'OmniRtxSettingsPtAdvancedAPI_1'
+2026-09-11T04:24:09Z [609ms] [Error] [omni.rtx] FindAppliedAPIPrimDefinition('OmniRtxCameraExposureAPI_1') returned nothing
+2026-09-11T04:24:09Z [609ms] [Error] [omni.rtx] Could not find UsdPrimDefinition for 'OmniRtxCameraExposureAPI_1'
+2026-09-11T04:24:09Z [609ms] [Error] [omni.rtx] FindAppliedAPIPrimDefinition('OmniRtxCameraAutoExposureAPI_1') returned nothing
+2026-09-11T04:24:09Z [609ms] [Error] [omni.rtx] Could not find UsdPrimDefinition for 'OmniRtxCameraAutoExposureAPI_1'
+2026-09-11T04:24:09Z [609ms] [Error] [omni.rtx] FindAppliedAPIPrimDefinition('OmniRtxRollingShutterAPI') returned nothing
+2026-09-11T04:24:09Z [609ms] [Error] [omni.rtx] Could not find UsdPrimDefinition for 'OmniRtxRollingShutterAPI'
+2026-09-11T04:24:09Z [609ms] [Error] [omni.rtx] FindAppliedAPIPrimDefinition('OmniRtxPostColorGradingAPI_1') returned nothing
+2026-09-11T04:24:09Z [609ms] [Error] [omni.rtx] Could not find UsdPrimDefinition for 'OmniRtxPostColorGradingAPI_1'
+2026-09-11T04:24:09Z [609ms] [Error] [omni.rtx] FindAppliedAPIPrimDefinition('OmniRtxPostChromaticAberrationAPI_1') returned nothing
+2026-09-11T04:24:09Z [609ms] [Error] [omni.rtx] Could not find UsdPrimDefinition for 'OmniRtxPostChromaticAberrationAPI_1'
+2026-09-11T04:24:09Z [609ms] [Error] [omni.rtx] FindAppliedAPIPrimDefinition('OmniRtxPostBloomPhysicalAPI_1') returned nothing
+2026-09-11T04:24:09Z [609ms] [Error] [omni.rtx] Could not find UsdPrimDefinition for 'OmniRtxPostBloomPhysicalAPI_1'
+2026-09-11T04:24:09Z [609ms] [Error] [omni.rtx] FindAppliedAPIPrimDefinition('OmniRtxPostMatteObjectAPI_1') returned nothing
+2026-09-11T04:24:09Z [609ms] [Error] [omni.rtx] Could not find UsdPrimDefinition for 'OmniRtxPostMatteObjectAPI_1'
+2026-09-11T04:24:09Z [609ms] [Error] [omni.rtx] FindAppliedAPIPrimDefinition('OmniRtxPostCompositingAPI_1') returned nothing
+2026-09-11T04:24:09Z [609ms] [Error] [omni.rtx] Could not find UsdPrimDefinition for 'OmniRtxPostCompositingAPI_1'
+2026-09-11T04:24:09Z [609ms] [Error] [omni.rtx] FindAppliedAPIPrimDefinition('OmniRtxPostTonemapAPI_1') returned nothing
+2026-09-11T04:24:09Z [609ms] [Error] [omni.rtx] Could not find UsdPrimDefinition for 'OmniRtxPostTonemapAPI_1'
+2026-09-11T04:24:09Z [609ms] [Error] [omni.rtx] FindAppliedAPIPrimDefinition('OmniRtxPostTonemapIrayReinhardAPI_1') returned nothing
+2026-09-11T04:24:09Z [609ms] [Error] [omni.rtx] Could not find UsdPrimDefinition for 'OmniRtxPostTonemapIrayReinhardAPI_1'
+2026-09-11T04:24:09Z [609ms] [Error] [omni.rtx] FindAppliedAPIPrimDefinition('OmniRtxPostDofAPI_1') returned nothing
+2026-09-11T04:24:09Z [609ms] [Error] [omni.rtx] Could not find UsdPrimDefinition for 'OmniRtxPostDofAPI_1'
+2026-09-11T04:24:09Z [609ms] [Error] [omni.rtx] FindAppliedAPIPrimDefinition('OmniRtxPostMotionBlurAPI_1') returned nothing
+2026-09-11T04:24:09Z [609ms] [Error] [omni.rtx] Could not find UsdPrimDefinition for 'OmniRtxPostMotionBlurAPI_1'
+2026-09-11T04:24:09Z [609ms] [Error] [omni.rtx] FindAppliedAPIPrimDefinition('OmniRtxPostTvNoiseAPI_1') returned nothing
+2026-09-11T04:24:09Z [609ms] [Error] [omni.rtx] Could not find UsdPrimDefinition for 'OmniRtxPostTvNoiseAPI_1'
+2026-09-11T04:24:09Z [609ms] [Error] [omni.rtx] FindAppliedAPIPrimDefinition('OmniRtxDebugSettingsAPI_1') returned nothing
+2026-09-11T04:24:09Z [609ms] [Error] [omni.rtx] Could not find UsdPrimDefinition for 'OmniRtxDebugSettingsAPI_1'
+2026-09-11T04:24:09Z [609ms] [Error] [omni.rtx] FindAppliedAPIPrimDefinition('OmniRtxPostDebugSettingsAPI_1') returned nothing
+2026-09-11T04:24:09Z [609ms] [Error] [omni.rtx] Could not find UsdPrimDefinition for 'OmniRtxPostDebugSettingsAPI_1'
+2026-09-11T04:24:09Z [609ms] [Error] [omni.rtx] FindAppliedAPIPrimDefinition('OmniRtxXrAPI_1') returned nothing
+2026-09-11T04:24:09Z [609ms] [Error] [omni.rtx] Could not find UsdPrimDefinition for 'OmniRtxXrAPI_1'
+2026-09-11T04:24:09Z [610ms] [Error] [omni.rtx] FindAppliedAPIPrimDefinition('OmniRtxSettingsParticleFieldAPI_1') returned nothing
+2026-09-11T04:24:09Z [610ms] [Error] [omni.rtx] Could not find UsdPrimDefinition for 'OmniRtxSettingsParticleFieldAPI_1'
+setup 4.7 s | realtime | pool 10 packs | physics 240 Hz | line 1.6 m/s, nozzle 0.3 m, pitch 0.12 m
+{
+ "mode": "realtime",
+ "packs": 12,
+ "pool": 10,
+ "wall_s": 2.4,
+ "sim_s": 1.525,
+ "rtf": 0.634,
+ "physics_steps": 366,
+ "renders_guarded": 46,
+ "frames_pushed": 12,
+ "capture_path": "cuda-dlpack",
+ "kicks": 10,
+ "bin_confirmed": 10,
+ "lost": 0,
+ "confirmation_events": 10,
+ "ledger": {
+  "triggers": 12,
+  "verdicts": 12,
+  "actions": 12,
+  "ok": true
+ },
+ "controller": {
+  "frames": 12,
+  "inferences": 12,
+  "overflow": 0,
+  "dropped_frames": 0,
+  "timeouts": 0,
+  "late_actuations": 0,
+  "watchdog_events": 0,
+  "errors": [],
+  "audit_records": 12,
+  "verdict_ms_median": 7.39,
+  "verdict_ms_p99": 14.04
+ },
+ "rejected_by_controller": 10,
+ "rejected_ejected_confirmed": 10,
+ "passed_by_controller": 2,
+ "passed_without_deviation": 2,
+ "scheduled_defective": 10,
+ "scheduled_defective_ejected": 10,
+ "scheduled_nominal": 2,
+ "scheduled_nominal_passed_clean": 2,
+ "verdict_matches_scheduled": 12,
+ "trigger_wall_ms_median": 30.7,
+ "verdict_wait_ms_median": null,
+ "barrier_wait_ms_median": null,
+ "max_nominal_dev_mm": 0.03
+}
+ id  sched verdict action           physical  conf  dev mm  lat ms  reason
+  0 REJECT  REJECT reject  ejected_confirmed  True    None   14.57  defect:cavity_empty,pill_damaged;under_occupancy:6/10
+  1 REJECT  REJECT reject  ejected_confirmed  True    None     9.8  defect:cavity_empty,pill_damaged;under_occupancy:6/10
+  2 REJECT  REJECT reject  ejected_confirmed  True    None    7.08  defect:pill_damaged;under_occupancy:8/10
+  3 REJECT  REJECT reject  ejected_confirmed  True    None    6.42  defect:cavity_empty,foil_damaged,pill_damaged;under_occupancy:2/10
+  4   PASS    PASS   pass      passed_nozzle  None    0.03    6.01  10/10_pill_ok
+  5 REJECT  REJECT reject  ejected_confirmed  True    None    8.19  defect:cavity_empty,pill_damaged;under_occupancy:6/10
+  6 REJECT  REJECT reject  ejected_confirmed  True    None     7.9  defect:cavity_empty,foil_damaged;under_occupancy:7/10
+  7   PASS    PASS   pass      passed_nozzle  None    0.01    7.74  10/10_pill_ok
+  8 REJECT  REJECT reject  ejected_confirmed  True    None    6.97  defect:cavity_empty,pill_damaged;under_occupancy:7/10
+  9 REJECT  REJECT reject  ejected_confirmed  True    None    6.97  defect:cavity_empty,foil_damaged,pill_damaged;under_occupancy:6/10
+ 10 REJECT  REJECT reject  ejected_confirmed  True    None     7.1  defect:cavity_empty,foil_damaged;under_occupancy:7/10
+ 11 REJECT  REJECT reject  ejected_confirmed  True    None    7.68  defect:cavity_empty,foil_damaged;under_occupancy:6/10
+DEMO: PASS
+[Warning] [usdrt.population.plugin] synchronizeToFabric: updating time to the default time code is not supported
+[Warning] [omni_physx_sdk] [ovphysx] Auto-warmup: performing initial simulation step to populate GPU buffers. Call ovphysx_warmup_gpu() explicitly to control when this happens.
+2026-09-11T04:24:14Z [5,407ms] [Warning] [rtx.scenedb] [InstanceTransformStorage] The amount of world update transforms WorldUpdateStorageWindow 17 needed to cover is larger than max allowed storage MaxHistoryTransformCount 8.            Motions may be wrong for long exposure sensors/cameras. Consider allow a larger storage for transforms through --/rtx/scenedb/maxHistoryTransformCount=17

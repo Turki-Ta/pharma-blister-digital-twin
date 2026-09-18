@@ -1,0 +1,109 @@
+{
+  "backend": {
+    "tf32": "fp32_precision API",
+    "memory_fraction": 0.94,
+    "cap_gb": 32.1,
+    "cv2_threads": 0
+  },
+  "data": "C:\\Users\\NoBody\\Documents\\recreating blister pack project\\data\\data.yaml",
+  "sweep": [
+    {
+      "batch": 16,
+      "steps": 47,
+      "step_ms_median": 56.2,
+      "step_ms_p95": 70.7,
+      "wall_s": 42.5,
+      "peak_alloc_gb": 2.25,
+      "peak_reserved_gb": 2.55,
+      "ms_per_image": 3.51,
+      "skipped_steps": 0,
+      "accepted": true
+    },
+    {
+      "batch": 32,
+      "steps": 24,
+      "step_ms_median": 88.4,
+      "step_ms_p95": 154.4,
+      "wall_s": 28.4,
+      "peak_alloc_gb": 4.36,
+      "peak_reserved_gb": 5.0,
+      "ms_per_image": 2.76,
+      "skipped_steps": 0,
+      "step_ratio_vs_expected": 0.79,
+      "accepted": true
+    },
+    {
+      "batch": 64,
+      "steps": 12,
+      "step_ms_median": 151.1,
+      "step_ms_p95": 208.7,
+      "wall_s": 24.2,
+      "peak_alloc_gb": 8.56,
+      "peak_reserved_gb": 9.72,
+      "ms_per_image": 2.36,
+      "skipped_steps": 0,
+      "step_ratio_vs_expected": 0.85,
+      "accepted": true
+    }
+  ],
+  "selected_batch": 64,
+  "baseline": {
+    "batch": 64,
+    "epochs": 5,
+    "wall_s": 58.2,
+    "steps": 120,
+    "step_ms_median": 140.5,
+    "step_ms_p95": 184.6,
+    "nonfinite_total": 0,
+    "skipped_steps": 0,
+    "peak_alloc_gb": 8.6,
+    "run_dir": "C:\\Users\\NoBody\\Documents\\recreating blister pack project\\models\\runs\\yolo11n_baseline",
+    "val": {
+      "map50": 0.995,
+      "map50_95": 0.9422,
+      "per_class": {
+        "pill_ok": {
+          "precision": 0.9998,
+          "recall": 1.0,
+          "ap50": 0.995,
+          "ap50_95": 0.9536
+        },
+        "pill_damaged": {
+          "precision": 0.9997,
+          "recall": 1.0,
+          "ap50": 0.995,
+          "ap50_95": 0.9449
+        },
+        "cavity_empty": {
+          "precision": 0.9991,
+          "recall": 1.0,
+          "ap50": 0.995,
+          "ap50_95": 0.9513
+        },
+        "foil_damaged": {
+          "precision": 0.999,
+          "recall": 1.0,
+          "ap50": 0.995,
+          "ap50_95": 0.9189
+        }
+      }
+    },
+    "results_csv": [
+      "1,5.37696,0.76043,2.75144,0.81965,0.0287,0.86517,0.23964,0.127,0.53602,3.61128,0.77349,0.000399306,0.000399306,0.000399306",
+      "2,10.0729,0.67641,0.79715,0.80051,0.02249,0.60652,0.22601,0.1923,0.54964,3.3505,0.77939,0.00065441,0.00065441,0.00065441",
+      "3,14.6059,0.6305,0.53091,0.79509,0.02793,0.88619,0.61863,0.56025,0.37589,2.96717,0.76973,0.000744514,0.000744514,0.000744514",
+      "4,31.3111,0.51393,0.50321,0.78401,1,0.25648,0.995,0.93402,0.32773,2.00123,0.76842,0.0005075,0.0005075,0.0005075",
+      "5,35.9788,0.49231,0.4272,0.77862,0.99941,1,0.995,0.94167,0.293,1.1144,0.76659,0.00026,0.00026,0.00026"
+    ],
+    "checkpoints": [
+      "ckpt_e0002.pt",
+      "ckpt_e0003.pt",
+      "ckpt_e0004.pt",
+      "latest.pt"
+    ],
+    "weights": [
+      "best.pt",
+      "last.pt"
+    ]
+  }
+}

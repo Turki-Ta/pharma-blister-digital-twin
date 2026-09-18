@@ -1,0 +1,116 @@
+{
+  "asset_version": 2,
+  "engine": "yolo11n_rtx5090_fp16.engine",
+  "engine_sha256": "c6c82f87397adb5fcf7bf422d4f9868e3adf14e340efcdfe08c81a8b37dd751d",
+  "thresholds": {
+    "conf_ok": 0.1712,
+    "conf_defect": 0.0892,
+    "per_class": {
+      "pill_ok": 0.1712,
+      "pill_damaged": 0.0892,
+      "cavity_empty": 0.108,
+      "foil_damaged": 0.0908
+    },
+    "nms_iou": 0.7,
+    "dedupe_iou": 0.45
+  },
+  "evaluated": "2026-09-17T12:18:46.011762-04:00",
+  "new_asset": {
+    "frames": 50,
+    "per_class": {
+      "pill_ok": {
+        "gt": 378,
+        "recall": 0.9974,
+        "false_positives": 0,
+        "conf_median": 0.39,
+        "conf_min": 0.19
+      },
+      "pill_damaged": {
+        "gt": 38,
+        "recall": 1.0,
+        "false_positives": 0,
+        "conf_median": 0.265,
+        "conf_min": 0.11
+      },
+      "cavity_empty": {
+        "gt": 37,
+        "recall": 0.973,
+        "false_positives": 0,
+        "conf_median": 0.255,
+        "conf_min": 0.16
+      },
+      "foil_damaged": {
+        "gt": 47,
+        "recall": 0.9787,
+        "false_positives": 0,
+        "conf_median": 0.17,
+        "conf_min": 0.1
+      }
+    },
+    "matched_boxes": 497,
+    "iou_mean": 0.95,
+    "iou_p05": 0.9096,
+    "iou_min": 0.857,
+    "frac_iou_ge_0.98": 0.0322,
+    "packs": {
+      "nominal": 20,
+      "defective": 30,
+      "false_rejects": 0,
+      "escapes": 0
+    },
+    "infer_ms_median": 2.74
+  },
+  "reference_val_split": {
+    "frames": 50,
+    "per_class": {
+      "pill_ok": {
+        "gt": 359,
+        "recall": 1.0,
+        "false_positives": 0,
+        "conf_median": 0.39,
+        "conf_min": 0.19
+      },
+      "pill_damaged": {
+        "gt": 43,
+        "recall": 1.0,
+        "false_positives": 0,
+        "conf_median": 0.2,
+        "conf_min": 0.13
+      },
+      "cavity_empty": {
+        "gt": 54,
+        "recall": 1.0,
+        "false_positives": 0,
+        "conf_median": 0.295,
+        "conf_min": 0.14
+      },
+      "foil_damaged": {
+        "gt": 44,
+        "recall": 1.0,
+        "false_positives": 0,
+        "conf_median": 0.18,
+        "conf_min": 0.11
+      }
+    },
+    "matched_boxes": 500,
+    "iou_mean": 0.9598,
+    "iou_p05": 0.932,
+    "iou_min": 0.8673,
+    "frac_iou_ge_0.98": 0.088,
+    "packs": {
+      "nominal": 14,
+      "defective": 36,
+      "false_rejects": 0,
+      "escapes": 0
+    },
+    "infer_ms_median": 2.81
+  },
+  "gate": {
+    "recall_all_classes_1.0": false,
+    "no_escapes_no_false_rejects": true,
+    "iou_mean_within_tolerance": true,
+    "iou_tolerance": 0.02,
+    "retain_engine": false
+  },
+  "note": "IoU is detector vs ground truth; 0.98 is the engine-parity bound and not reachable here (see reference)."
+}

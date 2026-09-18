@@ -1,0 +1,72 @@
+{
+  "engine": "yolo11n_rtx5090_fp16.engine",
+  "engine_sha256": "c06db0d342e597a465b610482258cc1cf931f9c459bfe5905f3d53d003d4078d",
+  "derived": "2026-09-17T15:53:19.314679-04:00",
+  "frames": 600,
+  "miss_budget": 0.001,
+  "margin": 0.05,
+  "seconds": 7.7,
+  "thresholds": {
+    "conf_ok": 0.8607,
+    "conf_defect": 0.8525,
+    "per_class": {
+      "pill_ok": 0.8607,
+      "pill_damaged": 0.8711,
+      "cavity_empty": 0.8908,
+      "foil_damaged": 0.8525
+    },
+    "nms_iou": 0.7,
+    "dedupe_iou": 0.45
+  },
+  "class_stats": {
+    "pill_ok": {
+      "gt_boxes": 4558,
+      "matched_score_p0.1": 0.9107,
+      "matched_score_p1": 0.9202,
+      "matched_score_median": 0.9508,
+      "matched_score_max": 0.9862,
+      "gt_unmatched_at_iou0.5": 0,
+      "fp_above_thr": 0,
+      "fp_max": 0.0
+    },
+    "pill_damaged": {
+      "gt_boxes": 455,
+      "matched_score_p0.1": 0.9211,
+      "matched_score_p1": 0.9325,
+      "matched_score_median": 0.9632,
+      "matched_score_max": 0.99,
+      "gt_unmatched_at_iou0.5": 0,
+      "fp_above_thr": 0,
+      "fp_max": 0.0
+    },
+    "cavity_empty": {
+      "gt_boxes": 543,
+      "matched_score_p0.1": 0.9408,
+      "matched_score_p1": 0.9553,
+      "matched_score_median": 0.9785,
+      "matched_score_max": 0.9942,
+      "gt_unmatched_at_iou0.5": 0,
+      "fp_above_thr": 0,
+      "fp_max": 0.8152
+    },
+    "foil_damaged": {
+      "gt_boxes": 444,
+      "matched_score_p0.1": 0.9025,
+      "matched_score_p1": 0.9199,
+      "matched_score_median": 0.961,
+      "matched_score_max": 0.9849,
+      "gt_unmatched_at_iou0.5": 0,
+      "fp_above_thr": 0,
+      "fp_max": 0.0
+    }
+  },
+  "pack_level_on_val": {
+    "nominal_packs": 218,
+    "false_rejects": 0,
+    "false_reject_rate": 0.0,
+    "defective_packs": 382,
+    "escapes": 0,
+    "escape_rate": 0.0
+  },
+  "note": "thresholds are recall-driven per-class quantiles on the synthetic validation split minus an out-of-sample margin; re-derive after any retraining or re-export."
+}

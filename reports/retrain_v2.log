@@ -1,0 +1,734 @@
+=== chain start 2026-09-17T12:22:35-04:00 ===
+=== [A] SDG v2: 2400 frames, 75/25 split ===
+scene loaded in 0.1 s ({'ovrtx': '0.4.1', 'ovstage': '0.1.1.355824', 'ovphysx': '0.5.11'})
+frame      0 val_000000:    481 ms  states=0010210000  blur=0.64px  sources=['mask']  min IoU(mask,proj)=0.85
+frame    100 val_000100:    438 ms  states=0003000003  blur=0.91px  sources=['mask']  min IoU(mask,proj)=0.60
+frame    200 val_000200:    468 ms  states=0123120000  blur=1.14px  sources=['mask']  min IoU(mask,proj)=0.62
+frame    300 val_000300:    416 ms  states=0000000000  blur=0.97px  sources=['mask']  min IoU(mask,proj)=0.88
+frame    400 val_000400:    537 ms  states=3000033001  blur=0.82px  sources=['mask']  min IoU(mask,proj)=0.59
+frame    500 val_000500:    417 ms  states=0000300030  blur=0.35px  sources=['mask']  min IoU(mask,proj)=0.66
+frame    600 val_000600:    415 ms  states=0100020212  blur=0.72px  sources=['mask']  min IoU(mask,proj)=0.74
+frame    700 val_000700:    421 ms  states=0000000000  blur=0.46px  sources=['mask']  min IoU(mask,proj)=0.89
+frame    800 val_000800:    417 ms  states=2301010021  blur=0.81px  sources=['mask']  min IoU(mask,proj)=0.67
+frame    900 val_000900:    409 ms  states=0300000102  blur=0.61px  sources=['mask']  min IoU(mask,proj)=0.64
+frame   1000 val_001000:    422 ms  states=0000000000  blur=0.64px  sources=['mask']  min IoU(mask,proj)=0.86
+frame   1100 val_001100:    413 ms  states=0230002000  blur=0.43px  sources=['mask']  min IoU(mask,proj)=0.56
+frame   1200 val_001200:    437 ms  states=0000000000  blur=0.87px  sources=['mask']  min IoU(mask,proj)=0.73
+frame   1300 val_001300:    515 ms  states=3020210001  blur=0.39px  sources=['mask']  min IoU(mask,proj)=0.61
+frame   1400 val_001400:    433 ms  states=0000001103  blur=0.81px  sources=['mask']  min IoU(mask,proj)=0.63
+frame   1500 val_001500:    453 ms  states=0000000000  blur=0.54px  sources=['mask']  min IoU(mask,proj)=0.88
+frame   1600 val_001600:    453 ms  states=0000000000  blur=1.09px  sources=['mask']  min IoU(mask,proj)=0.86
+frame   1700 val_001700:    440 ms  states=0200000030  blur=0.93px  sources=['mask']  min IoU(mask,proj)=0.61
+frame   1800 val_001800:    438 ms  states=0000000000  blur=0.66px  sources=['mask']  min IoU(mask,proj)=0.87
+frame   1900 val_001900:    468 ms  states=0001330301  blur=0.43px  sources=['mask']  min IoU(mask,proj)=0.64
+frame   2000 val_002000:    443 ms  states=0203200001  blur=0.77px  sources=['mask']  min IoU(mask,proj)=0.66
+frame   2100 val_002100:    441 ms  states=0220010100  blur=0.97px  sources=['mask']  min IoU(mask,proj)=0.73
+frame   2200 val_002200:    465 ms  states=0200330010  blur=0.68px  sources=['mask']  min IoU(mask,proj)=0.63
+frame   2300 val_002300:    434 ms  states=0002000300  blur=0.96px  sources=['mask']  min IoU(mask,proj)=0.66
+{
+  "frames": 2400,
+  "seed": 20260917,
+  "warmup_steps": 3,
+  "out": "data",
+  "versions": {
+    "ovrtx": "0.4.1",
+    "ovstage": "0.1.1.355824",
+    "ovphysx": "0.5.11"
+  },
+  "scheduler": {
+    "p_nominal": 0.35,
+    "p_ok": 0.62,
+    "p_pill_damaged": 0.12,
+    "p_empty": 0.14,
+    "p_foil": 0.12
+  },
+  "expected_boxes_per_pack": {
+    "pill_ok": 7.509093840398086,
+    "pill_damaged": 0.7866019451374466,
+    "cavity_empty": 0.9177022693270211,
+    "foil_damaged": 0.7866019451374466
+  },
+  "split": {
+    "val_every": 4,
+    "counts": {
+      "train": {
+        "frames": 1800,
+        "pill_ok": 13567,
+        "pill_damaged": 1390,
+        "cavity_empty": 1663,
+        "foil_damaged": 1380
+      },
+      "val": {
+        "frames": 600,
+        "pill_ok": 4558,
+        "pill_damaged": 455,
+        "cavity_empty": 543,
+        "foil_damaged": 444
+      }
+    }
+  },
+  "ms_per_frame_median": 439.1,
+  "total_s": 1083.8,
+  "box_sources": {
+    "mask": 24000
+  },
+  "iou_mask_vs_projection_median": 0.839,
+  "iou_min": 0.506,
+  "idmap_label_mismatches": 135,
+  "line": {
+    "v_belt_mps": 1.6,
+    "gsd_m": 0.00015625,
+    "camera_height_m": 0.2777777777777778
+  }
+}
+[Warning] [usdrt.population.plugin] synchronizeToFabric: updating time to the default time code is not supported
+=== [B] train yolo11n_v2: sweep 32/64/128, 30 epochs ===
+backend: {'tf32': 'fp32_precision API', 'memory_fraction': 0.94, 'cap_gb': 32.1, 'cv2_threads': 0} | torch 2.10.0+cu130 | gpu NVIDIA GeForce RTX 5090
+New https://pypi.org/project/ultralytics/8.4.155 available  Update with 'pip install -U ultralytics'
+Ultralytics 8.4.146  Python-3.12.13 torch-2.10.0+cu130 CUDA:0 (NVIDIA GeForce RTX 5090, 32579MiB)
+[34m[1mengine\trainer: [0magnostic_nms=False, amp=bf16, angle=1.0, augment=False, auto_augment=randaugment, batch=32, bgr=0.0, box=7.5, cache=False, cfg=None, channels_last=None, classes=None, close_mosaic=0, cls=0.5, cls_pw=0.0, cls_remap=True, compile=False, conf=None, copy_paste=0.0, copy_paste_mode=flip, cos_lr=False, cutmix=0.0, data=C:\Users\NoBody\Documents\recreating blister pack project\data\data.yaml, degrees=0.0, deterministic=True, device=0, dfl=1.5, dgrad=0.5, dis=6.0, distill_model=None, dlam=1.0, dlog=1.0, dnn=False, dropout=0.0, dynamic=False, embed=None, epochs=1, erasing=0.4, exist_ok=True, fliplr=0.5, flipud=0.0, format=torchscript, fraction=0.5, freeze=None, hsv_h=0.015, hsv_s=0.7, hsv_v=0.4, imgsz=640, iou=0.7, keras=False, kobj=1.0, line_width=None, lr0=0.01, lrf=0.01, mask_ratio=4, max_det=300, mixup=0.0, mode=train, model=yolo11n.pt, momentum=0.937, mosaic=1.0, multi_scale=0.0, name=b32, nbs=64, nms=None, opset=None, optimize=False, optimizer=auto, overlap_mask=True, patience=100, perspective=0.0, plots=False, pose=12.0, pretrained=True, profile=False, project=C:\Users\NoBody\Documents\recreating blister pack project\models\sweep, quantize=None, rect=False, resume=False, retina_masks=False, rle=1.0, save=False, save_conf=False, save_crop=False, save_dir=C:\Users\NoBody\Documents\recreating blister pack project\models\sweep\b32, save_frames=False, save_json=False, save_period=-1, save_txt=False, scale=0.5, seed=0, shear=0.0, show=False, show_boxes=True, show_conf=True, show_labels=True, simplify=True, single_cls=False, source=None, split=val, stream_buffer=False, task=detect, time=None, tracker=tracktrack.yaml, translate=0.1, val=False, verbose=False, vid_stride=1, visualize=False, warmup_bias_lr=0.1, warmup_epochs=3.0, warmup_momentum=0.8, weight_decay=0.0005, workers=8, workspace=None
+Overriding model.yaml nc=80 with nc=4
+
+                   from  n    params  module                                       arguments                     
+  0                  -1  1       464  ultralytics.nn.modules.conv.Conv             [3, 16, 3, 2]                 
+  1                  -1  1      4672  ultralytics.nn.modules.conv.Conv             [16, 32, 3, 2]                
+  2                  -1  1      6640  ultralytics.nn.modules.block.C3k2            [32, 64, 1, False, 0.25]      
+  3                  -1  1     36992  ultralytics.nn.modules.conv.Conv             [64, 64, 3, 2]                
+  4                  -1  1     26080  ultralytics.nn.modules.block.C3k2            [64, 128, 1, False, 0.25]     
+  5                  -1  1    147712  ultralytics.nn.modules.conv.Conv             [128, 128, 3, 2]              
+  6                  -1  1     87040  ultralytics.nn.modules.block.C3k2            [128, 128, 1, True]           
+  7                  -1  1    295424  ultralytics.nn.modules.conv.Conv             [128, 256, 3, 2]              
+  8                  -1  1    346112  ultralytics.nn.modules.block.C3k2            [256, 256, 1, True]           
+  9                  -1  1    164608  ultralytics.nn.modules.block.SPPF            [256, 256, 5]                 
+ 10                  -1  1    249728  ultralytics.nn.modules.block.C2PSA           [256, 256, 1]                 
+ 11                  -1  1         0  torch.nn.modules.upsampling.Upsample         [None, 2, 'nearest']          
+ 12             [-1, 6]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+ 13                  -1  1    111296  ultralytics.nn.modules.block.C3k2            [384, 128, 1, False]          
+ 14                  -1  1         0  torch.nn.modules.upsampling.Upsample         [None, 2, 'nearest']          
+ 15             [-1, 4]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+ 16                  -1  1     32096  ultralytics.nn.modules.block.C3k2            [256, 64, 1, False]           
+ 17                  -1  1     36992  ultralytics.nn.modules.conv.Conv             [64, 64, 3, 2]                
+ 18            [-1, 13]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+ 19                  -1  1     86720  ultralytics.nn.modules.block.C3k2            [192, 128, 1, False]          
+ 20                  -1  1    147712  ultralytics.nn.modules.conv.Conv             [128, 128, 3, 2]              
+ 21            [-1, 10]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+ 22                  -1  1    378880  ultralytics.nn.modules.block.C3k2            [384, 256, 1, True]           
+ 23        [16, 19, 22]  1    431452  ultralytics.nn.modules.head.Detect           [4, 16, None, [64, 128, 256]] 
+YOLO11n summary: 181 layers, 2,590,620 parameters, 2,590,604 gradients, 6.5 GFLOPs
+
+Transferred 448/499 items from pretrained weights
+Freezing layer 'model.23.dfl.conv.weight'
+[34m[1mtrain: [0mFast image access  (ping: 0.00.0 ms, read: 376.727.2 MB/s, size: 1097.9 KB)
+[K[34m[1mtrain: [0mScanning C:\Users\NoBody\Documents\recreating blister pack project\data\labels... 137 images, 0 backgrounds, 0 corrupt: 15% ━╸────────── 137/900 408.9it/s 0.1s<1.9s[K[34m[1mtrain: [0mScanning C:\Users\NoBody\Documents\recreating blister pack project\data\labels... 295 images, 0 backgrounds, 0 corrupt: 32% ━━━╸──────── 295/900 755.7it/s 0.2s<0.8s[K[34m[1mtrain: [0mScanning C:\Users\NoBody\Documents\recreating blister pack project\data\labels... 450 images, 0 backgrounds, 0 corrupt: 50% ━━━━━━────── 450/900 992.5it/s 0.3s<0.5s[K[34m[1mtrain: [0mScanning C:\Users\NoBody\Documents\recreating blister pack project\data\labels... 606 images, 0 backgrounds, 0 corrupt: 67% ━━━━━━━━──── 606/900 1.2Kit/s 0.4s<0.3s[K[34m[1mtrain: [0mScanning C:\Users\NoBody\Documents\recreating blister pack project\data\labels... 761 images, 0 backgrounds, 0 corrupt: 84% ━━━━━━━━━━── 761/900 1.3Kit/s 0.5s<0.1s[K[34m[1mtrain: [0mScanning C:\Users\NoBody\Documents\recreating blister pack project\data\labels... 900 images, 0 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 900/900 1.5Kit/s 0.6s
+[34m[1mtrain: [0mNew cache created: C:\Users\NoBody\Documents\recreating blister pack project\data\labels.cache
+[34m[1mval: [0mFast image access  (ping: 0.00.0 ms, read: 312.232.4 MB/s, size: 1104.9 KB)
+[K[34m[1mval: [0mScanning C:\Users\NoBody\Documents\recreating blister pack project\data\labels... 122 images, 0 backgrounds, 0 corrupt: 20% ━━────────── 122/600 365.1it/s 0.1s<1.3s[K[34m[1mval: [0mScanning C:\Users\NoBody\Documents\recreating blister pack project\data\labels... 241 images, 0 backgrounds, 0 corrupt: 40% ━━━━╸─────── 241/600 610.1it/s 0.2s<0.6s[K[34m[1mval: [0mScanning C:\Users\NoBody\Documents\recreating blister pack project\data\labels... 371 images, 0 backgrounds, 0 corrupt: 61% ━━━━━━━───── 371/600 808.5it/s 0.3s<0.3s[K[34m[1mval: [0mScanning C:\Users\NoBody\Documents\recreating blister pack project\data\labels... 501 images, 0 backgrounds, 0 corrupt: 83% ━━━━━━━━━━── 501/600 953.2it/s 0.4s<0.1s[K[34m[1mval: [0mScanning C:\Users\NoBody\Documents\recreating blister pack project\data\labels... 600 images, 0 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 600/600 1.3Kit/s 0.5s
+[34m[1mval: [0mNew cache created: C:\Users\NoBody\Documents\recreating blister pack project\data\labels.cache
+[34m[1moptimizer:[0m 'optimizer=auto' found, ignoring 'lr0=0.01' and 'momentum=0.937' and determining best 'optimizer', 'lr0' and 'momentum' automatically... 
+[34m[1moptimizer:[0m AdamW(lr=0.00125, momentum=0.9) with parameter groups 81 weight(decay=0.0), 88 weight(decay=0.0005), 87 bias(decay=0.0)
+Using 900 train, 600 val images for fraction=0.5 at imgsz=640
+Using 8 dataloader workers
+Logging results to [1mC:\Users\NoBody\Documents\recreating blister pack project\models\sweep\b32[0m
+Starting training for 1 epochs...
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+[K        1/1      4.56G     0.9693      3.966     0.9277        656        640: 0% ──────────── 0/29  16.7s[K        1/1      4.59G     0.9484      3.947     0.9213        569        640: 3% ──────────── 1/29 1.4it/s 16.9s<20.1s[K        1/1      4.59G      1.468      3.682      1.145        621        640: 10% ━─────────── 3/29 5.1it/s 17.1s<5.1s[K        1/1      4.59G      1.568      3.448      1.204        512        640: 17% ━━────────── 5/29 7.5it/s 17.2s<3.2s[K        1/1      4.59G      1.502      3.236      1.173        453        640: 24% ━━╸───────── 7/29 8.9it/s 17.4s<2.5s[K        1/1      4.59G       1.42       3.03      1.126        607        640: 31% ━━━╸──────── 9/29 9.9it/s 17.5s<2.0s[K        1/1      4.59G      1.346       2.85      1.088        550        640: 37% ━━━━╸─────── 11/29 10.5it/s 17.7s<1.7s[K        1/1      4.59G      1.294      2.693      1.062        596        640: 44% ━━━━━─────── 13/29 11.1it/s 17.9s<1.4s[K        1/1      4.59G      1.242      2.551      1.039        669        640: 51% ━━━━━━────── 15/29 11.4it/s 18.0s<1.2s[K        1/1      4.59G      1.194      2.415      1.019        497        640: 58% ━━━━━━━───── 17/29 11.3it/s 18.2s<1.1s[K        1/1      4.59G      1.148      2.303      1.001        651        640: 65% ━━━━━━━╸──── 19/29 11.5it/s 18.4s<0.9s[K        1/1      4.59G       1.11        2.2     0.9881        554        640: 72% ━━━━━━━━╸─── 21/29 11.9it/s 18.5s<0.7s[K        1/1      4.59G      1.077      2.114     0.9756        625        640: 79% ━━━━━━━━━╸── 23/29 11.8it/s 18.7s<0.5s[K        1/1      4.59G      1.045      2.036     0.9652        652        640: 86% ━━━━━━━━━━── 25/29 11.9it/s 18.9s<0.3s[K        1/1      4.59G      1.018      1.964     0.9548        574        640: 93% ━━━━━━━━━━━─ 27/29 12.2it/s 19.0s<0.2s[K        1/1      4.65G      1.008      1.935     0.9524         44        640: 96% ━━━━━━━━━━━╸ 28/29 9.1it/s 19.6s<0.1s[K        1/1      4.65G      1.008      1.935     0.9524         44        640: 100% ━━━━━━━━━━━━ 29/29 1.5it/s 19.6s
+[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 10% ━─────────── 1/10 3.1s/it 0.9s<28.3s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 20% ━━────────── 2/10 2.4it/s 1.1s<3.4s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 30% ━━━╸──────── 3/10 3.9it/s 1.2s<1.8s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 40% ━━━━╸─────── 4/10 5.1it/s 1.3s<1.2s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 50% ━━━━━━────── 5/10 5.8it/s 1.5s<0.9s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 60% ━━━━━━━───── 6/10 6.7it/s 1.6s<0.6s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 70% ━━━━━━━━──── 7/10 6.8it/s 1.7s<0.4s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 80% ━━━━━━━━━╸── 8/10 7.0it/s 1.9s<0.3s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 90% ━━━━━━━━━━╸─ 9/10 6.9it/s 2.0s<0.1s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 10/10 3.7it/s 2.7s
+                   all        600       6000     0.0201      0.278     0.0178     0.0105
+
+1 epochs completed in 0.006 hours.
+Optimizer stripped from C:\Users\NoBody\Documents\recreating blister pack project\models\sweep\b32\weights\last.pt, 5.4MB
+Optimizer stripped from C:\Users\NoBody\Documents\recreating blister pack project\models\sweep\b32\weights\best.pt, 5.4MB
+
+Validating C:\Users\NoBody\Documents\recreating blister pack project\models\sweep\b32\weights\best.pt...
+Ultralytics 8.4.146  Python-3.12.13 torch-2.10.0+cu130 CUDA:0 (NVIDIA GeForce RTX 5090, 32579MiB)
+YOLO11n summary (fused): 100 layers, 2,582,932 parameters, 0 gradients, 6.4 GFLOPs
+[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 10% ━─────────── 1/10 2.6it/s 0.1s<3.4s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 20% ━━────────── 2/10 4.1it/s 0.2s<2.0s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 30% ━━━╸──────── 3/10 5.2it/s 0.4s<1.4s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 40% ━━━━╸─────── 4/10 6.5it/s 0.5s<0.9s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 50% ━━━━━━────── 5/10 6.9it/s 0.6s<0.7s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 60% ━━━━━━━───── 6/10 7.2it/s 0.7s<0.6s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 70% ━━━━━━━━──── 7/10 7.3it/s 0.9s<0.4s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 80% ━━━━━━━━━╸── 8/10 7.4it/s 1.0s<0.3s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 90% ━━━━━━━━━━╸─ 9/10 7.6it/s 1.1s<0.1s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 10/10 8.5it/s 1.2s
+                   all        600       6000       0.02      0.276     0.0178     0.0104
+Speed: 0.0ms preprocess, 0.1ms inference, 0.0ms loss, 0.7ms postprocess per image
+batch  32: peak alloc 4.4 GB, reserved 5.0 GB, step 83.4 ms, 2.61 ms/img
+New https://pypi.org/project/ultralytics/8.4.155 available  Update with 'pip install -U ultralytics'
+Ultralytics 8.4.146  Python-3.12.13 torch-2.10.0+cu130 CUDA:0 (NVIDIA GeForce RTX 5090, 32579MiB)
+[34m[1mengine\trainer: [0magnostic_nms=False, amp=bf16, angle=1.0, augment=False, auto_augment=randaugment, batch=64, bgr=0.0, box=7.5, cache=False, cfg=None, channels_last=None, classes=None, close_mosaic=0, cls=0.5, cls_pw=0.0, cls_remap=True, compile=False, conf=None, copy_paste=0.0, copy_paste_mode=flip, cos_lr=False, cutmix=0.0, data=C:\Users\NoBody\Documents\recreating blister pack project\data\data.yaml, degrees=0.0, deterministic=True, device=0, dfl=1.5, dgrad=0.5, dis=6.0, distill_model=None, dlam=1.0, dlog=1.0, dnn=False, dropout=0.0, dynamic=False, embed=None, epochs=1, erasing=0.4, exist_ok=True, fliplr=0.5, flipud=0.0, format=torchscript, fraction=0.5, freeze=None, hsv_h=0.015, hsv_s=0.7, hsv_v=0.4, imgsz=640, iou=0.7, keras=False, kobj=1.0, line_width=None, lr0=0.01, lrf=0.01, mask_ratio=4, max_det=300, mixup=0.0, mode=train, model=yolo11n.pt, momentum=0.937, mosaic=1.0, multi_scale=0.0, name=b64, nbs=64, nms=None, opset=None, optimize=False, optimizer=auto, overlap_mask=True, patience=100, perspective=0.0, plots=False, pose=12.0, pretrained=True, profile=False, project=C:\Users\NoBody\Documents\recreating blister pack project\models\sweep, quantize=None, rect=False, resume=False, retina_masks=False, rle=1.0, save=False, save_conf=False, save_crop=False, save_dir=C:\Users\NoBody\Documents\recreating blister pack project\models\sweep\b64, save_frames=False, save_json=False, save_period=-1, save_txt=False, scale=0.5, seed=0, shear=0.0, show=False, show_boxes=True, show_conf=True, show_labels=True, simplify=True, single_cls=False, source=None, split=val, stream_buffer=False, task=detect, time=None, tracker=tracktrack.yaml, translate=0.1, val=False, verbose=False, vid_stride=1, visualize=False, warmup_bias_lr=0.1, warmup_epochs=3.0, warmup_momentum=0.8, weight_decay=0.0005, workers=8, workspace=None
+Overriding model.yaml nc=80 with nc=4
+
+                   from  n    params  module                                       arguments                     
+  0                  -1  1       464  ultralytics.nn.modules.conv.Conv             [3, 16, 3, 2]                 
+  1                  -1  1      4672  ultralytics.nn.modules.conv.Conv             [16, 32, 3, 2]                
+  2                  -1  1      6640  ultralytics.nn.modules.block.C3k2            [32, 64, 1, False, 0.25]      
+  3                  -1  1     36992  ultralytics.nn.modules.conv.Conv             [64, 64, 3, 2]                
+  4                  -1  1     26080  ultralytics.nn.modules.block.C3k2            [64, 128, 1, False, 0.25]     
+  5                  -1  1    147712  ultralytics.nn.modules.conv.Conv             [128, 128, 3, 2]              
+  6                  -1  1     87040  ultralytics.nn.modules.block.C3k2            [128, 128, 1, True]           
+  7                  -1  1    295424  ultralytics.nn.modules.conv.Conv             [128, 256, 3, 2]              
+  8                  -1  1    346112  ultralytics.nn.modules.block.C3k2            [256, 256, 1, True]           
+  9                  -1  1    164608  ultralytics.nn.modules.block.SPPF            [256, 256, 5]                 
+ 10                  -1  1    249728  ultralytics.nn.modules.block.C2PSA           [256, 256, 1]                 
+ 11                  -1  1         0  torch.nn.modules.upsampling.Upsample         [None, 2, 'nearest']          
+ 12             [-1, 6]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+ 13                  -1  1    111296  ultralytics.nn.modules.block.C3k2            [384, 128, 1, False]          
+ 14                  -1  1         0  torch.nn.modules.upsampling.Upsample         [None, 2, 'nearest']          
+ 15             [-1, 4]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+ 16                  -1  1     32096  ultralytics.nn.modules.block.C3k2            [256, 64, 1, False]           
+ 17                  -1  1     36992  ultralytics.nn.modules.conv.Conv             [64, 64, 3, 2]                
+ 18            [-1, 13]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+ 19                  -1  1     86720  ultralytics.nn.modules.block.C3k2            [192, 128, 1, False]          
+ 20                  -1  1    147712  ultralytics.nn.modules.conv.Conv             [128, 128, 3, 2]              
+ 21            [-1, 10]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+ 22                  -1  1    378880  ultralytics.nn.modules.block.C3k2            [384, 256, 1, True]           
+ 23        [16, 19, 22]  1    431452  ultralytics.nn.modules.head.Detect           [4, 16, None, [64, 128, 256]] 
+YOLO11n summary: 181 layers, 2,590,620 parameters, 2,590,604 gradients, 6.5 GFLOPs
+
+Transferred 448/499 items from pretrained weights
+Freezing layer 'model.23.dfl.conv.weight'
+[34m[1mtrain: [0mFast image access  (ping: 0.00.0 ms, read: 3082.4137.4 MB/s, size: 1104.6 KB)
+[K[34m[1mtrain: [0mScanning C:\Users\NoBody\Documents\recreating blister pack project\data\labels... 160 images, 0 backgrounds, 0 corrupt: 17% ━━────────── 160/900 479.9it/s 0.1s<1.5s[K[34m[1mtrain: [0mScanning C:\Users\NoBody\Documents\recreating blister pack project\data\labels... 324 images, 0 backgrounds, 0 corrupt: 36% ━━━━──────── 324/900 823.6it/s 0.2s<0.7s[K[34m[1mtrain: [0mScanning C:\Users\NoBody\Documents\recreating blister pack project\data\labels... 476 images, 0 backgrounds, 0 corrupt: 52% ━━━━━━────── 476/900 1.0Kit/s 0.3s<0.4s[K[34m[1mtrain: [0mScanning C:\Users\NoBody\Documents\recreating blister pack project\data\labels... 636 images, 0 backgrounds, 0 corrupt: 70% ━━━━━━━━──── 636/900 1.2Kit/s 0.4s<0.2s[K[34m[1mtrain: [0mScanning C:\Users\NoBody\Documents\recreating blister pack project\data\labels... 795 images, 0 backgrounds, 0 corrupt: 88% ━━━━━━━━━━╸─ 795/900 1.3Kit/s 0.5s<0.1s[K[34m[1mtrain: [0mScanning C:\Users\NoBody\Documents\recreating blister pack project\data\labels... 900 images, 0 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 900/900 1.6Kit/s 0.6s
+[34m[1mtrain: [0mNew cache created: C:\Users\NoBody\Documents\recreating blister pack project\data\labels.cache
+[34m[1mval: [0mFast image access  (ping: 0.00.0 ms, read: 3057.1116.5 MB/s, size: 1106.8 KB)
+[K[34m[1mval: [0mScanning C:\Users\NoBody\Documents\recreating blister pack project\data\labels... 142 images, 0 backgrounds, 0 corrupt: 23% ━━╸───────── 142/600 417.5it/s 0.1s<1.1s[K[34m[1mval: [0mScanning C:\Users\NoBody\Documents\recreating blister pack project\data\labels... 289 images, 0 backgrounds, 0 corrupt: 48% ━━━━━╸────── 289/600 729.1it/s 0.2s<0.4s[K[34m[1mval: [0mScanning C:\Users\NoBody\Documents\recreating blister pack project\data\labels... 432 images, 0 backgrounds, 0 corrupt: 72% ━━━━━━━━╸─── 432/600 938.5it/s 0.3s<0.2s[K[34m[1mval: [0mScanning C:\Users\NoBody\Documents\recreating blister pack project\data\labels... 580 images, 0 backgrounds, 0 corrupt: 96% ━━━━━━━━━━━╸ 580/600 1.1Kit/s 0.4s<0.0s[K[34m[1mval: [0mScanning C:\Users\NoBody\Documents\recreating blister pack project\data\labels... 600 images, 0 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 600/600 1.4Kit/s 0.4s
+[34m[1mval: [0mNew cache created: C:\Users\NoBody\Documents\recreating blister pack project\data\labels.cache
+[34m[1moptimizer:[0m 'optimizer=auto' found, ignoring 'lr0=0.01' and 'momentum=0.937' and determining best 'optimizer', 'lr0' and 'momentum' automatically... 
+[34m[1moptimizer:[0m AdamW(lr=0.00125, momentum=0.9) with parameter groups 81 weight(decay=0.0), 88 weight(decay=0.0005), 87 bias(decay=0.0)
+Using 900 train, 600 val images for fraction=0.5 at imgsz=640
+Using 8 dataloader workers
+Logging results to [1mC:\Users\NoBody\Documents\recreating blister pack project\models\sweep\b64[0m
+Starting training for 1 epochs...
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+[K        1/1      9.05G      0.983      3.965     0.9328       1193        640: 0% ──────────── 0/15  0.4s[K        1/1      9.05G      1.397      3.681      1.116       1162        640: 6% ╸─────────── 1/15 2.3it/s 0.5s<6.2s[K        1/1      9.05G      1.462      3.404      1.139       1162        640: 13% ━╸────────── 2/15 3.8it/s 0.7s<3.4s[K        1/1      9.05G      1.412      3.238      1.104       1161        640: 20% ━━────────── 3/15 4.7it/s 0.8s<2.6s[K        1/1      9.05G      1.355      3.052      1.072       1246        640: 26% ━━━───────── 4/15 5.3it/s 0.9s<2.1s[K        1/1      9.05G      1.293      2.865      1.042       1098        640: 33% ━━━━──────── 5/15 5.8it/s 1.1s<1.7s[K        1/1      9.05G      1.245      2.689      1.023       1101        640: 40% ━━━━╸─────── 6/15 6.2it/s 1.2s<1.5s[K        1/1      9.05G      1.194      2.538      1.002       1141        640: 46% ━━━━━╸────── 7/15 6.4it/s 1.4s<1.3s[K        1/1      9.05G      1.153      2.407     0.9873       1112        640: 53% ━━━━━━────── 8/15 6.6it/s 1.5s<1.1s[K        1/1      9.05G      1.111      2.303      0.972       1126        640: 60% ━━━━━━━───── 9/15 6.4it/s 1.7s<0.9s[K        1/1      9.05G      1.084      2.212     0.9632       1105        640: 66% ━━━━━━━━──── 10/15 5.7it/s 1.9s<0.9s[K        1/1      9.05G      1.057       2.13     0.9524       1211        640: 73% ━━━━━━━━╸─── 11/15 6.0it/s 2.1s<0.7s[K        1/1      9.05G      1.032      2.056     0.9439       1081        640: 80% ━━━━━━━━━╸── 12/15 6.3it/s 2.2s<0.5s[K        1/1      9.05G      1.008      1.986     0.9357       1180        640: 86% ━━━━━━━━━━── 13/15 6.5it/s 2.4s<0.3s[K        1/1      9.12G     0.9803      1.922     0.9275         58        640: 93% ━━━━━━━━━━━─ 14/15 7.1it/s 2.5s<0.1s[K        1/1      9.12G     0.9803      1.922     0.9275         58        640: 100% ━━━━━━━━━━━━ 15/15 6.0it/s 2.5s
+[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 20% ━━────────── 1/5 4.3s/it 1.3s<17.1s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 40% ━━━━╸─────── 2/5 1.2it/s 1.6s<2.5s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 60% ━━━━━━━───── 3/5 2.0it/s 1.8s<1.0s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 80% ━━━━━━━━━╸── 4/5 2.6it/s 2.1s<0.4s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 5/5 1.7it/s 3.0s
+                   all        600       6000    0.00616      0.193    0.00734    0.00213
+
+1 epochs completed in 0.002 hours.
+Optimizer stripped from C:\Users\NoBody\Documents\recreating blister pack project\models\sweep\b64\weights\last.pt, 5.4MB
+Optimizer stripped from C:\Users\NoBody\Documents\recreating blister pack project\models\sweep\b64\weights\best.pt, 5.4MB
+
+Validating C:\Users\NoBody\Documents\recreating blister pack project\models\sweep\b64\weights\best.pt...
+Ultralytics 8.4.146  Python-3.12.13 torch-2.10.0+cu130 CUDA:0 (NVIDIA GeForce RTX 5090, 32579MiB)
+YOLO11n summary (fused): 100 layers, 2,582,932 parameters, 0 gradients, 6.4 GFLOPs
+[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 20% ━━────────── 1/5 1.1it/s 0.3s<3.7s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 40% ━━━━╸─────── 2/5 2.0it/s 0.5s<1.5s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 60% ━━━━━━━───── 3/5 2.6it/s 0.8s<0.8s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 80% ━━━━━━━━━╸── 4/5 2.6it/s 1.1s<0.4s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 5/5 3.8it/s 1.3s
+                   all        600       6000    0.00615      0.193    0.00734    0.00213
+Speed: 0.0ms preprocess, 0.1ms inference, 0.0ms loss, 0.8ms postprocess per image
+batch  64: peak alloc 8.6 GB, reserved 9.8 GB, step 146.0 ms, 2.28 ms/img
+New https://pypi.org/project/ultralytics/8.4.155 available  Update with 'pip install -U ultralytics'
+Ultralytics 8.4.146  Python-3.12.13 torch-2.10.0+cu130 CUDA:0 (NVIDIA GeForce RTX 5090, 32579MiB)
+[34m[1mengine\trainer: [0magnostic_nms=False, amp=bf16, angle=1.0, augment=False, auto_augment=randaugment, batch=128, bgr=0.0, box=7.5, cache=False, cfg=None, channels_last=None, classes=None, close_mosaic=0, cls=0.5, cls_pw=0.0, cls_remap=True, compile=False, conf=None, copy_paste=0.0, copy_paste_mode=flip, cos_lr=False, cutmix=0.0, data=C:\Users\NoBody\Documents\recreating blister pack project\data\data.yaml, degrees=0.0, deterministic=True, device=0, dfl=1.5, dgrad=0.5, dis=6.0, distill_model=None, dlam=1.0, dlog=1.0, dnn=False, dropout=0.0, dynamic=False, embed=None, epochs=1, erasing=0.4, exist_ok=True, fliplr=0.5, flipud=0.0, format=torchscript, fraction=0.5, freeze=None, hsv_h=0.015, hsv_s=0.7, hsv_v=0.4, imgsz=640, iou=0.7, keras=False, kobj=1.0, line_width=None, lr0=0.01, lrf=0.01, mask_ratio=4, max_det=300, mixup=0.0, mode=train, model=yolo11n.pt, momentum=0.937, mosaic=1.0, multi_scale=0.0, name=b128, nbs=64, nms=None, opset=None, optimize=False, optimizer=auto, overlap_mask=True, patience=100, perspective=0.0, plots=False, pose=12.0, pretrained=True, profile=False, project=C:\Users\NoBody\Documents\recreating blister pack project\models\sweep, quantize=None, rect=False, resume=False, retina_masks=False, rle=1.0, save=False, save_conf=False, save_crop=False, save_dir=C:\Users\NoBody\Documents\recreating blister pack project\models\sweep\b128, save_frames=False, save_json=False, save_period=-1, save_txt=False, scale=0.5, seed=0, shear=0.0, show=False, show_boxes=True, show_conf=True, show_labels=True, simplify=True, single_cls=False, source=None, split=val, stream_buffer=False, task=detect, time=None, tracker=tracktrack.yaml, translate=0.1, val=False, verbose=False, vid_stride=1, visualize=False, warmup_bias_lr=0.1, warmup_epochs=3.0, warmup_momentum=0.8, weight_decay=0.0005, workers=8, workspace=None
+Overriding model.yaml nc=80 with nc=4
+
+                   from  n    params  module                                       arguments                     
+  0                  -1  1       464  ultralytics.nn.modules.conv.Conv             [3, 16, 3, 2]                 
+  1                  -1  1      4672  ultralytics.nn.modules.conv.Conv             [16, 32, 3, 2]                
+  2                  -1  1      6640  ultralytics.nn.modules.block.C3k2            [32, 64, 1, False, 0.25]      
+  3                  -1  1     36992  ultralytics.nn.modules.conv.Conv             [64, 64, 3, 2]                
+  4                  -1  1     26080  ultralytics.nn.modules.block.C3k2            [64, 128, 1, False, 0.25]     
+  5                  -1  1    147712  ultralytics.nn.modules.conv.Conv             [128, 128, 3, 2]              
+  6                  -1  1     87040  ultralytics.nn.modules.block.C3k2            [128, 128, 1, True]           
+  7                  -1  1    295424  ultralytics.nn.modules.conv.Conv             [128, 256, 3, 2]              
+  8                  -1  1    346112  ultralytics.nn.modules.block.C3k2            [256, 256, 1, True]           
+  9                  -1  1    164608  ultralytics.nn.modules.block.SPPF            [256, 256, 5]                 
+ 10                  -1  1    249728  ultralytics.nn.modules.block.C2PSA           [256, 256, 1]                 
+ 11                  -1  1         0  torch.nn.modules.upsampling.Upsample         [None, 2, 'nearest']          
+ 12             [-1, 6]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+ 13                  -1  1    111296  ultralytics.nn.modules.block.C3k2            [384, 128, 1, False]          
+ 14                  -1  1         0  torch.nn.modules.upsampling.Upsample         [None, 2, 'nearest']          
+ 15             [-1, 4]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+ 16                  -1  1     32096  ultralytics.nn.modules.block.C3k2            [256, 64, 1, False]           
+ 17                  -1  1     36992  ultralytics.nn.modules.conv.Conv             [64, 64, 3, 2]                
+ 18            [-1, 13]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+ 19                  -1  1     86720  ultralytics.nn.modules.block.C3k2            [192, 128, 1, False]          
+ 20                  -1  1    147712  ultralytics.nn.modules.conv.Conv             [128, 128, 3, 2]              
+ 21            [-1, 10]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+ 22                  -1  1    378880  ultralytics.nn.modules.block.C3k2            [384, 256, 1, True]           
+ 23        [16, 19, 22]  1    431452  ultralytics.nn.modules.head.Detect           [4, 16, None, [64, 128, 256]] 
+YOLO11n summary: 181 layers, 2,590,620 parameters, 2,590,604 gradients, 6.5 GFLOPs
+
+Transferred 448/499 items from pretrained weights
+Freezing layer 'model.23.dfl.conv.weight'
+[34m[1mtrain: [0mFast image access  (ping: 0.00.0 ms, read: 3280.3409.7 MB/s, size: 1104.6 KB)
+[K[34m[1mtrain: [0mScanning C:\Users\NoBody\Documents\recreating blister pack project\data\labels... 160 images, 0 backgrounds, 0 corrupt: 17% ━━────────── 160/900 480.0it/s 0.1s<1.5s[K[34m[1mtrain: [0mScanning C:\Users\NoBody\Documents\recreating blister pack project\data\labels... 324 images, 0 backgrounds, 0 corrupt: 36% ━━━━──────── 324/900 824.4it/s 0.2s<0.7s[K[34m[1mtrain: [0mScanning C:\Users\NoBody\Documents\recreating blister pack project\data\labels... 486 images, 0 backgrounds, 0 corrupt: 54% ━━━━━━────── 486/900 1.1Kit/s 0.3s<0.4s[K[34m[1mtrain: [0mScanning C:\Users\NoBody\Documents\recreating blister pack project\data\labels... 638 images, 0 backgrounds, 0 corrupt: 70% ━━━━━━━━╸─── 638/900 1.2Kit/s 0.4s<0.2s[K[34m[1mtrain: [0mScanning C:\Users\NoBody\Documents\recreating blister pack project\data\labels... 792 images, 0 backgrounds, 0 corrupt: 88% ━━━━━━━━━━╸─ 792/900 1.3Kit/s 0.5s<0.1s[K[34m[1mtrain: [0mScanning C:\Users\NoBody\Documents\recreating blister pack project\data\labels... 900 images, 0 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 900/900 1.6Kit/s 0.6s
+[34m[1mtrain: [0mNew cache created: C:\Users\NoBody\Documents\recreating blister pack project\data\labels.cache
+[34m[1mval: [0mFast image access  (ping: 0.00.0 ms, read: 3513.7301.3 MB/s, size: 1106.8 KB)
+[K[34m[1mval: [0mScanning C:\Users\NoBody\Documents\recreating blister pack project\data\labels... 141 images, 0 backgrounds, 0 corrupt: 23% ━━╸───────── 141/600 421.5it/s 0.1s<1.1s[K[34m[1mval: [0mScanning C:\Users\NoBody\Documents\recreating blister pack project\data\labels... 285 images, 0 backgrounds, 0 corrupt: 47% ━━━━━╸────── 285/600 719.8it/s 0.2s<0.4s[K[34m[1mval: [0mScanning C:\Users\NoBody\Documents\recreating blister pack project\data\labels... 431 images, 0 backgrounds, 0 corrupt: 71% ━━━━━━━━╸─── 431/600 935.0it/s 0.3s<0.2s[K[34m[1mval: [0mScanning C:\Users\NoBody\Documents\recreating blister pack project\data\labels... 580 images, 0 backgrounds, 0 corrupt: 96% ━━━━━━━━━━━╸ 580/600 1.1Kit/s 0.4s<0.0s[K[34m[1mval: [0mScanning C:\Users\NoBody\Documents\recreating blister pack project\data\labels... 600 images, 0 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 600/600 1.4Kit/s 0.4s
+[34m[1mval: [0mNew cache created: C:\Users\NoBody\Documents\recreating blister pack project\data\labels.cache
+[34m[1moptimizer:[0m 'optimizer=auto' found, ignoring 'lr0=0.01' and 'momentum=0.937' and determining best 'optimizer', 'lr0' and 'momentum' automatically... 
+[34m[1moptimizer:[0m AdamW(lr=0.00125, momentum=0.9) with parameter groups 81 weight(decay=0.0), 88 weight(decay=0.001), 87 bias(decay=0.0)
+Using 900 train, 600 val images for fraction=0.5 at imgsz=640
+Using 8 dataloader workers
+Logging results to [1mC:\Users\NoBody\Documents\recreating blister pack project\models\sweep\b128[0m
+Starting training for 1 epochs...
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+[K        1/1      17.8G     0.9542      3.953     0.9299       2286        640: 0% ──────────── 0/8  0.7s[K        1/1      17.8G      1.432       3.69      1.173       2335        640: 12% ━─────────── 1/8 1.0it/s 1.0s<6.8s[K        1/1      17.8G      1.479      3.413      1.179       2266        640: 25% ━━━───────── 2/8 1.5it/s 1.4s<4.0s[K        1/1      17.8G      1.416      3.216      1.141       2411        640: 37% ━━━━──────── 3/8 1.8it/s 1.8s<2.8s[K        1/1      17.8G       1.34       3.02        1.1       2340        640: 50% ━━━━━━────── 4/8 2.3it/s 2.1s<1.7s[K        1/1      17.8G      1.275      2.832      1.065       2287        640: 62% ━━━━━━━───── 5/8 2.8it/s 2.3s<1.1s[K        1/1      17.8G      1.221      2.646      1.038       2278        640: 75% ━━━━━━━━━─── 6/8 3.1it/s 2.6s<0.6s[K        1/1      17.9G      1.152      2.565      1.018         39        640: 87% ━━━━━━━━━━── 7/8 4.5it/s 2.7s<0.2s[K        1/1      17.9G      1.152      2.565      1.018         39        640: 100% ━━━━━━━━━━━━ 8/8 3.0it/s 2.7s
+[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 33% ━━━━──────── 1/3 9.7s/it 2.9s<19.5s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 66% ━━━━━━━━──── 2/3 1.5s/it 3.4s<1.5s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 3/3 1.2s/it 3.6s
+                   all        600       6000     0.0152      0.305     0.0247      0.011
+
+1 epochs completed in 0.002 hours.
+Optimizer stripped from C:\Users\NoBody\Documents\recreating blister pack project\models\sweep\b128\weights\last.pt, 5.4MB
+Optimizer stripped from C:\Users\NoBody\Documents\recreating blister pack project\models\sweep\b128\weights\best.pt, 5.4MB
+
+Validating C:\Users\NoBody\Documents\recreating blister pack project\models\sweep\b128\weights\best.pt...
+Ultralytics 8.4.146  Python-3.12.13 torch-2.10.0+cu130 CUDA:0 (NVIDIA GeForce RTX 5090, 32579MiB)
+YOLO11n summary (fused): 100 layers, 2,582,932 parameters, 0 gradients, 6.4 GFLOPs
+[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 33% ━━━━──────── 1/3 2.9s/it 0.9s<5.8s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 66% ━━━━━━━━──── 2/3 1.2s/it 1.4s<1.2s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 3/3 1.9it/s 1.6s
+                   all        600       6000     0.0153      0.306     0.0248     0.0111
+Speed: 0.0ms preprocess, 0.1ms inference, 0.0ms loss, 0.7ms postprocess per image
+batch 128: peak alloc 17.0 GB, reserved 19.2 GB, step 258.0 ms, 2.02 ms/img
+sweep: [
+ {
+  "batch": 32,
+  "steps": 29,
+  "step_ms_median": 83.4,
+  "step_ms_p95": 95.8,
+  "wall_s": 51.3,
+  "peak_alloc_gb": 4.36,
+  "peak_reserved_gb": 5.0,
+  "ms_per_image": 2.61,
+  "skipped_steps": 0,
+  "accepted": true
+ },
+ {
+  "batch": 64,
+  "steps": 15,
+  "step_ms_median": 146.0,
+  "step_ms_p95": 205.7,
+  "wall_s": 26.6,
+  "peak_alloc_gb": 8.56,
+  "peak_reserved_gb": 9.79,
+  "ms_per_image": 2.28,
+  "skipped_steps": 0,
+  "step_ratio_vs_expected": 0.88,
+  "accepted": true
+ },
+ {
+  "batch": 128,
+  "steps": 8,
+  "step_ms_median": 258.0,
+  "step_ms_p95": 271.2,
+  "wall_s": 26.6,
+  "peak_alloc_gb": 16.98,
+  "peak_reserved_gb": 19.23,
+  "ms_per_image": 2.02,
+  "skipped_steps": 0,
+  "step_ratio_vs_expected": 0.88,
+  "accepted": true
+ }
+] 
+selected batch: 128
+New https://pypi.org/project/ultralytics/8.4.155 available  Update with 'pip install -U ultralytics'
+Ultralytics 8.4.146  Python-3.12.13 torch-2.10.0+cu130 CUDA:0 (NVIDIA GeForce RTX 5090, 32579MiB)
+[34m[1mengine\trainer: [0magnostic_nms=False, amp=bf16, angle=1.0, augment=False, auto_augment=randaugment, batch=128, bgr=0.0, box=7.5, cache=False, cfg=None, channels_last=None, classes=None, close_mosaic=10, cls=0.5, cls_pw=0.0, cls_remap=True, compile=False, conf=None, copy_paste=0.0, copy_paste_mode=flip, cos_lr=False, cutmix=0.0, data=C:\Users\NoBody\Documents\recreating blister pack project\data\data.yaml, degrees=0.0, deterministic=True, device=0, dfl=1.5, dgrad=0.5, dis=6.0, distill_model=None, dlam=1.0, dlog=1.0, dnn=False, dropout=0.0, dynamic=False, embed=None, epochs=30, erasing=0.4, exist_ok=True, fliplr=0.5, flipud=0.0, format=torchscript, fraction=1.0, freeze=None, hsv_h=0.015, hsv_s=0.7, hsv_v=0.4, imgsz=640, iou=0.7, keras=False, kobj=1.0, line_width=None, lr0=0.01, lrf=0.01, mask_ratio=4, max_det=300, mixup=0.0, mode=train, model=yolo11n.pt, momentum=0.937, mosaic=1.0, multi_scale=0.0, name=yolo11n_v2, nbs=64, nms=None, opset=None, optimize=False, optimizer=auto, overlap_mask=True, patience=100, perspective=0.0, plots=True, pose=12.0, pretrained=True, profile=False, project=C:\Users\NoBody\Documents\recreating blister pack project\models\runs, quantize=None, rect=False, resume=False, retina_masks=False, rle=1.0, save=True, save_conf=False, save_crop=False, save_dir=C:\Users\NoBody\Documents\recreating blister pack project\models\runs\yolo11n_v2, save_frames=False, save_json=False, save_period=-1, save_txt=False, scale=0.5, seed=0, shear=0.0, show=False, show_boxes=True, show_conf=True, show_labels=True, simplify=True, single_cls=False, source=None, split=val, stream_buffer=False, task=detect, time=None, tracker=tracktrack.yaml, translate=0.1, val=True, verbose=False, vid_stride=1, visualize=False, warmup_bias_lr=0.1, warmup_epochs=3.0, warmup_momentum=0.8, weight_decay=0.0005, workers=8, workspace=None
+Overriding model.yaml nc=80 with nc=4
+
+                   from  n    params  module                                       arguments                     
+  0                  -1  1       464  ultralytics.nn.modules.conv.Conv             [3, 16, 3, 2]                 
+  1                  -1  1      4672  ultralytics.nn.modules.conv.Conv             [16, 32, 3, 2]                
+  2                  -1  1      6640  ultralytics.nn.modules.block.C3k2            [32, 64, 1, False, 0.25]      
+  3                  -1  1     36992  ultralytics.nn.modules.conv.Conv             [64, 64, 3, 2]                
+  4                  -1  1     26080  ultralytics.nn.modules.block.C3k2            [64, 128, 1, False, 0.25]     
+  5                  -1  1    147712  ultralytics.nn.modules.conv.Conv             [128, 128, 3, 2]              
+  6                  -1  1     87040  ultralytics.nn.modules.block.C3k2            [128, 128, 1, True]           
+  7                  -1  1    295424  ultralytics.nn.modules.conv.Conv             [128, 256, 3, 2]              
+  8                  -1  1    346112  ultralytics.nn.modules.block.C3k2            [256, 256, 1, True]           
+  9                  -1  1    164608  ultralytics.nn.modules.block.SPPF            [256, 256, 5]                 
+ 10                  -1  1    249728  ultralytics.nn.modules.block.C2PSA           [256, 256, 1]                 
+ 11                  -1  1         0  torch.nn.modules.upsampling.Upsample         [None, 2, 'nearest']          
+ 12             [-1, 6]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+ 13                  -1  1    111296  ultralytics.nn.modules.block.C3k2            [384, 128, 1, False]          
+ 14                  -1  1         0  torch.nn.modules.upsampling.Upsample         [None, 2, 'nearest']          
+ 15             [-1, 4]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+ 16                  -1  1     32096  ultralytics.nn.modules.block.C3k2            [256, 64, 1, False]           
+ 17                  -1  1     36992  ultralytics.nn.modules.conv.Conv             [64, 64, 3, 2]                
+ 18            [-1, 13]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+ 19                  -1  1     86720  ultralytics.nn.modules.block.C3k2            [192, 128, 1, False]          
+ 20                  -1  1    147712  ultralytics.nn.modules.conv.Conv             [128, 128, 3, 2]              
+ 21            [-1, 10]  1         0  ultralytics.nn.modules.conv.Concat           [1]                           
+ 22                  -1  1    378880  ultralytics.nn.modules.block.C3k2            [384, 256, 1, True]           
+ 23        [16, 19, 22]  1    431452  ultralytics.nn.modules.head.Detect           [4, 16, None, [64, 128, 256]] 
+YOLO11n summary: 181 layers, 2,590,620 parameters, 2,590,604 gradients, 6.5 GFLOPs
+
+Transferred 448/499 items from pretrained weights
+Freezing layer 'model.23.dfl.conv.weight'
+[34m[1mtrain: [0mFast image access  (ping: 0.00.0 ms, read: 1785.81387.1 MB/s, size: 1101.5 KB)
+[K[34m[1mtrain: [0mScanning C:\Users\NoBody\Documents\recreating blister pack project\data\labels... 138 images, 0 backgrounds, 0 corrupt: 7% ╸─────────── 138/1800 411.2it/s 0.1s<4.0s[K[34m[1mtrain: [0mScanning C:\Users\NoBody\Documents\recreating blister pack project\data\labels... 287 images, 0 backgrounds, 0 corrupt: 15% ━╸────────── 287/1800 732.8it/s 0.2s<2.1s[K[34m[1mtrain: [0mScanning C:\Users\NoBody\Documents\recreating blister pack project\data\labels... 413 images, 0 backgrounds, 0 corrupt: 22% ━━╸───────── 413/1800 889.8it/s 0.3s<1.6s[K[34m[1mtrain: [0mScanning C:\Users\NoBody\Documents\recreating blister pack project\data\labels... 533 images, 0 backgrounds, 0 corrupt: 29% ━━━╸──────── 533/1800 981.7it/s 0.4s<1.3s[K[34m[1mtrain: [0mScanning C:\Users\NoBody\Documents\recreating blister pack project\data\labels... 659 images, 0 backgrounds, 0 corrupt: 36% ━━━━──────── 659/1800 1.1Kit/s 0.5s<1.1s[K[34m[1mtrain: [0mScanning C:\Users\NoBody\Documents\recreating blister pack project\data\labels... 781 images, 0 backgrounds, 0 corrupt: 43% ━━━━━─────── 781/1800 1.1Kit/s 0.6s<0.9s[K[34m[1mtrain: [0mScanning C:\Users\NoBody\Documents\recreating blister pack project\data\labels... 902 images, 0 backgrounds, 0 corrupt: 50% ━━━━━━────── 902/1800 1.1Kit/s 0.7s<0.8s[K[34m[1mtrain: [0mScanning C:\Users\NoBody\Documents\recreating blister pack project\data\labels... 958 images, 0 backgrounds, 0 corrupt: 53% ━━━━━━────── 958/1800 963.9it/s 0.8s<0.9s[K[34m[1mtrain: [0mScanning C:\Users\NoBody\Documents\recreating blister pack project\data\labels... 1089 images, 0 backgrounds, 0 corrupt: 60% ━━━━━━━───── 1089/1800 1.0Kit/s 0.9s<0.7s[K[34m[1mtrain: [0mScanning C:\Users\NoBody\Documents\recreating blister pack project\data\labels... 1160 images, 0 backgrounds, 0 corrupt: 64% ━━━━━━━╸──── 1160/1800 944.8it/s 1.0s<0.7s[K[34m[1mtrain: [0mScanning C:\Users\NoBody\Documents\recreating blister pack project\data\labels... 1267 images, 0 backgrounds, 0 corrupt: 70% ━━━━━━━━──── 1267/1800 980.7it/s 1.1s<0.5s[K[34m[1mtrain: [0mScanning C:\Users\NoBody\Documents\recreating blister pack project\data\labels... 1410 images, 0 backgrounds, 0 corrupt: 78% ━━━━━━━━━─── 1410/1800 1.1Kit/s 1.2s<0.4s[K[34m[1mtrain: [0mScanning C:\Users\NoBody\Documents\recreating blister pack project\data\labels... 1545 images, 0 backgrounds, 0 corrupt: 85% ━━━━━━━━━━── 1545/1800 1.2Kit/s 1.3s<0.2s[K[34m[1mtrain: [0mScanning C:\Users\NoBody\Documents\recreating blister pack project\data\labels... 1706 images, 0 backgrounds, 0 corrupt: 94% ━━━━━━━━━━━─ 1706/1800 1.3Kit/s 1.4s<0.1s[K[34m[1mtrain: [0mScanning C:\Users\NoBody\Documents\recreating blister pack project\data\labels... 1800 images, 0 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 1800/1800 1.2Kit/s 1.5s
+[34m[1mtrain: [0mNew cache created: C:\Users\NoBody\Documents\recreating blister pack project\data\labels.cache
+[34m[1mval: [0mFast image access  (ping: 0.00.0 ms, read: 2331.8307.8 MB/s, size: 1106.8 KB)
+[K[34m[1mval: [0mScanning C:\Users\NoBody\Documents\recreating blister pack project\data\labels... 85 images, 0 backgrounds, 0 corrupt: 14% ━╸────────── 85/600 254.1it/s 0.1s<2.0s[K[34m[1mval: [0mScanning C:\Users\NoBody\Documents\recreating blister pack project\data\labels... 174 images, 0 backgrounds, 0 corrupt: 28% ━━━───────── 174/600 444.1it/s 0.2s<1.0s[K[34m[1mval: [0mScanning C:\Users\NoBody\Documents\recreating blister pack project\data\labels... 265 images, 0 backgrounds, 0 corrupt: 44% ━━━━━─────── 265/600 571.2it/s 0.3s<0.6s[K[34m[1mval: [0mScanning C:\Users\NoBody\Documents\recreating blister pack project\data\labels... 363 images, 0 backgrounds, 0 corrupt: 60% ━━━━━━━───── 363/600 687.8it/s 0.4s<0.3s[K[34m[1mval: [0mScanning C:\Users\NoBody\Documents\recreating blister pack project\data\labels... 459 images, 0 backgrounds, 0 corrupt: 76% ━━━━━━━━━─── 459/600 757.7it/s 0.5s<0.2s[K[34m[1mval: [0mScanning C:\Users\NoBody\Documents\recreating blister pack project\data\labels... 555 images, 0 backgrounds, 0 corrupt: 92% ━━━━━━━━━━━─ 555/600 805.0it/s 0.6s<0.1s[K[34m[1mval: [0mScanning C:\Users\NoBody\Documents\recreating blister pack project\data\labels... 600 images, 0 backgrounds, 0 corrupt: 100% ━━━━━━━━━━━━ 600/600 914.4it/s 0.7s
+[34m[1mval: [0mNew cache created: C:\Users\NoBody\Documents\recreating blister pack project\data\labels.cache
+[34m[1moptimizer:[0m 'optimizer=auto' found, ignoring 'lr0=0.01' and 'momentum=0.937' and determining best 'optimizer', 'lr0' and 'momentum' automatically... 
+[34m[1moptimizer:[0m AdamW(lr=0.00125, momentum=0.9) with parameter groups 81 weight(decay=0.0), 88 weight(decay=0.001), 87 bias(decay=0.0)
+Plotting labels to C:\Users\NoBody\Documents\recreating blister pack project\models\runs\yolo11n_v2\labels.jpg... 
+Using 1800 train, 600 val images for fraction=1.0 at imgsz=640
+Using 8 dataloader workers
+Logging results to [1mC:\Users\NoBody\Documents\recreating blister pack project\models\runs\yolo11n_v2[0m
+Starting training for 30 epochs...
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+[K       1/30      17.9G      0.946      3.934     0.9211       2289        640: 0% ──────────── 0/15  1.0s[K       1/30      17.9G     0.9319      3.943     0.9193       2331        640: 6% ╸─────────── 1/15 2.2s/it 1.6s<30.4s[K       1/30      17.9G     0.9098      3.922     0.9098       2299        640: 13% ━╸────────── 2/15 1.2it/s 2.0s<10.5s[K       1/30      17.9G     0.8756      3.882     0.8925       2380        640: 20% ━━────────── 3/15 1.7it/s 2.3s<7.0s[K       1/30      17.9G      0.848      3.831     0.8797       2341        640: 26% ━━━───────── 4/15 2.3it/s 2.6s<4.7s[K       1/30      17.9G     0.8293      3.777     0.8697       2294        640: 33% ━━━━──────── 5/15 2.6it/s 2.9s<3.8s[K       1/30      17.9G     0.8133      3.717     0.8622       2311        640: 40% ━━━━╸─────── 6/15 3.0it/s 3.1s<3.0s[K       1/30      17.9G      0.801      3.653     0.8555       2309        640: 46% ━━━━━╸────── 7/15 3.2it/s 3.4s<2.5s[K       1/30      17.9G      0.795       3.59     0.8504       2630        640: 53% ━━━━━━────── 8/15 3.4it/s 3.7s<2.1s[K       1/30      17.9G     0.7887      3.515     0.8461       2202        640: 60% ━━━━━━━───── 9/15 3.6it/s 3.9s<1.7s[K       1/30      17.9G     0.7824      3.442     0.8427       2374        640: 66% ━━━━━━━━──── 10/15 3.7it/s 4.2s<1.4s[K       1/30      17.9G     0.7778      3.362     0.8397       2328        640: 73% ━━━━━━━━╸─── 11/15 3.8it/s 4.4s<1.1s[K       1/30      17.9G     0.7725      3.285     0.8374       2283        640: 80% ━━━━━━━━━╸── 12/15 3.8it/s 4.7s<0.8s[K       1/30      17.9G     0.7674       3.21     0.8349       2454        640: 86% ━━━━━━━━━━── 13/15 3.9it/s 4.9s<0.5s[K       1/30      17.9G     0.7596      3.118     0.8307        125        640: 93% ━━━━━━━━━━━─ 14/15 3.0it/s 5.8s<0.3s[K       1/30      17.9G     0.7596      3.118     0.8307        125        640: 100% ━━━━━━━━━━━━ 15/15 2.6it/s 5.8s
+[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 33% ━━━━──────── 1/3 2.2s/it 0.7s<4.4s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 66% ━━━━━━━━──── 2/3 1.3s/it 1.3s<1.3s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 3/3 1.9it/s 1.6s
+                   all        600       6000     0.0301       0.87      0.194     0.0767
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+[K       2/30      17.9G     0.7733      1.955     0.8154       2309        640: 0% ──────────── 0/15  0.3s[K       2/30      17.9G     0.7483      1.885     0.8105       2286        640: 6% ╸─────────── 1/15 1.2it/s 0.5s<11.3s[K       2/30      17.9G     0.7659      1.816     0.8165       2215        640: 13% ━╸────────── 2/15 2.0it/s 0.8s<6.4s[K       2/30      17.9G     0.7586      1.743      0.815       2384        640: 20% ━━────────── 3/15 2.6it/s 1.0s<4.6s[K       2/30      17.9G     0.7588      1.683     0.8151       2444        640: 26% ━━━───────── 4/15 3.0it/s 1.3s<3.7s[K       2/30      17.9G     0.7555       1.62     0.8146       2173        640: 33% ━━━━──────── 5/15 3.3it/s 1.5s<3.0s[K       2/30      17.9G     0.7486      1.573     0.8129       2597        640: 40% ━━━━╸─────── 6/15 3.5it/s 1.8s<2.6s[K       2/30      17.9G     0.7443      1.523     0.8123       2418        640: 46% ━━━━━╸────── 7/15 3.5it/s 2.1s<2.3s[K       2/30      17.9G     0.7376      1.476     0.8109       2439        640: 53% ━━━━━━────── 8/15 3.5it/s 2.4s<2.0s[K       2/30      17.9G     0.7327       1.43     0.8101       2487        640: 60% ━━━━━━━───── 9/15 3.7it/s 2.6s<1.6s[K       2/30      17.9G     0.7254      1.382     0.8098       2053        640: 66% ━━━━━━━━──── 10/15 3.8it/s 2.9s<1.3s[K       2/30      17.9G     0.7245      1.342     0.8102       2264        640: 73% ━━━━━━━━╸─── 11/15 3.8it/s 3.1s<1.0s[K       2/30      17.9G     0.7206      1.303     0.8101       2284        640: 80% ━━━━━━━━━╸── 12/15 3.9it/s 3.4s<0.8s[K       2/30      17.9G     0.7185      1.269     0.8097       2491        640: 86% ━━━━━━━━━━── 13/15 3.8it/s 3.6s<0.5s[K       2/30      17.9G     0.7132      1.238     0.8096        165        640: 93% ━━━━━━━━━━━─ 14/15 5.2it/s 3.8s<0.2s[K       2/30      17.9G     0.7132      1.238     0.8096        165        640: 100% ━━━━━━━━━━━━ 15/15 4.0it/s 3.8s
+[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 33% ━━━━──────── 1/3 2.2s/it 0.7s<4.4s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 66% ━━━━━━━━──── 2/3 1.2s/it 1.2s<1.2s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 3/3 2.1it/s 1.4s
+                   all        600       6000     0.0285      0.835      0.271      0.142
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+[K       3/30      17.9G     0.6998     0.7863     0.8073       2354        640: 0% ──────────── 0/15  0.3s[K       3/30      17.9G     0.6763     0.7681     0.8087       2050        640: 6% ╸─────────── 1/15 1.2it/s 0.5s<11.4s[K       3/30      17.9G     0.6714     0.7471     0.8095       2350        640: 13% ━╸────────── 2/15 2.0it/s 0.8s<6.4s[K       3/30      17.9G     0.6666     0.7363     0.8079       2273        640: 20% ━━────────── 3/15 2.7it/s 1.0s<4.5s[K       3/30      17.9G     0.6613     0.7238     0.8062       2338        640: 26% ━━━───────── 4/15 3.1it/s 1.3s<3.6s[K       3/30      17.9G     0.6627     0.7151     0.8068       2600        640: 33% ━━━━──────── 5/15 3.3it/s 1.5s<3.0s[K       3/30      17.9G     0.6623     0.7064     0.8063       2413        640: 40% ━━━━╸─────── 6/15 3.5it/s 1.8s<2.5s[K       3/30      17.9G     0.6626     0.6976     0.8059       2252        640: 46% ━━━━━╸────── 7/15 3.7it/s 2.0s<2.2s[K       3/30      17.9G     0.6593     0.6879     0.8057       2382        640: 53% ━━━━━━────── 8/15 3.6it/s 2.3s<1.9s[K       3/30      17.9G     0.6569     0.6778     0.8056       2199        640: 60% ━━━━━━━───── 9/15 3.6it/s 2.6s<1.7s[K       3/30      17.9G     0.6518     0.6696     0.8051       2159        640: 66% ━━━━━━━━──── 10/15 3.7it/s 2.9s<1.4s[K       3/30      17.9G      0.651     0.6635     0.8049       2342        640: 73% ━━━━━━━━╸─── 11/15 3.8it/s 3.1s<1.1s[K       3/30      17.9G     0.6508     0.6572     0.8045       2357        640: 80% ━━━━━━━━━╸── 12/15 3.7it/s 3.4s<0.8s[K       3/30      17.9G     0.6452     0.6495     0.8039       2236        640: 86% ━━━━━━━━━━── 13/15 3.8it/s 3.6s<0.5s[K       3/30      17.9G      0.639     0.6429     0.8026        138        640: 93% ━━━━━━━━━━━─ 14/15 4.9it/s 3.8s<0.2s[K       3/30      17.9G      0.639     0.6429     0.8026        138        640: 100% ━━━━━━━━━━━━ 15/15 4.0it/s 3.8s
+[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 33% ━━━━──────── 1/3 1.8s/it 0.5s<3.6s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 66% ━━━━━━━━──── 2/3 1.0s/it 1.0s<1.0s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 3/3 2.4it/s 1.2s
+                   all        600       6000    0.00566      0.307    0.00551    0.00215
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+[K       4/30      17.9G     0.6544     0.5542     0.8028       2444        640: 0% ──────────── 0/15  0.3s[K       4/30      17.9G     0.6645     0.5642     0.8028       2295        640: 6% ╸─────────── 1/15 1.2it/s 0.5s<11.4s[K       4/30      17.9G     0.6695     0.5624     0.8012       2447        640: 13% ━╸────────── 2/15 2.0it/s 0.8s<6.4s[K       4/30      17.9G     0.6598     0.5557     0.7992       2460        640: 20% ━━────────── 3/15 2.6it/s 1.0s<4.5s[K       4/30      17.9G     0.6545     0.5513     0.7992       2258        640: 26% ━━━───────── 4/15 3.1it/s 1.3s<3.6s[K       4/30      17.9G     0.6511     0.5489     0.7988       2470        640: 33% ━━━━──────── 5/15 3.3it/s 1.5s<3.0s[K       4/30      17.9G     0.6448     0.5473      0.799       2239        640: 40% ━━━━╸─────── 6/15 3.5it/s 1.8s<2.6s[K       4/30      17.9G     0.6445     0.5453     0.7985       2505        640: 46% ━━━━━╸────── 7/15 3.6it/s 2.1s<2.2s[K       4/30      17.9G     0.6419     0.5413     0.7989       2370        640: 53% ━━━━━━────── 8/15 3.7it/s 2.3s<1.9s[K       4/30      17.9G     0.6388     0.5369     0.7987       2261        640: 60% ━━━━━━━───── 9/15 3.7it/s 2.6s<1.6s[K       4/30      17.9G     0.6374     0.5337     0.7983       2449        640: 66% ━━━━━━━━──── 10/15 3.6it/s 2.9s<1.4s[K       4/30      17.9G     0.6338     0.5299     0.7981       2421        640: 73% ━━━━━━━━╸─── 11/15 3.6it/s 3.1s<1.1s[K       4/30      17.9G      0.628     0.5258     0.7979       2223        640: 80% ━━━━━━━━━╸── 12/15 3.8it/s 3.4s<0.8s[K       4/30      17.9G     0.6277      0.523      0.798       2217        640: 86% ━━━━━━━━━━── 13/15 3.7it/s 3.7s<0.5s[K       4/30      17.9G     0.6253     0.5211     0.7964        163        640: 93% ━━━━━━━━━━━─ 14/15 5.5it/s 3.8s<0.2s[K       4/30      17.9G     0.6253     0.5211     0.7964        163        640: 100% ━━━━━━━━━━━━ 15/15 4.0it/s 3.8s
+[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 33% ━━━━──────── 1/3 1.9s/it 0.6s<3.9s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 66% ━━━━━━━━──── 2/3 1.2s/it 1.2s<1.2s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 3/3 2.1it/s 1.4s
+                   all        600       6000     0.0192       0.38      0.204      0.164
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+[K       5/30      17.9G     0.6656     0.5133        0.8       2141        640: 0% ──────────── 0/15  0.3s[K       5/30      17.9G     0.6819     0.5192     0.8007       2402        640: 6% ╸─────────── 1/15 1.2it/s 0.5s<11.4s[K       5/30      17.9G     0.6595     0.5064     0.7989       2297        640: 13% ━╸────────── 2/15 2.0it/s 0.8s<6.4s[K       5/30      17.9G      0.648     0.5005     0.7986       2162        640: 20% ━━────────── 3/15 2.6it/s 1.0s<4.5s[K       5/30      17.9G     0.6356     0.4966     0.7979       2279        640: 26% ━━━───────── 4/15 3.1it/s 1.3s<3.6s[K       5/30      17.9G     0.6259     0.4929     0.7973       2300        640: 33% ━━━━──────── 5/15 3.3it/s 1.5s<3.0s[K       5/30      17.9G     0.6165     0.4879     0.7972       2282        640: 40% ━━━━╸─────── 6/15 3.5it/s 1.8s<2.6s[K       5/30      17.9G     0.6156     0.4844     0.7968       2386        640: 46% ━━━━━╸────── 7/15 3.6it/s 2.0s<2.2s[K       5/30      17.9G     0.6181     0.4845     0.7966       2625        640: 53% ━━━━━━────── 8/15 3.4it/s 2.4s<2.1s[K       5/30      17.9G     0.6136     0.4797     0.7957       2329        640: 60% ━━━━━━━───── 9/15 3.6it/s 2.6s<1.7s[K       5/30      17.9G      0.609     0.4756     0.7955       2139        640: 66% ━━━━━━━━──── 10/15 3.7it/s 2.9s<1.4s[K       5/30      17.9G     0.6054     0.4735     0.7954       2234        640: 73% ━━━━━━━━╸─── 11/15 3.7it/s 3.2s<1.1s[K       5/30      17.9G     0.6035      0.471     0.7947       2299        640: 80% ━━━━━━━━━╸── 12/15 3.7it/s 3.4s<0.8s[K       5/30      17.9G     0.6024     0.4693     0.7947       2266        640: 86% ━━━━━━━━━━── 13/15 3.8it/s 3.7s<0.5s[K       5/30      17.9G     0.6074     0.4739      0.794        196        640: 100% ━━━━━━━━━━━━ 15/15 4.0it/s 3.8s
+[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 33% ━━━━──────── 1/3 1.9s/it 0.6s<3.9s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 66% ━━━━━━━━──── 2/3 1.2s/it 1.2s<1.2s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 3/3 2.1it/s 1.4s
+                   all        600       6000     0.0264      0.944      0.754      0.677
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+[K       6/30      17.9G     0.6371     0.4677     0.7923       2399        640: 0% ──────────── 0/15  0.3s[K       6/30      17.9G     0.6295     0.4605     0.7898       2379        640: 6% ╸─────────── 1/15 1.2it/s 0.5s<11.4s[K       6/30      17.9G     0.6122     0.4521     0.7913       2207        640: 13% ━╸────────── 2/15 2.0it/s 0.8s<6.5s[K       6/30      17.9G     0.6109     0.4484     0.7901       2483        640: 20% ━━────────── 3/15 2.6it/s 1.0s<4.6s[K       6/30      17.9G     0.6025     0.4443     0.7898       2328        640: 26% ━━━───────── 4/15 3.0it/s 1.3s<3.6s[K       6/30      17.9G     0.5995     0.4409     0.7902       2243        640: 33% ━━━━──────── 5/15 3.2it/s 1.5s<3.1s[K       6/30      17.9G     0.5989      0.441     0.7908       2596        640: 40% ━━━━╸─────── 6/15 3.4it/s 1.8s<2.6s[K       6/30      17.9G     0.5951      0.439     0.7904       2361        640: 46% ━━━━━╸────── 7/15 3.6it/s 2.1s<2.2s[K       6/30      17.9G     0.5953     0.4377     0.7906       2359        640: 53% ━━━━━━────── 8/15 3.7it/s 2.3s<1.9s[K       6/30      17.9G     0.5933     0.4355     0.7902       2529        640: 60% ━━━━━━━───── 9/15 3.8it/s 2.6s<1.6s[K       6/30      17.9G     0.5913     0.4337       0.79       2411        640: 66% ━━━━━━━━──── 10/15 3.8it/s 2.8s<1.3s[K       6/30      17.9G     0.5887     0.4314       0.79       2299        640: 73% ━━━━━━━━╸─── 11/15 3.9it/s 3.1s<1.0s[K       6/30      17.9G     0.5858     0.4293     0.7899       2181        640: 80% ━━━━━━━━━╸── 12/15 4.0it/s 3.3s<0.8s[K       6/30      17.9G     0.5847     0.4274     0.7896       2319        640: 86% ━━━━━━━━━━── 13/15 4.0it/s 3.6s<0.5s[K       6/30      17.9G     0.5834     0.4284     0.7894        108        640: 93% ━━━━━━━━━━━─ 14/15 5.0it/s 3.7s<0.2s[K       6/30      17.9G     0.5834     0.4284     0.7894        108        640: 100% ━━━━━━━━━━━━ 15/15 4.1it/s 3.7s
+[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 33% ━━━━──────── 1/3 2.0s/it 0.6s<3.9s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 66% ━━━━━━━━──── 2/3 1.1s/it 1.1s<1.1s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 3/3 2.2it/s 1.3s
+                   all        600       6000      0.026          1      0.995      0.903
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+[K       7/30      17.9G      0.609     0.4626     0.7932       2506        640: 0% ──────────── 0/15  0.3s[K       7/30      17.9G     0.5898     0.4546     0.7911       2221        640: 6% ╸─────────── 1/15 1.2it/s 0.5s<11.2s[K       7/30      17.9G     0.5821     0.4454     0.7883       2227        640: 13% ━╸────────── 2/15 2.0it/s 0.8s<6.4s[K       7/30      17.9G     0.5798     0.4379      0.788       2318        640: 20% ━━────────── 3/15 2.6it/s 1.0s<4.5s[K       7/30      17.9G     0.5796     0.4325     0.7876       2540        640: 26% ━━━───────── 4/15 3.1it/s 1.3s<3.6s[K       7/30      17.9G     0.5789      0.429      0.788       2297        640: 33% ━━━━──────── 5/15 3.4it/s 1.5s<3.0s[K       7/30      17.9G     0.5778     0.4249     0.7866       2444        640: 40% ━━━━╸─────── 6/15 3.4it/s 1.8s<2.7s[K       7/30      17.9G     0.5729      0.423     0.7868       2314        640: 46% ━━━━━╸────── 7/15 3.6it/s 2.1s<2.2s[K       7/30      17.9G     0.5726     0.4201     0.7872       2419        640: 53% ━━━━━━────── 8/15 3.5it/s 2.4s<2.0s[K       7/30      17.9G     0.5709     0.4163     0.7869       2481        640: 60% ━━━━━━━───── 9/15 3.6it/s 2.6s<1.7s[K       7/30      17.9G     0.5721     0.4145     0.7872       2508        640: 66% ━━━━━━━━──── 10/15 3.7it/s 2.9s<1.4s[K       7/30      17.9G     0.5724      0.413     0.7872       2428        640: 73% ━━━━━━━━╸─── 11/15 3.8it/s 3.1s<1.1s[K       7/30      17.9G     0.5707     0.4109     0.7872       2383        640: 80% ━━━━━━━━━╸── 12/15 3.7it/s 3.4s<0.8s[K       7/30      17.9G     0.5712     0.4097     0.7872       2283        640: 86% ━━━━━━━━━━── 13/15 3.7it/s 3.7s<0.5s[K       7/30      17.9G     0.5695     0.4107     0.7866        134        640: 100% ━━━━━━━━━━━━ 15/15 4.0it/s 3.8s
+[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 33% ━━━━──────── 1/3 2.2s/it 0.6s<4.3s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 66% ━━━━━━━━──── 2/3 1.1s/it 1.2s<1.1s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 3/3 2.2it/s 1.4s
+                   all        600       6000          1      0.813      0.995      0.944
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+[K       8/30      17.9G     0.5648     0.4007     0.7842       2520        640: 0% ──────────── 0/15  0.3s[K       8/30      17.9G     0.5562     0.3975     0.7856       2242        640: 6% ╸─────────── 1/15 1.2it/s 0.5s<11.2s[K       8/30      17.9G     0.5567     0.3984     0.7845       2553        640: 13% ━╸────────── 2/15 2.0it/s 0.8s<6.4s[K       8/30      17.9G     0.5583      0.395      0.785       2386        640: 20% ━━────────── 3/15 2.7it/s 1.0s<4.5s[K       8/30      17.9G     0.5618     0.3937     0.7854       2487        640: 26% ━━━───────── 4/15 3.1it/s 1.3s<3.6s[K       8/30      17.9G     0.5603     0.3916     0.7858       2119        640: 33% ━━━━──────── 5/15 3.4it/s 1.5s<3.0s[K       8/30      17.9G     0.5549     0.3879     0.7859       2283        640: 40% ━━━━╸─────── 6/15 3.5it/s 1.8s<2.6s[K       8/30      17.9G     0.5547     0.3862     0.7852       2282        640: 46% ━━━━━╸────── 7/15 3.6it/s 2.0s<2.2s[K       8/30      17.9G     0.5572     0.3874     0.7853       2723        640: 53% ━━━━━━────── 8/15 3.7it/s 2.3s<1.9s[K       8/30      17.9G      0.559     0.3871     0.7851       2645        640: 60% ━━━━━━━───── 9/15 3.8it/s 2.5s<1.6s[K       8/30      17.9G     0.5595     0.3862     0.7845       2491        640: 66% ━━━━━━━━──── 10/15 3.8it/s 2.8s<1.3s[K       8/30      17.9G     0.5607     0.3852     0.7845       2465        640: 73% ━━━━━━━━╸─── 11/15 3.9it/s 3.0s<1.0s[K       8/30      17.9G     0.5601     0.3836     0.7842       2365        640: 80% ━━━━━━━━━╸── 12/15 3.9it/s 3.3s<0.8s[K       8/30      17.9G     0.5605     0.3842     0.7844       2070        640: 86% ━━━━━━━━━━── 13/15 3.9it/s 3.6s<0.5s[K       8/30      17.9G      0.561     0.3851     0.7854        141        640: 100% ━━━━━━━━━━━━ 15/15 4.1it/s 3.6s
+[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 33% ━━━━──────── 1/3 2.0s/it 0.6s<4.0s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 66% ━━━━━━━━──── 2/3 1.1s/it 1.2s<1.1s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 3/3 2.2it/s 1.3s
+                   all        600       6000      0.999          1      0.995       0.94
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+[K       9/30      17.9G     0.5809     0.3962     0.7854       2476        640: 0% ──────────── 0/15  0.3s[K       9/30      17.9G     0.5668     0.3929      0.785       2061        640: 6% ╸─────────── 1/15 1.2it/s 0.5s<11.3s[K       9/30      17.9G     0.5614     0.3847     0.7839       2270        640: 13% ━╸────────── 2/15 2.0it/s 0.8s<6.4s[K       9/30      17.9G      0.574     0.3893     0.7844       2530        640: 20% ━━────────── 3/15 2.7it/s 1.0s<4.5s[K       9/30      17.9G     0.5826     0.3936     0.7861       2149        640: 26% ━━━───────── 4/15 3.1it/s 1.3s<3.6s[K       9/30      17.9G     0.5782      0.393     0.7853       2310        640: 33% ━━━━──────── 5/15 3.4it/s 1.5s<3.0s[K       9/30      17.9G     0.5815     0.3931     0.7864       2399        640: 40% ━━━━╸─────── 6/15 3.3it/s 1.8s<2.7s[K       9/30      17.9G     0.5866     0.3936     0.7871       2459        640: 46% ━━━━━╸────── 7/15 3.5it/s 2.1s<2.3s[K       9/30      17.9G     0.5833     0.3909     0.7863       2303        640: 53% ━━━━━━────── 8/15 3.6it/s 2.3s<1.9s[K       9/30      17.9G     0.5793     0.3884     0.7864       2263        640: 60% ━━━━━━━───── 9/15 3.8it/s 2.6s<1.6s[K       9/30      17.9G     0.5765     0.3863     0.7863       2302        640: 66% ━━━━━━━━──── 10/15 3.7it/s 2.9s<1.3s[K       9/30      17.9G     0.5755     0.3849     0.7861       2393        640: 73% ━━━━━━━━╸─── 11/15 3.8it/s 3.1s<1.1s[K       9/30      17.9G     0.5752     0.3837     0.7857       2237        640: 80% ━━━━━━━━━╸── 12/15 3.8it/s 3.4s<0.8s[K       9/30      17.9G     0.5744     0.3832     0.7856       2432        640: 86% ━━━━━━━━━━── 13/15 3.7it/s 3.7s<0.5s[K       9/30      17.9G     0.5761      0.385     0.7845        194        640: 93% ━━━━━━━━━━━─ 14/15 5.1it/s 3.8s<0.2s[K       9/30      17.9G     0.5761      0.385     0.7845        194        640: 100% ━━━━━━━━━━━━ 15/15 4.0it/s 3.8s
+[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 33% ━━━━──────── 1/3 1.9s/it 0.6s<3.8s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 66% ━━━━━━━━──── 2/3 1.0s/it 1.1s<1.0s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 3/3 2.4it/s 1.2s
+                   all        600       6000      0.999          1      0.995      0.927
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+[K      10/30      17.9G     0.6296     0.3867     0.7879       2564        640: 0% ──────────── 0/15  0.3s[K      10/30      17.9G     0.6113      0.383     0.7863       2451        640: 6% ╸─────────── 1/15 1.2it/s 0.5s<11.5s[K      10/30      17.9G      0.595     0.3757     0.7856       2471        640: 13% ━╸────────── 2/15 2.1it/s 0.8s<6.3s[K      10/30      17.9G     0.5858     0.3726     0.7852       2391        640: 20% ━━────────── 3/15 2.7it/s 1.0s<4.5s[K      10/30      17.9G     0.5715     0.3707     0.7867       2140        640: 26% ━━━───────── 4/15 3.1it/s 1.3s<3.6s[K      10/30      17.9G     0.5709     0.3704     0.7865       2574        640: 33% ━━━━──────── 5/15 3.3it/s 1.5s<3.0s[K      10/30      17.9G     0.5721     0.3709     0.7861       2516        640: 40% ━━━━╸─────── 6/15 3.4it/s 1.8s<2.6s[K      10/30      17.9G     0.5679     0.3693     0.7857       2330        640: 46% ━━━━━╸────── 7/15 3.4it/s 2.1s<2.3s[K      10/30      17.9G     0.5653     0.3677     0.7848       2377        640: 53% ━━━━━━────── 8/15 3.6it/s 2.3s<2.0s[K      10/30      17.9G     0.5636     0.3659     0.7846       2486        640: 60% ━━━━━━━───── 9/15 3.5it/s 2.6s<1.7s[K      10/30      17.9G     0.5616     0.3643     0.7842       2518        640: 66% ━━━━━━━━──── 10/15 3.6it/s 2.9s<1.4s[K      10/30      17.9G     0.5606     0.3634     0.7842       2392        640: 73% ━━━━━━━━╸─── 11/15 3.7it/s 3.1s<1.1s[K      10/30      17.9G     0.5603     0.3627     0.7838       2350        640: 80% ━━━━━━━━━╸── 12/15 3.8it/s 3.4s<0.8s[K      10/30      17.9G     0.5587     0.3614     0.7839       2326        640: 86% ━━━━━━━━━━── 13/15 3.9it/s 3.7s<0.5s[K      10/30      17.9G     0.5548     0.3594     0.7831        136        640: 93% ━━━━━━━━━━━─ 14/15 5.2it/s 3.8s<0.2s[K      10/30      17.9G     0.5548     0.3594     0.7831        136        640: 100% ━━━━━━━━━━━━ 15/15 4.0it/s 3.8s
+[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 33% ━━━━──────── 1/3 2.0s/it 0.6s<4.0s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 66% ━━━━━━━━──── 2/3 1.0it/s 1.1s<1.0s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 3/3 2.4it/s 1.2s
+                   all        600       6000      0.999          1      0.995      0.943
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+[K      11/30      17.9G     0.5965     0.3774     0.7898       2353        640: 0% ──────────── 0/15  0.3s[K      11/30      17.9G     0.5913     0.3775     0.7886       2390        640: 6% ╸─────────── 1/15 1.2it/s 0.5s<11.3s[K      11/30      17.9G     0.5796     0.3718     0.7864       2371        640: 13% ━╸────────── 2/15 2.1it/s 0.8s<6.2s[K      11/30      17.9G     0.5791     0.3714     0.7877       2138        640: 20% ━━────────── 3/15 2.7it/s 1.0s<4.5s[K      11/30      17.9G     0.5696     0.3691     0.7872       2280        640: 26% ━━━───────── 4/15 3.1it/s 1.3s<3.6s[K      11/30      17.9G     0.5645     0.3676      0.786       2288        640: 33% ━━━━──────── 5/15 3.4it/s 1.5s<3.0s[K      11/30      17.9G     0.5614     0.3659     0.7859       2215        640: 40% ━━━━╸─────── 6/15 3.5it/s 1.8s<2.6s[K      11/30      17.9G     0.5579     0.3639     0.7854       2217        640: 46% ━━━━━╸────── 7/15 3.6it/s 2.0s<2.2s[K      11/30      17.9G     0.5558      0.362      0.785       2276        640: 53% ━━━━━━────── 8/15 3.6it/s 2.3s<2.0s[K      11/30      17.9G     0.5542     0.3603     0.7845       2386        640: 60% ━━━━━━━───── 9/15 3.5it/s 2.6s<1.7s[K      11/30      17.9G     0.5512     0.3579     0.7847       2269        640: 66% ━━━━━━━━──── 10/15 3.6it/s 2.9s<1.4s[K      11/30      17.9G     0.5516     0.3553     0.7844       2271        640: 73% ━━━━━━━━╸─── 11/15 3.7it/s 3.1s<1.1s[K      11/30      17.9G     0.5485     0.3526     0.7837       2255        640: 80% ━━━━━━━━━╸── 12/15 3.6it/s 3.4s<0.8s[K      11/30      17.9G      0.547     0.3511     0.7833       2205        640: 86% ━━━━━━━━━━── 13/15 3.7it/s 3.7s<0.5s[K      11/30      17.9G     0.5446     0.3504     0.7836        113        640: 100% ━━━━━━━━━━━━ 15/15 4.0it/s 3.8s
+[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 33% ━━━━──────── 1/3 1.7s/it 0.5s<3.4s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 66% ━━━━━━━━──── 2/3 1.1s/it 1.1s<1.1s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 3/3 2.3it/s 1.3s
+                   all        600       6000      0.999          1      0.995      0.957
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+[K      12/30      17.9G     0.5384     0.3494      0.785       2123        640: 0% ──────────── 0/15  0.3s[K      12/30      17.9G      0.546     0.3575     0.7835       2389        640: 6% ╸─────────── 1/15 1.2it/s 0.5s<11.4s[K      12/30      17.9G     0.5417     0.3564     0.7838       2289        640: 13% ━╸────────── 2/15 2.1it/s 0.8s<6.2s[K      12/30      17.9G     0.5298     0.3499     0.7835       2068        640: 20% ━━────────── 3/15 2.7it/s 1.0s<4.5s[K      12/30      17.9G     0.5317     0.3495     0.7826       2335        640: 26% ━━━───────── 4/15 3.1it/s 1.3s<3.6s[K      12/30      17.9G     0.5366     0.3492      0.782       2370        640: 33% ━━━━──────── 5/15 3.4it/s 1.5s<3.0s[K      12/30      17.9G     0.5386     0.3476     0.7816       2466        640: 40% ━━━━╸─────── 6/15 3.4it/s 1.8s<2.6s[K      12/30      17.9G     0.5382     0.3483     0.7821       2075        640: 46% ━━━━━╸────── 7/15 3.6it/s 2.0s<2.2s[K      12/30      17.9G     0.5396     0.3471     0.7821       2311        640: 53% ━━━━━━────── 8/15 3.6it/s 2.3s<2.0s[K      12/30      17.9G     0.5394     0.3456     0.7818       2348        640: 60% ━━━━━━━───── 9/15 3.5it/s 2.6s<1.7s[K      12/30      17.9G     0.5386     0.3445     0.7819       2538        640: 66% ━━━━━━━━──── 10/15 3.6it/s 2.9s<1.4s[K      12/30      17.9G     0.5424     0.3443     0.7816       2453        640: 73% ━━━━━━━━╸─── 11/15 3.7it/s 3.1s<1.1s[K      12/30      17.9G     0.5422     0.3438     0.7814       2113        640: 80% ━━━━━━━━━╸── 12/15 3.8it/s 3.4s<0.8s[K      12/30      17.9G     0.5414     0.3426     0.7814       2379        640: 86% ━━━━━━━━━━── 13/15 3.8it/s 3.6s<0.5s[K      12/30      17.9G     0.5406     0.3419     0.7814        147        640: 100% ━━━━━━━━━━━━ 15/15 4.0it/s 3.7s
+[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 33% ━━━━──────── 1/3 1.7s/it 0.5s<3.4s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 66% ━━━━━━━━──── 2/3 1.0s/it 1.0s<1.0s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 3/3 2.5it/s 1.2s
+                   all        600       6000      0.999      0.999      0.995      0.964
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+[K      13/30      17.9G     0.5461     0.3368     0.7818       2351        640: 0% ──────────── 0/15  0.3s[K      13/30      17.9G     0.5483     0.3379      0.783       2357        640: 6% ╸─────────── 1/15 1.2it/s 0.5s<11.4s[K      13/30      17.9G     0.5466     0.3346     0.7824       2369        640: 13% ━╸────────── 2/15 2.0it/s 0.8s<6.4s[K      13/30      17.9G     0.5431     0.3334      0.782       2322        640: 20% ━━────────── 3/15 2.6it/s 1.0s<4.5s[K      13/30      17.9G     0.5421     0.3326     0.7819       2312        640: 26% ━━━───────── 4/15 3.0it/s 1.3s<3.6s[K      13/30      17.9G     0.5374     0.3307     0.7809       2268        640: 33% ━━━━──────── 5/15 3.2it/s 1.6s<3.1s[K      13/30      17.9G     0.5345     0.3293     0.7808       2248        640: 40% ━━━━╸─────── 6/15 3.3it/s 1.8s<2.7s[K      13/30      17.9G     0.5359     0.3296     0.7806       2173        640: 46% ━━━━━╸────── 7/15 3.4it/s 2.1s<2.3s[K      13/30      17.9G     0.5358     0.3303     0.7804       2486        640: 53% ━━━━━━────── 8/15 3.5it/s 2.4s<2.0s[K      13/30      17.9G     0.5334     0.3293     0.7807       2169        640: 60% ━━━━━━━───── 9/15 3.6it/s 2.7s<1.7s[K      13/30      17.9G     0.5294     0.3277     0.7804       2173        640: 66% ━━━━━━━━──── 10/15 3.7it/s 2.9s<1.4s[K      13/30      17.9G     0.5296     0.3273     0.7806       2269        640: 73% ━━━━━━━━╸─── 11/15 3.8it/s 3.2s<1.1s[K      13/30      17.9G      0.532     0.3278     0.7806       2376        640: 80% ━━━━━━━━━╸── 12/15 3.9it/s 3.4s<0.8s[K      13/30      17.9G     0.5309     0.3266     0.7806       2213        640: 86% ━━━━━━━━━━── 13/15 3.9it/s 3.7s<0.5s[K      13/30      17.9G     0.5265     0.3246     0.7799        132        640: 93% ━━━━━━━━━━━─ 14/15 4.8it/s 3.8s<0.2s[K      13/30      17.9G     0.5265     0.3246     0.7799        132        640: 100% ━━━━━━━━━━━━ 15/15 4.0it/s 3.8s
+[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 33% ━━━━──────── 1/3 2.0s/it 0.6s<4.0s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 66% ━━━━━━━━──── 2/3 1.1s/it 1.2s<1.1s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 3/3 2.2it/s 1.3s
+                   all        600       6000      0.999          1      0.995      0.948
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+[K      14/30      17.9G     0.5227     0.3205     0.7783       2203        640: 0% ──────────── 0/15  0.3s[K      14/30      17.9G     0.5297     0.3193      0.781       2293        640: 6% ╸─────────── 1/15 1.2it/s 0.5s<11.5s[K      14/30      17.9G     0.5374     0.3222     0.7821       2430        640: 13% ━╸────────── 2/15 2.0it/s 0.8s<6.4s[K      14/30      17.9G     0.5366     0.3229     0.7823       2282        640: 20% ━━────────── 3/15 2.6it/s 1.0s<4.6s[K      14/30      17.9G     0.5369      0.324     0.7817       2346        640: 26% ━━━───────── 4/15 3.0it/s 1.3s<3.6s[K      14/30      17.9G     0.5312     0.3233     0.7819       2161        640: 33% ━━━━──────── 5/15 3.2it/s 1.6s<3.1s[K      14/30      17.9G     0.5333     0.3243     0.7821       2372        640: 40% ━━━━╸─────── 6/15 3.2it/s 1.9s<2.8s[K      14/30      17.9G     0.5347     0.3252     0.7818       2462        640: 46% ━━━━━╸────── 7/15 3.4it/s 2.2s<2.4s[K      14/30      17.9G     0.5369     0.3256     0.7816       2541        640: 53% ━━━━━━────── 8/15 3.4it/s 2.4s<2.1s[K      14/30      17.9G     0.5342     0.3238     0.7817       2373        640: 60% ━━━━━━━───── 9/15 3.6it/s 2.7s<1.7s[K      14/30      17.9G     0.5342     0.3223     0.7811       2321        640: 66% ━━━━━━━━──── 10/15 3.7it/s 2.9s<1.3s[K      14/30      17.9G     0.5355     0.3215     0.7805       2397        640: 73% ━━━━━━━━╸─── 11/15 3.7it/s 3.2s<1.1s[K      14/30      17.9G     0.5358     0.3211     0.7805       2349        640: 80% ━━━━━━━━━╸── 12/15 3.8it/s 3.5s<0.8s[K      14/30      17.9G     0.5352     0.3205     0.7803       2303        640: 86% ━━━━━━━━━━── 13/15 3.8it/s 3.7s<0.5s[K      14/30      17.9G     0.5363     0.3217     0.7801        163        640: 100% ━━━━━━━━━━━━ 15/15 3.9it/s 3.8s
+[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 33% ━━━━──────── 1/3 2.0s/it 0.6s<4.0s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 66% ━━━━━━━━──── 2/3 1.1s/it 1.1s<1.1s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 3/3 2.3it/s 1.3s
+                   all        600       6000      0.999          1      0.995      0.962
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+[K      15/30      17.9G     0.5339     0.3184     0.7785       2255        640: 0% ──────────── 0/15  0.3s[K      15/30      17.9G     0.5265     0.3186     0.7808       2382        640: 6% ╸─────────── 1/15 1.2it/s 0.5s<11.4s[K      15/30      17.9G     0.5246     0.3185     0.7795       2418        640: 13% ━╸────────── 2/15 2.0it/s 0.8s<6.4s[K      15/30      17.9G     0.5326     0.3209     0.7788       2638        640: 20% ━━────────── 3/15 2.6it/s 1.0s<4.6s[K      15/30      17.9G     0.5354     0.3187     0.7792       2258        640: 26% ━━━───────── 4/15 3.1it/s 1.3s<3.6s[K      15/30      17.9G     0.5349     0.3173     0.7802       2322        640: 33% ━━━━──────── 5/15 3.2it/s 1.5s<3.1s[K      15/30      17.9G     0.5361     0.3168     0.7797       2249        640: 40% ━━━━╸─────── 6/15 3.4it/s 1.8s<2.7s[K      15/30      17.9G     0.5334     0.3153       0.78       2206        640: 46% ━━━━━╸────── 7/15 3.6it/s 2.1s<2.3s[K      15/30      17.9G     0.5312     0.3139     0.7799       2374        640: 53% ━━━━━━────── 8/15 3.6it/s 2.3s<1.9s[K      15/30      17.9G     0.5295      0.313     0.7802       2078        640: 60% ━━━━━━━───── 9/15 3.7it/s 2.6s<1.6s[K      15/30      17.9G     0.5286     0.3125     0.7804       2226        640: 66% ━━━━━━━━──── 10/15 3.8it/s 2.8s<1.3s[K      15/30      17.9G     0.5297      0.313     0.7806       2290        640: 73% ━━━━━━━━╸─── 11/15 3.8it/s 3.1s<1.0s[K      15/30      17.9G     0.5285     0.3131     0.7806       2254        640: 80% ━━━━━━━━━╸── 12/15 3.8it/s 3.4s<0.8s[K      15/30      17.9G     0.5281     0.3134     0.7807       2214        640: 86% ━━━━━━━━━━── 13/15 3.8it/s 3.6s<0.5s[K      15/30      17.9G      0.526     0.3139      0.781        136        640: 93% ━━━━━━━━━━━─ 14/15 5.3it/s 3.8s<0.2s[K      15/30      17.9G      0.526     0.3139      0.781        136        640: 100% ━━━━━━━━━━━━ 15/15 4.0it/s 3.8s
+[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 33% ━━━━──────── 1/3 1.9s/it 0.6s<3.8s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 66% ━━━━━━━━──── 2/3 1.0s/it 1.1s<1.0s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 3/3 2.4it/s 1.2s
+                   all        600       6000      0.999          1      0.995      0.959
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+[K      16/30      17.9G     0.5493     0.3162     0.7794       2435        640: 0% ──────────── 0/15  0.3s[K      16/30      17.9G     0.5307     0.3139      0.778       2393        640: 6% ╸─────────── 1/15 1.2it/s 0.5s<11.5s[K      16/30      17.9G     0.5265     0.3099     0.7779       2260        640: 13% ━╸────────── 2/15 2.1it/s 0.8s<6.2s[K      16/30      17.9G     0.5283     0.3081     0.7784       2374        640: 20% ━━────────── 3/15 2.6it/s 1.0s<4.6s[K      16/30      17.9G      0.524     0.3052     0.7785       2368        640: 26% ━━━───────── 4/15 3.1it/s 1.3s<3.6s[K      16/30      17.9G     0.5194     0.3048     0.7794       2026        640: 33% ━━━━──────── 5/15 3.3it/s 1.5s<3.1s[K      16/30      17.9G     0.5174     0.3043     0.7802       2503        640: 40% ━━━━╸─────── 6/15 3.5it/s 1.8s<2.6s[K      16/30      17.9G      0.524     0.3062     0.7806       2639        640: 46% ━━━━━╸────── 7/15 3.4it/s 2.1s<2.3s[K      16/30      17.9G     0.5265     0.3063     0.7807       2422        640: 53% ━━━━━━────── 8/15 3.6it/s 2.3s<1.9s[K      16/30      17.9G     0.5249     0.3059     0.7807       2249        640: 60% ━━━━━━━───── 9/15 3.6it/s 2.6s<1.7s[K      16/30      17.9G     0.5234     0.3059     0.7805       2171        640: 66% ━━━━━━━━──── 10/15 3.7it/s 2.9s<1.3s[K      16/30      17.9G      0.524     0.3062     0.7808       2322        640: 73% ━━━━━━━━╸─── 11/15 3.7it/s 3.1s<1.1s[K      16/30      17.9G     0.5238     0.3071     0.7808       2402        640: 80% ━━━━━━━━━╸── 12/15 3.8it/s 3.4s<0.8s[K      16/30      17.9G     0.5232     0.3071     0.7807       2324        640: 86% ━━━━━━━━━━── 13/15 3.9it/s 3.6s<0.5s[K      16/30      17.9G     0.5231     0.3087     0.7804        102        640: 93% ━━━━━━━━━━━─ 14/15 5.0it/s 3.8s<0.2s[K      16/30      17.9G     0.5231     0.3087     0.7804        102        640: 100% ━━━━━━━━━━━━ 15/15 4.0it/s 3.8s
+[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 33% ━━━━──────── 1/3 1.9s/it 0.6s<3.9s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 66% ━━━━━━━━──── 2/3 1.1s/it 1.1s<1.1s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 3/3 2.3it/s 1.3s
+                   all        600       6000      0.999          1      0.995      0.936
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+[K      17/30      17.9G     0.5497     0.3268     0.7799       2320        640: 0% ──────────── 0/15  0.3s[K      17/30      17.9G     0.5404     0.3232     0.7792       2310        640: 6% ╸─────────── 1/15 1.2it/s 0.5s<11.5s[K      17/30      17.9G     0.5485      0.326      0.779       2530        640: 13% ━╸────────── 2/15 2.1it/s 0.8s<6.3s[K      17/30      17.9G     0.5408     0.3219      0.779       2308        640: 20% ━━────────── 3/15 2.7it/s 1.0s<4.5s[K      17/30      17.9G     0.5405     0.3194     0.7794       2386        640: 26% ━━━───────── 4/15 3.1it/s 1.3s<3.6s[K      17/30      17.9G     0.5388     0.3169     0.7793       2231        640: 33% ━━━━──────── 5/15 3.4it/s 1.5s<3.0s[K      17/30      17.9G     0.5403     0.3152     0.7787       2528        640: 40% ━━━━╸─────── 6/15 3.5it/s 1.8s<2.6s[K      17/30      17.9G      0.538     0.3137     0.7786       2427        640: 46% ━━━━━╸────── 7/15 3.5it/s 2.1s<2.3s[K      17/30      17.9G      0.539     0.3128     0.7787       2345        640: 53% ━━━━━━────── 8/15 3.5it/s 2.3s<2.0s[K      17/30      17.9G     0.5365     0.3101     0.7784       2305        640: 60% ━━━━━━━───── 9/15 3.4it/s 2.6s<1.7s[K      17/30      17.9G     0.5373     0.3096     0.7787       2512        640: 66% ━━━━━━━━──── 10/15 3.6it/s 2.9s<1.4s[K      17/30      17.9G     0.5352     0.3082     0.7787       2320        640: 73% ━━━━━━━━╸─── 11/15 3.8it/s 3.1s<1.1s[K      17/30      17.9G     0.5361     0.3075     0.7791       2493        640: 80% ━━━━━━━━━╸── 12/15 3.8it/s 3.4s<0.8s[K      17/30      17.9G     0.5348      0.306      0.779       2296        640: 86% ━━━━━━━━━━── 13/15 3.9it/s 3.6s<0.5s[K      17/30      17.9G     0.5373     0.3069     0.7789        147        640: 93% ━━━━━━━━━━━─ 14/15 5.3it/s 3.8s<0.2s[K      17/30      17.9G     0.5373     0.3069     0.7789        147        640: 100% ━━━━━━━━━━━━ 15/15 4.0it/s 3.8s
+[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 33% ━━━━──────── 1/3 1.8s/it 0.5s<3.7s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 66% ━━━━━━━━──── 2/3 1.1s/it 1.1s<1.1s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 3/3 2.4it/s 1.3s
+                   all        600       6000      0.999          1      0.995       0.96
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+[K      18/30      17.9G     0.5526      0.313     0.7809       2431        640: 0% ──────────── 0/15  0.3s[K      18/30      17.9G     0.5455      0.309     0.7799       2404        640: 6% ╸─────────── 1/15 1.2it/s 0.5s<11.6s[K      18/30      17.9G     0.5439     0.3073     0.7796       2466        640: 13% ━╸────────── 2/15 2.0it/s 0.8s<6.5s[K      18/30      17.9G     0.5272     0.3045     0.7798       2131        640: 20% ━━────────── 3/15 2.6it/s 1.0s<4.6s[K      18/30      17.9G     0.5243     0.3037     0.7798       2174        640: 26% ━━━───────── 4/15 3.0it/s 1.3s<3.6s[K      18/30      17.9G     0.5257     0.3046      0.781       2327        640: 33% ━━━━──────── 5/15 3.3it/s 1.5s<3.0s[K      18/30      17.9G     0.5299     0.3064     0.7802       2428        640: 40% ━━━━╸─────── 6/15 3.5it/s 1.8s<2.6s[K      18/30      17.9G     0.5304      0.306     0.7802       2289        640: 46% ━━━━━╸────── 7/15 3.6it/s 2.1s<2.2s[K      18/30      17.9G     0.5293     0.3052     0.7799       2429        640: 53% ━━━━━━────── 8/15 3.6it/s 2.3s<2.0s[K      18/30      17.9G     0.5302     0.3041     0.7798       2259        640: 60% ━━━━━━━───── 9/15 3.5it/s 2.6s<1.7s[K      18/30      17.9G     0.5296     0.3031     0.7798       2318        640: 66% ━━━━━━━━──── 10/15 3.7it/s 2.9s<1.4s[K      18/30      17.9G     0.5286     0.3022     0.7797       2336        640: 73% ━━━━━━━━╸─── 11/15 3.6it/s 3.2s<1.1s[K      18/30      17.9G      0.529     0.3015     0.7793       2369        640: 80% ━━━━━━━━━╸── 12/15 3.6it/s 3.5s<0.8s[K      18/30      17.9G     0.5282     0.3004     0.7793       2391        640: 86% ━━━━━━━━━━── 13/15 3.7it/s 3.7s<0.5s[K      18/30      17.9G     0.5289     0.2989     0.7783        130        640: 100% ━━━━━━━━━━━━ 15/15 4.0it/s 3.8s
+[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 33% ━━━━──────── 1/3 1.9s/it 0.6s<3.8s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 66% ━━━━━━━━──── 2/3 1.0s/it 1.1s<1.0s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 3/3 2.4it/s 1.2s
+                   all        600       6000      0.999          1      0.995      0.974
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+[K      19/30      17.9G     0.5391     0.2974       0.78       2520        640: 0% ──────────── 0/15  0.3s[K      19/30      17.9G      0.553     0.3009     0.7807       2376        640: 6% ╸─────────── 1/15 1.2it/s 0.5s<11.7s[K      19/30      17.9G     0.5464     0.3018     0.7804       2332        640: 13% ━╸────────── 2/15 2.0it/s 0.8s<6.3s[K      19/30      17.9G       0.54     0.3002     0.7802       2245        640: 20% ━━────────── 3/15 2.6it/s 1.0s<4.6s[K      19/30      17.9G     0.5365     0.2987     0.7799       2312        640: 26% ━━━───────── 4/15 3.0it/s 1.3s<3.6s[K      19/30      17.9G     0.5332     0.2974     0.7793       2323        640: 33% ━━━━──────── 5/15 3.3it/s 1.5s<3.0s[K      19/30      17.9G     0.5328     0.2976     0.7795       2391        640: 40% ━━━━╸─────── 6/15 3.4it/s 1.8s<2.7s[K      19/30      17.9G     0.5347     0.2987      0.779       2466        640: 46% ━━━━━╸────── 7/15 3.5it/s 2.1s<2.3s[K      19/30      17.9G     0.5335      0.298     0.7791       2245        640: 53% ━━━━━━────── 8/15 3.6it/s 2.4s<2.0s[K      19/30      17.9G     0.5319     0.2976     0.7791       2307        640: 60% ━━━━━━━───── 9/15 3.6it/s 2.6s<1.7s[K      19/30      17.9G     0.5316     0.2977     0.7793       2423        640: 66% ━━━━━━━━──── 10/15 3.6it/s 2.9s<1.4s[K      19/30      17.9G     0.5329     0.2984     0.7796       2604        640: 73% ━━━━━━━━╸─── 11/15 3.7it/s 3.2s<1.1s[K      19/30      17.9G     0.5319     0.2973     0.7796       2288        640: 80% ━━━━━━━━━╸── 12/15 3.8it/s 3.4s<0.8s[K      19/30      17.9G     0.5307     0.2965     0.7794       2166        640: 86% ━━━━━━━━━━── 13/15 3.9it/s 3.7s<0.5s[K      19/30      17.9G     0.5297     0.2977     0.7797        113        640: 93% ━━━━━━━━━━━─ 14/15 4.7it/s 3.8s<0.2s[K      19/30      17.9G     0.5297     0.2977     0.7797        113        640: 100% ━━━━━━━━━━━━ 15/15 3.9it/s 3.8s
+[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 33% ━━━━──────── 1/3 1.7s/it 0.5s<3.5s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 66% ━━━━━━━━──── 2/3 1.1it/s 1.0s<0.9s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 3/3 2.5it/s 1.2s
+                   all        600       6000      0.999          1      0.995      0.966
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+[K      20/30      17.9G     0.5429     0.3111     0.7813       2415        640: 0% ──────────── 0/15  0.3s[K      20/30      17.9G     0.5456     0.3122     0.7823       2402        640: 6% ╸─────────── 1/15 1.2it/s 0.5s<11.4s[K      20/30      17.9G     0.5359     0.3088     0.7819       2325        640: 13% ━╸────────── 2/15 2.0it/s 0.8s<6.4s[K      20/30      17.9G     0.5382      0.308     0.7809       2346        640: 20% ━━────────── 3/15 2.6it/s 1.0s<4.5s[K      20/30      17.9G     0.5362     0.3063     0.7806       2336        640: 26% ━━━───────── 4/15 3.1it/s 1.3s<3.6s[K      20/30      17.9G     0.5336     0.3044     0.7804       2274        640: 33% ━━━━──────── 5/15 3.4it/s 1.5s<3.0s[K      20/30      17.9G     0.5355     0.3038     0.7803       2438        640: 40% ━━━━╸─────── 6/15 3.4it/s 1.8s<2.6s[K      20/30      17.9G     0.5299     0.3005     0.7798       2283        640: 46% ━━━━━╸────── 7/15 3.6it/s 2.1s<2.2s[K      20/30      17.9G     0.5279     0.2989     0.7796       2457        640: 53% ━━━━━━────── 8/15 3.7it/s 2.3s<1.9s[K      20/30      17.9G      0.525     0.2971     0.7796       2091        640: 60% ━━━━━━━───── 9/15 3.8it/s 2.6s<1.6s[K      20/30      17.9G     0.5277     0.2968      0.779       2467        640: 66% ━━━━━━━━──── 10/15 3.9it/s 2.8s<1.3s[K      20/30      17.9G     0.5264     0.2958     0.7789       2254        640: 73% ━━━━━━━━╸─── 11/15 3.9it/s 3.1s<1.0s[K      20/30      17.9G     0.5274     0.2963     0.7787       2614        640: 80% ━━━━━━━━━╸── 12/15 3.9it/s 3.3s<0.8s[K      20/30      17.9G     0.5274     0.2955     0.7783       2307        640: 86% ━━━━━━━━━━── 13/15 3.9it/s 3.6s<0.5s[K      20/30      17.9G      0.528     0.2965     0.7778        158        640: 100% ━━━━━━━━━━━━ 15/15 4.1it/s 3.7s
+[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 33% ━━━━──────── 1/3 1.7s/it 0.5s<3.5s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 66% ━━━━━━━━──── 2/3 1.0s/it 1.0s<1.0s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 3/3 2.4it/s 1.2s
+                   all        600       6000      0.999          1      0.995      0.976
+Closing dataloader mosaic
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+[K      21/30      17.6G     0.4456     0.3444     0.7714       1280        640: 0% ──────────── 0/15  2.7s[K      21/30      17.6G     0.4464     0.3298     0.7727       1280        640: 6% ╸─────────── 1/15 1.0it/s 3.0s<13.8s[K      21/30      17.6G     0.4424     0.3163     0.7697       1280        640: 13% ━╸────────── 2/15 1.7it/s 3.3s<7.6s[K      21/30      17.6G     0.4395     0.3168     0.7683       1280        640: 20% ━━────────── 3/15 2.2it/s 3.6s<5.4s[K      21/30      17.6G     0.4485     0.3224     0.7687       1280        640: 26% ━━━───────── 4/15 2.8it/s 3.8s<3.9s[K      21/30      17.6G     0.4496     0.3193     0.7705       1280        640: 33% ━━━━──────── 5/15 3.0it/s 4.1s<3.3s[K      21/30      17.6G     0.4479     0.3151     0.7706       1280        640: 40% ━━━━╸─────── 6/15 3.1it/s 4.4s<2.9s[K      21/30      17.6G     0.4466     0.3111     0.7703       1280        640: 46% ━━━━━╸────── 7/15 3.3it/s 4.7s<2.4s[K      21/30      17.6G     0.4461     0.3076     0.7702       1280        640: 53% ━━━━━━────── 8/15 3.5it/s 5.0s<2.0s[K      21/30      17.6G     0.4443     0.3052     0.7706       1280        640: 60% ━━━━━━━───── 9/15 3.6it/s 5.2s<1.7s[K      21/30      17.6G     0.4465     0.3042     0.7701       1280        640: 66% ━━━━━━━━──── 10/15 3.8it/s 5.4s<1.3s[K      21/30      17.6G     0.4483     0.3032     0.7701       1280        640: 73% ━━━━━━━━╸─── 11/15 3.8it/s 5.7s<1.0s[K      21/30      17.6G     0.4475     0.3016     0.7696       1280        640: 80% ━━━━━━━━━╸── 12/15 3.8it/s 6.0s<0.8s[K      21/30      17.6G     0.4479     0.3003     0.7694       1280        640: 86% ━━━━━━━━━━── 13/15 3.6it/s 6.3s<0.6s[K      21/30      17.6G     0.4436     0.2986     0.7687         80        640: 93% ━━━━━━━━━━━─ 14/15 4.3it/s 6.5s<0.2s[K      21/30      17.6G     0.4436     0.2986     0.7687         80        640: 100% ━━━━━━━━━━━━ 15/15 2.3it/s 6.5s
+[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 33% ━━━━──────── 1/3 2.0s/it 0.6s<4.1s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 66% ━━━━━━━━──── 2/3 1.2s/it 1.2s<1.2s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 3/3 1.9it/s 1.6s
+                   all        600       6000      0.999          1      0.995      0.954
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+[K      22/30      17.6G     0.4468     0.2857      0.775       1280        640: 0% ──────────── 0/15  0.3s[K      22/30      17.6G     0.4544     0.2865     0.7745       1280        640: 6% ╸─────────── 1/15 1.2it/s 0.6s<11.5s[K      22/30      17.6G       0.45     0.2837     0.7733       1280        640: 13% ━╸────────── 2/15 2.1it/s 0.8s<6.3s[K      22/30      17.6G     0.4472     0.2819     0.7719       1280        640: 20% ━━────────── 3/15 2.4it/s 1.1s<4.9s[K      22/30      17.6G     0.4473     0.2835     0.7711       1280        640: 26% ━━━───────── 4/15 2.8it/s 1.4s<4.0s[K      22/30      17.6G      0.449     0.2832     0.7714       1280        640: 33% ━━━━──────── 5/15 3.1it/s 1.7s<3.2s[K      22/30      17.6G     0.4454     0.2807     0.7707       1280        640: 40% ━━━━╸─────── 6/15 3.4it/s 1.9s<2.7s[K      22/30      17.6G     0.4456     0.2803     0.7702       1280        640: 46% ━━━━━╸────── 7/15 3.6it/s 2.2s<2.2s[K      22/30      17.6G     0.4462     0.2796     0.7702       1280        640: 53% ━━━━━━────── 8/15 3.6it/s 2.4s<2.0s[K      22/30      17.6G     0.4497     0.2799     0.7709       1280        640: 60% ━━━━━━━───── 9/15 3.6it/s 2.7s<1.7s[K      22/30      17.6G     0.4476     0.2792     0.7711       1280        640: 66% ━━━━━━━━──── 10/15 3.6it/s 3.0s<1.4s[K      22/30      17.6G     0.4464     0.2778      0.771       1280        640: 73% ━━━━━━━━╸─── 11/15 3.6it/s 3.3s<1.1s[K      22/30      17.6G     0.4464     0.2777     0.7708       1280        640: 80% ━━━━━━━━━╸── 12/15 3.7it/s 3.5s<0.8s[K      22/30      17.6G     0.4469     0.2773     0.7706       1280        640: 86% ━━━━━━━━━━── 13/15 3.8it/s 3.8s<0.5s[K      22/30      17.6G     0.4514     0.2793     0.7709         80        640: 93% ━━━━━━━━━━━─ 14/15 4.9it/s 3.9s<0.2s[K      22/30      17.6G     0.4514     0.2793     0.7709         80        640: 100% ━━━━━━━━━━━━ 15/15 3.8it/s 3.9s
+[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 33% ━━━━──────── 1/3 2.3s/it 0.7s<4.7s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 66% ━━━━━━━━──── 2/3 1.2s/it 1.3s<1.2s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 3/3 2.0it/s 1.5s
+                   all        600       6000      0.999          1      0.995      0.973
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+[K      23/30      17.6G     0.4824     0.2971     0.7742       1280        640: 0% ──────────── 0/15  0.3s[K      23/30      17.6G     0.4752     0.2947     0.7723       1280        640: 6% ╸─────────── 1/15 1.2it/s 0.5s<11.2s[K      23/30      17.6G     0.4755      0.293     0.7714       1280        640: 13% ━╸────────── 2/15 2.1it/s 0.8s<6.3s[K      23/30      17.6G     0.4699     0.2899     0.7708       1280        640: 20% ━━────────── 3/15 2.7it/s 1.0s<4.4s[K      23/30      17.6G     0.4654     0.2879     0.7709       1280        640: 26% ━━━───────── 4/15 3.1it/s 1.3s<3.5s[K      23/30      17.6G     0.4702      0.288     0.7709       1280        640: 33% ━━━━──────── 5/15 3.4it/s 1.5s<2.9s[K      23/30      17.6G     0.4669     0.2857     0.7703       1280        640: 40% ━━━━╸─────── 6/15 3.4it/s 1.8s<2.7s[K      23/30      17.6G     0.4644     0.2841     0.7706       1280        640: 46% ━━━━━╸────── 7/15 3.5it/s 2.1s<2.3s[K      23/30      17.6G     0.4616     0.2825     0.7707       1280        640: 53% ━━━━━━────── 8/15 3.6it/s 2.4s<1.9s[K      23/30      17.6G      0.462     0.2817     0.7712       1280        640: 60% ━━━━━━━───── 9/15 3.6it/s 2.6s<1.7s[K      23/30      17.6G     0.4623     0.2809     0.7711       1280        640: 66% ━━━━━━━━──── 10/15 3.7it/s 2.9s<1.4s[K      23/30      17.6G     0.4619     0.2801     0.7704       1280        640: 73% ━━━━━━━━╸─── 11/15 3.8it/s 3.1s<1.1s[K      23/30      17.6G     0.4621     0.2801     0.7704       1280        640: 80% ━━━━━━━━━╸── 12/15 3.7it/s 3.4s<0.8s[K      23/30      17.6G     0.4613     0.2797     0.7704       1280        640: 86% ━━━━━━━━━━── 13/15 3.7it/s 3.7s<0.5s[K      23/30      17.6G     0.4604     0.2802     0.7712         80        640: 100% ━━━━━━━━━━━━ 15/15 4.0it/s 3.8s
+[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 33% ━━━━──────── 1/3 1.9s/it 0.6s<3.7s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 66% ━━━━━━━━──── 2/3 1.1s/it 1.1s<1.1s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 3/3 2.4it/s 1.3s
+                   all        600       6000      0.999          1      0.995      0.941
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+[K      24/30      17.6G     0.4534     0.2766      0.777       1280        640: 0% ──────────── 0/15  0.3s[K      24/30      17.6G     0.4504     0.2754     0.7734       1280        640: 6% ╸─────────── 1/15 1.2it/s 0.5s<11.2s[K      24/30      17.6G     0.4447     0.2731     0.7722       1280        640: 13% ━╸────────── 2/15 2.0it/s 0.8s<6.5s[K      24/30      17.6G     0.4477     0.2725     0.7725       1280        640: 20% ━━────────── 3/15 2.6it/s 1.0s<4.5s[K      24/30      17.6G     0.4461     0.2727     0.7727       1280        640: 26% ━━━───────── 4/15 3.1it/s 1.3s<3.6s[K      24/30      17.6G     0.4489      0.273      0.772       1280        640: 33% ━━━━──────── 5/15 3.4it/s 1.5s<3.0s[K      24/30      17.6G     0.4487     0.2722     0.7716       1280        640: 40% ━━━━╸─────── 6/15 3.6it/s 1.8s<2.5s[K      24/30      17.6G     0.4484      0.272     0.7712       1280        640: 46% ━━━━━╸────── 7/15 3.6it/s 2.0s<2.2s[K      24/30      17.6G     0.4486     0.2712     0.7713       1280        640: 53% ━━━━━━────── 8/15 3.7it/s 2.3s<1.9s[K      24/30      17.6G     0.4489     0.2715     0.7712       1280        640: 60% ━━━━━━━───── 9/15 3.8it/s 2.5s<1.6s[K      24/30      17.6G     0.4477     0.2708     0.7713       1280        640: 66% ━━━━━━━━──── 10/15 3.9it/s 2.8s<1.3s[K      24/30      17.6G     0.4484     0.2705     0.7712       1280        640: 73% ━━━━━━━━╸─── 11/15 4.0it/s 3.0s<1.0s[K      24/30      17.6G     0.4494     0.2707     0.7714       1280        640: 80% ━━━━━━━━━╸── 12/15 4.0it/s 3.3s<0.7s[K      24/30      17.6G     0.4496     0.2704     0.7712       1280        640: 86% ━━━━━━━━━━── 13/15 4.0it/s 3.5s<0.5s[K      24/30      17.6G     0.4479     0.2704     0.7704         80        640: 100% ━━━━━━━━━━━━ 15/15 4.2it/s 3.6s
+[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 33% ━━━━──────── 1/3 1.9s/it 0.6s<3.8s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 66% ━━━━━━━━──── 2/3 1.0s/it 1.1s<1.0s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 3/3 2.4it/s 1.2s
+                   all        600       6000      0.999          1      0.995      0.971
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+[K      25/30      17.6G     0.4941     0.2862     0.7756       1280        640: 0% ──────────── 0/15  0.3s[K      25/30      17.6G     0.4797     0.2839     0.7759       1280        640: 6% ╸─────────── 1/15 1.2it/s 0.5s<11.3s[K      25/30      17.6G     0.4718     0.2799     0.7729       1280        640: 13% ━╸────────── 2/15 2.1it/s 0.8s<6.1s[K      25/30      17.6G     0.4697     0.2778     0.7732       1280        640: 20% ━━────────── 3/15 2.7it/s 1.0s<4.4s[K      25/30      17.6G     0.4645     0.2758     0.7731       1280        640: 26% ━━━───────── 4/15 3.1it/s 1.2s<3.5s[K      25/30      17.6G     0.4632     0.2746      0.772       1280        640: 33% ━━━━──────── 5/15 3.2it/s 1.5s<3.1s[K      25/30      17.6G     0.4628     0.2735     0.7721       1280        640: 40% ━━━━╸─────── 6/15 3.3it/s 1.8s<2.8s[K      25/30      17.6G     0.4592     0.2723     0.7727       1280        640: 46% ━━━━━╸────── 7/15 3.5it/s 2.1s<2.3s[K      25/30      17.6G     0.4582     0.2715     0.7722       1280        640: 53% ━━━━━━────── 8/15 3.7it/s 2.3s<1.9s[K      25/30      17.6G     0.4572     0.2709     0.7719       1280        640: 60% ━━━━━━━───── 9/15 3.7it/s 2.6s<1.6s[K      25/30      17.6G     0.4562     0.2701     0.7721       1280        640: 66% ━━━━━━━━──── 10/15 3.9it/s 2.8s<1.3s[K      25/30      17.6G     0.4558     0.2693     0.7713       1280        640: 73% ━━━━━━━━╸─── 11/15 3.9it/s 3.1s<1.0s[K      25/30      17.6G     0.4576     0.2694     0.7715       1280        640: 80% ━━━━━━━━━╸── 12/15 4.0it/s 3.3s<0.7s[K      25/30      17.6G     0.4574      0.269     0.7719       1280        640: 86% ━━━━━━━━━━── 13/15 4.1it/s 3.5s<0.5s[K      25/30      17.6G     0.4564     0.2685     0.7728         80        640: 100% ━━━━━━━━━━━━ 15/15 4.1it/s 3.6s
+[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 33% ━━━━──────── 1/3 1.8s/it 0.5s<3.5s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 66% ━━━━━━━━──── 2/3 1.0s/it 1.0s<1.0s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 3/3 2.5it/s 1.2s
+                   all        600       6000          1          1      0.995       0.96
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+[K      26/30      17.6G     0.4586     0.2674     0.7709       1280        640: 0% ──────────── 0/15  0.3s[K      26/30      17.6G      0.467     0.2713     0.7717       1280        640: 6% ╸─────────── 1/15 1.2it/s 0.5s<11.6s[K      26/30      17.6G     0.4617     0.2705     0.7701       1280        640: 13% ━╸────────── 2/15 2.1it/s 0.8s<6.2s[K      26/30      17.6G     0.4599     0.2689     0.7701       1280        640: 20% ━━────────── 3/15 2.7it/s 1.0s<4.5s[K      26/30      17.6G     0.4591     0.2692       0.77       1280        640: 26% ━━━───────── 4/15 3.1it/s 1.3s<3.6s[K      26/30      17.6G     0.4597     0.2693     0.7703       1280        640: 33% ━━━━──────── 5/15 3.4it/s 1.5s<3.0s[K      26/30      17.6G     0.4554     0.2677     0.7697       1280        640: 40% ━━━━╸─────── 6/15 3.5it/s 1.8s<2.5s[K      26/30      17.6G     0.4545     0.2667     0.7699       1280        640: 46% ━━━━━╸────── 7/15 3.7it/s 2.0s<2.2s[K      26/30      17.6G     0.4546     0.2668     0.7703       1280        640: 53% ━━━━━━────── 8/15 3.8it/s 2.3s<1.8s[K      26/30      17.6G     0.4535     0.2661     0.7707       1280        640: 60% ━━━━━━━───── 9/15 3.7it/s 2.5s<1.6s[K      26/30      17.6G     0.4537     0.2658     0.7702       1280        640: 66% ━━━━━━━━──── 10/15 3.8it/s 2.8s<1.3s[K      26/30      17.6G     0.4544     0.2659     0.7699       1280        640: 73% ━━━━━━━━╸─── 11/15 3.7it/s 3.1s<1.1s[K      26/30      17.6G     0.4566     0.2669     0.7699       1280        640: 80% ━━━━━━━━━╸── 12/15 3.8it/s 3.3s<0.8s[K      26/30      17.6G     0.4565     0.2668       0.77       1280        640: 86% ━━━━━━━━━━── 13/15 3.9it/s 3.6s<0.5s[K      26/30      17.6G     0.4538     0.2664     0.7693         80        640: 93% ━━━━━━━━━━━─ 14/15 5.0it/s 3.7s<0.2s[K      26/30      17.6G     0.4538     0.2664     0.7693         80        640: 100% ━━━━━━━━━━━━ 15/15 4.1it/s 3.7s
+[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 33% ━━━━──────── 1/3 1.8s/it 0.5s<3.5s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 66% ━━━━━━━━──── 2/3 1.1s/it 1.1s<1.1s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 3/3 2.4it/s 1.2s
+                   all        600       6000          1          1      0.995      0.976
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+[K      27/30      17.6G     0.4759     0.2719     0.7705       1280        640: 0% ──────────── 0/15  0.3s[K      27/30      17.6G     0.4832     0.2749     0.7704       1280        640: 6% ╸─────────── 1/15 1.3it/s 0.5s<11.2s[K      27/30      17.6G     0.4766     0.2731     0.7708       1280        640: 13% ━╸────────── 2/15 2.1it/s 0.8s<6.1s[K      27/30      17.6G     0.4717     0.2707     0.7694       1280        640: 20% ━━────────── 3/15 2.7it/s 1.0s<4.4s[K      27/30      17.6G     0.4741       0.27     0.7694       1280        640: 26% ━━━───────── 4/15 3.2it/s 1.2s<3.5s[K      27/30      17.6G     0.4684      0.268     0.7686       1280        640: 33% ━━━━──────── 5/15 3.4it/s 1.5s<2.9s[K      27/30      17.6G     0.4645     0.2672     0.7694       1280        640: 40% ━━━━╸─────── 6/15 3.6it/s 1.7s<2.5s[K      27/30      17.6G     0.4615     0.2664     0.7689       1280        640: 46% ━━━━━╸────── 7/15 3.6it/s 2.0s<2.2s[K      27/30      17.6G     0.4596      0.266     0.7689       1280        640: 53% ━━━━━━────── 8/15 3.8it/s 2.2s<1.9s[K      27/30      17.6G     0.4578     0.2654     0.7691       1280        640: 60% ━━━━━━━───── 9/15 3.9it/s 2.5s<1.6s[K      27/30      17.6G     0.4566     0.2649       0.77       1280        640: 66% ━━━━━━━━──── 10/15 3.9it/s 2.7s<1.3s[K      27/30      17.6G     0.4551      0.264       0.77       1280        640: 73% ━━━━━━━━╸─── 11/15 4.0it/s 3.0s<1.0s[K      27/30      17.6G     0.4554     0.2639     0.7703       1280        640: 80% ━━━━━━━━━╸── 12/15 4.0it/s 3.2s<0.7s[K      27/30      17.6G      0.454     0.2638     0.7702       1280        640: 86% ━━━━━━━━━━── 13/15 4.0it/s 3.5s<0.5s[K      27/30      17.6G     0.4613     0.2679      0.771         80        640: 93% ━━━━━━━━━━━─ 14/15 5.3it/s 3.6s<0.2s[K      27/30      17.6G     0.4613     0.2679      0.771         80        640: 100% ━━━━━━━━━━━━ 15/15 4.2it/s 3.6s
+[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 33% ━━━━──────── 1/3 2.0s/it 0.6s<4.0s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 66% ━━━━━━━━──── 2/3 1.0it/s 1.0s<1.0s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 3/3 2.5it/s 1.2s
+                   all        600       6000          1          1      0.995      0.974
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+[K      28/30      17.6G     0.4296     0.2601     0.7688       1280        640: 0% ──────────── 0/15  0.3s[K      28/30      17.6G     0.4342     0.2606     0.7683       1280        640: 6% ╸─────────── 1/15 1.2it/s 0.5s<11.5s[K      28/30      17.6G     0.4361     0.2604     0.7683       1280        640: 13% ━╸────────── 2/15 2.1it/s 0.8s<6.2s[K      28/30      17.6G     0.4338      0.258     0.7693       1280        640: 20% ━━────────── 3/15 2.7it/s 1.0s<4.5s[K      28/30      17.6G     0.4343     0.2574      0.769       1280        640: 26% ━━━───────── 4/15 3.1it/s 1.3s<3.6s[K      28/30      17.6G     0.4367     0.2575     0.7693       1280        640: 33% ━━━━──────── 5/15 3.3it/s 1.5s<3.1s[K      28/30      17.6G     0.4416     0.2588     0.7692       1280        640: 40% ━━━━╸─────── 6/15 3.5it/s 1.8s<2.6s[K      28/30      17.6G     0.4412     0.2587     0.7694       1280        640: 46% ━━━━━╸────── 7/15 3.4it/s 2.1s<2.3s[K      28/30      17.6G       0.44      0.258     0.7696       1280        640: 53% ━━━━━━────── 8/15 3.6it/s 2.3s<1.9s[K      28/30      17.6G     0.4401     0.2579     0.7698       1280        640: 60% ━━━━━━━───── 9/15 3.7it/s 2.6s<1.6s[K      28/30      17.6G     0.4379     0.2577     0.7703       1280        640: 66% ━━━━━━━━──── 10/15 3.8it/s 2.8s<1.3s[K      28/30      17.6G     0.4384     0.2576     0.7706       1280        640: 73% ━━━━━━━━╸─── 11/15 3.8it/s 3.1s<1.1s[K      28/30      17.6G     0.4418     0.2587     0.7702       1280        640: 80% ━━━━━━━━━╸── 12/15 3.7it/s 3.4s<0.8s[K      28/30      17.6G     0.4427     0.2586     0.7702       1280        640: 86% ━━━━━━━━━━── 13/15 3.8it/s 3.6s<0.5s[K      28/30      17.6G     0.4426     0.2592     0.7697         80        640: 93% ━━━━━━━━━━━─ 14/15 5.0it/s 3.8s<0.2s[K      28/30      17.6G     0.4426     0.2592     0.7697         80        640: 100% ━━━━━━━━━━━━ 15/15 4.0it/s 3.8s
+[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 33% ━━━━──────── 1/3 1.7s/it 0.5s<3.5s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 66% ━━━━━━━━──── 2/3 1.1s/it 1.1s<1.1s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 3/3 2.4it/s 1.2s
+                   all        600       6000          1          1      0.995      0.973
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+[K      29/30      17.6G     0.4689     0.2677     0.7689       1280        640: 0% ──────────── 0/15  0.3s[K      29/30      17.6G     0.4599     0.2652     0.7695       1280        640: 6% ╸─────────── 1/15 1.2it/s 0.5s<11.5s[K      29/30      17.6G     0.4525     0.2628     0.7696       1280        640: 13% ━╸────────── 2/15 2.0it/s 0.8s<6.4s[K      29/30      17.6G     0.4534     0.2623     0.7698       1280        640: 20% ━━────────── 3/15 2.7it/s 1.0s<4.5s[K      29/30      17.6G     0.4527     0.2613     0.7691       1280        640: 26% ━━━───────── 4/15 3.1it/s 1.3s<3.6s[K      29/30      17.6G     0.4523     0.2603     0.7688       1280        640: 33% ━━━━──────── 5/15 3.3it/s 1.5s<3.0s[K      29/30      17.6G     0.4528       0.26     0.7696       1280        640: 40% ━━━━╸─────── 6/15 3.5it/s 1.8s<2.5s[K      29/30      17.6G     0.4528       0.26     0.7693       1280        640: 46% ━━━━━╸────── 7/15 3.6it/s 2.0s<2.3s[K      29/30      17.6G     0.4499      0.259     0.7696       1280        640: 53% ━━━━━━────── 8/15 3.7it/s 2.3s<1.9s[K      29/30      17.6G     0.4485     0.2583     0.7695       1280        640: 60% ━━━━━━━───── 9/15 3.7it/s 2.6s<1.6s[K      29/30      17.6G     0.4486     0.2582      0.769       1280        640: 66% ━━━━━━━━──── 10/15 3.8it/s 2.8s<1.3s[K      29/30      17.6G     0.4481     0.2579     0.7694       1280        640: 73% ━━━━━━━━╸─── 11/15 3.9it/s 3.1s<1.0s[K      29/30      17.6G     0.4459     0.2572     0.7696       1280        640: 80% ━━━━━━━━━╸── 12/15 3.9it/s 3.3s<0.8s[K      29/30      17.6G     0.4463     0.2574     0.7698       1280        640: 86% ━━━━━━━━━━── 13/15 3.8it/s 3.6s<0.5s[K      29/30      17.6G     0.4433     0.2565     0.7697         80        640: 93% ━━━━━━━━━━━─ 14/15 5.1it/s 3.7s<0.2s[K      29/30      17.6G     0.4433     0.2565     0.7697         80        640: 100% ━━━━━━━━━━━━ 15/15 4.0it/s 3.7s
+[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 33% ━━━━──────── 1/3 1.9s/it 0.6s<3.8s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 66% ━━━━━━━━──── 2/3 1.0s/it 1.1s<1.0s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 3/3 2.4it/s 1.2s
+                   all        600       6000          1          1      0.995      0.974
+
+      Epoch    GPU_mem   box_loss   cls_loss   dfl_loss  Instances       Size
+[K      30/30      17.6G      0.447     0.2546     0.7704       1280        640: 0% ──────────── 0/15  0.3s[K      30/30      17.6G     0.4473     0.2557     0.7684       1280        640: 6% ╸─────────── 1/15 1.3it/s 0.5s<11.2s[K      30/30      17.6G     0.4401     0.2542     0.7698       1280        640: 13% ━╸────────── 2/15 2.1it/s 0.8s<6.1s[K      30/30      17.6G     0.4461     0.2551     0.7688       1280        640: 20% ━━────────── 3/15 2.8it/s 1.0s<4.4s[K      30/30      17.6G     0.4428     0.2543     0.7681       1280        640: 26% ━━━───────── 4/15 3.2it/s 1.2s<3.5s[K      30/30      17.6G     0.4404     0.2536     0.7688       1280        640: 33% ━━━━──────── 5/15 3.4it/s 1.5s<2.9s[K      30/30      17.6G     0.4426     0.2539     0.7686       1280        640: 40% ━━━━╸─────── 6/15 3.6it/s 1.7s<2.5s[K      30/30      17.6G     0.4405     0.2534     0.7685       1280        640: 46% ━━━━━╸────── 7/15 3.7it/s 2.0s<2.1s[K      30/30      17.6G     0.4408     0.2537     0.7681       1280        640: 53% ━━━━━━────── 8/15 3.7it/s 2.3s<1.9s[K      30/30      17.6G     0.4405     0.2531     0.7686       1280        640: 60% ━━━━━━━───── 9/15 3.8it/s 2.5s<1.6s[K      30/30      17.6G     0.4402     0.2533      0.769       1280        640: 66% ━━━━━━━━──── 10/15 3.9it/s 2.7s<1.3s[K      30/30      17.6G     0.4415     0.2536     0.7691       1280        640: 73% ━━━━━━━━╸─── 11/15 3.9it/s 3.0s<1.0s[K      30/30      17.6G     0.4414     0.2536     0.7692       1280        640: 80% ━━━━━━━━━╸── 12/15 4.0it/s 3.2s<0.7s[K      30/30      17.6G     0.4418     0.2535     0.7694       1280        640: 86% ━━━━━━━━━━── 13/15 4.0it/s 3.5s<0.5s[K      30/30      17.6G       0.44     0.2528      0.769         80        640: 100% ━━━━━━━━━━━━ 15/15 4.2it/s 3.6s
+[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 33% ━━━━──────── 1/3 1.8s/it 0.5s<3.5s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 66% ━━━━━━━━──── 2/3 1.0s/it 1.0s<1.0s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 3/3 2.5it/s 1.2s
+                   all        600       6000          1          1      0.995      0.974
+
+30 epochs completed in 0.051 hours.
+Optimizer stripped from C:\Users\NoBody\Documents\recreating blister pack project\models\runs\yolo11n_v2\weights\last.pt, 5.4MB
+Optimizer stripped from C:\Users\NoBody\Documents\recreating blister pack project\models\runs\yolo11n_v2\weights\best.pt, 5.4MB
+
+Validating C:\Users\NoBody\Documents\recreating blister pack project\models\runs\yolo11n_v2\weights\best.pt...
+Ultralytics 8.4.146  Python-3.12.13 torch-2.10.0+cu130 CUDA:0 (NVIDIA GeForce RTX 5090, 32579MiB)
+YOLO11n summary (fused): 100 layers, 2,582,932 parameters, 0 gradients, 6.4 GFLOPs
+[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 33% ━━━━──────── 1/3 2.4s/it 0.7s<4.9s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 66% ━━━━━━━━──── 2/3 1.6s/it 1.7s<1.6s[K                 Class     Images  Instances      Box(P          R      mAP50  mAP50-95): 100% ━━━━━━━━━━━━ 3/3 1.4it/s 2.1s
+                   all        600       6000      0.999          1      0.995      0.975
+Speed: 0.0ms preprocess, 0.1ms inference, 0.0ms loss, 0.8ms postprocess per image
+Results saved to [1mC:\Users\NoBody\Documents\recreating blister pack project\models\runs\yolo11n_v2[0m
+{
+ "batch": 128,
+ "epochs": 30,
+ "wall_s": 208.2,
+ "steps": 450,
+ "step_ms_median": 250.5,
+ "step_ms_p95": 2006.1,
+ "nonfinite_total": 0,
+ "skipped_steps": 0,
+ "peak_alloc_gb": 17.61,
+ "run_dir": "C:\\Users\\NoBody\\Documents\\recreating blister pack project\\models\\runs\\yolo11n_v2",
+ "val": {
+  "map50": 0.995,
+  "map50_95": 0.9754,
+  "per_class": {
+   "pill_ok": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "ap50": 0.995,
+    "ap50_95": 0.9857
+   },
+   "pill_damaged": {
+    "precision": 0.9998,
+    "recall": 1.0,
+    "ap50": 0.995,
+    "ap50_95": 0.9765
+   },
+   "cavity_empty": {
+    "precision": 0.9981,
+    "recall": 1.0,
+    "ap50": 0.995,
+    "ap50_95": 0.9786
+   },
+   "foil_damaged": {
+    "precision": 0.9999,
+    "recall": 1.0,
+    "ap50": 0.995,
+    "ap50_95": 0.9607
+   }
+  }
+ },
+ "results_csv": [
+  "1,7.73429,0.75959,3.11791,0.83069,0.0301,0.87018,0.19426,0.07666,0.57725,3.73074,0.77336,0.000388889,0.000388889,0.000388889",
+  "2,13.5454,0.71315,1.23794,0.80962,0.02848,0.83478,0.27142,0.14249,0.66188,3.5181,0.7965,0.000778972,0.000778972,0.000778972",
+  "3,19.1174,0.63898,0.64291,0.80264,0.00566,0.30695,0.00551,0.00215,0.56163,3.60461,0.79143,0.00114156,0.00114156,0.00114156",
+  "4,24.8591,0.62527,0.52114,0.79644,0.0192,0.38014,0.2043,0.16395,0.60604,3.35432,0.79396,0.00112625,0.00112625,0.00112625",
+  "5,30.5658,0.60744,0.47391,0.79402,0.0264,0.94368,0.75413,0.67677,0.42778,2.86822,0.77526,0.001085,0.001085,0.001085",
+  "6,36.1566,0.58343,0.42844,0.78943,0.02597,0.99954,0.99495,0.90326,0.39572,2.3474,0.77411,0.00104375,0.00104375,0.00104375",
+  "7,41.8408,0.56952,0.41067,0.78656,0.99999,0.81329,0.995,0.94423,0.29575,1.47622,0.76545,0.0010025,0.0010025,0.0010025",
+  "8,47.3736,0.56099,0.38508,0.78544,0.99896,1,0.995,0.93961,0.29393,0.9792,0.76796,0.00096125,0.00096125,0.00096125",
+  "9,52.9772,0.57614,0.385,0.78454,0.99917,0.99984,0.99461,0.92651,0.35155,0.65335,0.7728,0.00092,0.00092,0.00092",
+  "10,58.4854,0.55482,0.3594,0.78312,0.99933,0.99986,0.99473,0.94299,0.29,0.48285,0.7671,0.00087875,0.00087875,0.00087875",
+  "11,64.0081,0.54463,0.35036,0.78359,0.99915,1,0.99493,0.95743,0.27109,0.38729,0.76516,0.0008375,0.0008375,0.0008375",
+  "12,69.5299,0.54058,0.34192,0.78136,0.99857,0.99916,0.995,0.96391,0.25559,0.31352,0.76469,0.00079625,0.00079625,0.00079625",
+  "13,75.1724,0.5265,0.32462,0.7799,0.99855,1,0.99455,0.94827,0.28443,0.29677,0.76699,0.000755,0.000755,0.000755",
+  "14,80.7709,0.5363,0.32172,0.78011,0.99921,0.99992,0.99459,0.96179,0.25514,0.27339,0.76386,0.00071375,0.00071375,0.00071375",
+  "15,86.2806,0.52604,0.31392,0.78105,0.99926,0.99995,0.99459,0.95938,0.24866,0.26061,0.76264,0.0006725,0.0006725,0.0006725",
+  "16,91.7842,0.5231,0.30874,0.78037,0.99938,1,0.99455,0.93597,0.30789,0.29135,0.77041,0.00063125,0.00063125,0.00063125",
+  "17,97.282,0.53729,0.30694,0.7789,0.9992,0.99991,0.99456,0.96021,0.25006,0.2414,0.76405,0.00059,0.00059,0.00059",
+  "18,102.841,0.52885,0.29894,0.7783,0.99935,1,0.99477,0.97402,0.22786,0.22681,0.76128,0.00054875,0.00054875,0.00054875",
+  "19,108.38,0.52968,0.29768,0.77973,0.99946,1,0.995,0.96631,0.23945,0.24098,0.76284,0.0005075,0.0005075,0.0005075",
+  "20,113.775,0.52797,0.29654,0.77784,0.99946,1,0.995,0.97557,0.22463,0.21838,0.76177,0.00046625,0.00046625,0.00046625",
+  "21,133.01,0.44361,0.29864,0.76873,0.99928,0.99997,0.99499,0.95446,0.28768,0.28173,0.76562,0.000425,0.000425,0.000425",
+  "22,139.101,0.45137,0.27925,0.77092,0.99905,0.99995,0.99497,0.9729,0.23367,0.26584,0.76131,0.00038375,0.00038375,0.00038375",
+  "23,144.639,0.4604,0.28022,0.77118,0.99939,1,0.995,0.94084,0.31462,0.25478,0.76986,0.0003425,0.0003425,0.0003425",
+  "24,149.958,0.44792,0.27039,0.77043,0.99945,1,0.995,0.97069,0.24481,0.2286,0.76302,0.00030125,0.00030125,0.00030125",
+  "25,155.293,0.45638,0.26846,0.7728,0.99976,1,0.995,0.95962,0.2679,0.22015,0.76564,0.00026,0.00026,0.00026",
+  "26,160.696,0.45385,0.26635,0.76932,0.99978,1,0.995,0.97552,0.23383,0.20828,0.76268,0.00021875,0.00021875,0.00021875",
+  "27,166.03,0.46132,0.26794,0.77098,0.99979,1,0.995,0.97434,0.23251,0.21025,0.76257,0.0001775,0.0001775,0.0001775",
+  "28,171.536,0.44265,0.2592,0.76966,0.99979,1,0.995,0.97269,0.23164,0.20354,0.7629,0.00013625,0.00013625,0.00013625",
+  "29,176.962,0.44332,0.25653,0.76968,0.99985,1,0.995,0.97368,0.23436,0.19948,0.76275,9.5e-05,9.5e-05,9.5e-05",
+  "30,182.274,0.43995,0.25276,0.76899,0.99986,1,0.995,0.97412,0.22804,0.19626,0.76247,5.375e-05,5.375e-05,5.375e-05"
+ ],
+ "checkpoints": [
+  "ckpt_e0027.pt",
+  "ckpt_e0028.pt",
+  "ckpt_e0029.pt",
+  "latest.pt"
+ ],
+ "weights": [
+  "best.pt",
+  "last.pt"
+ ]
+}
+summary written to C:\Users\NoBody\Documents\recreating blister pack project\models\summary_yolo11n_v2.json
+=== [C] export ===
+   "max_abs_err_scores_max": 0.011886,
+   "mean_abs_err_mean": 0.052776,
+   "cosine_min": 0.999999,
+   "cosine_mean": 1.0,
+   "cosine_conf_min": 1.0,
+   "cosine_conf_mean": 1.0
+  },
+  "ort_vs_trt_fp32": {
+   "max_abs_err_max": 6.8414,
+   "max_abs_err_boxes_px_max": 6.8414,
+   "max_abs_err_boxes_px_conf_max": 0.0142,
+   "max_abs_err_scores_max": 0.009253,
+   "mean_abs_err_mean": 0.02701,
+   "cosine_min": 1.0,
+   "cosine_mean": 1.0,
+   "cosine_conf_min": 1.0,
+   "cosine_conf_mean": 1.0
+  }
+ },
+ "decoded_boxes": {
+  "torch_vs_trt_fp16": {
+   "n_ref_total": 200,
+   "n_other_total": 200,
+   "min_iou_min": 0.9786,
+   "min_iou_mean": 0.996045,
+   "mean_iou_mean": 0.999005,
+   "frac_iou_ge_098_min": 0.9,
+   "frac_iou_ge_098_mean": 0.995,
+   "class_mismatch_max": 0
+  },
+  "torch_vs_trt_fp32": {
+   "n_ref_total": 200,
+   "n_other_total": 200,
+   "min_iou_min": 0.9899,
+   "min_iou_mean": 0.99919,
+   "mean_iou_mean": 0.999795,
+   "frac_iou_ge_098_min": 1.0,
+   "frac_iou_ge_098_mean": 1.0,
+   "class_mismatch_max": 0
+  },
+  "torch_vs_ort": {
+   "n_ref_total": 200,
+   "n_other_total": 200,
+   "min_iou_min": 1.0,
+   "min_iou_mean": 1.0,
+   "mean_iou_mean": 1.0,
+   "frac_iou_ge_098_min": 1.0,
+   "frac_iou_ge_098_mean": 1.0,
+   "class_mismatch_max": 0
+  }
+ }
+}
+[4/5] latency
+YOLO11n summary (fused): 100 layers, 2,582,932 parameters, 0 gradients, 6.4 GFLOPs
+{
+ "trt_fp16": {
+  "warmup": 50,
+  "iters": 500,
+  "median_ms": 1.209,
+  "p99_ms": 1.467,
+  "mean_ms": 1.218,
+  "min_ms": 1.032
+ },
+ "trt_fp32": {
+  "warmup": 50,
+  "iters": 500,
+  "median_ms": 1.317,
+  "p99_ms": 1.578,
+  "mean_ms": 1.32,
+  "min_ms": 1.111
+ },
+ "torch_fp32_eager": {
+  "warmup": 50,
+  "iters": 200,
+  "median_ms": 3.307,
+  "p99_ms": 4.274
+ }
+}
+[5/5] summary
+written C:\Users\NoBody\Documents\recreating blister pack project\models\exported\export_summary.json
+=== [D] calibrate thresholds ===
+   "matched_score_p0.1": 0.9211,
+   "matched_score_p1": 0.9325,
+   "matched_score_median": 0.9632,
+   "matched_score_max": 0.99,
+   "gt_unmatched_at_iou0.5": 0,
+   "fp_above_thr": 0,
+   "fp_max": 0.0
+  },
+  "cavity_empty": {
+   "gt_boxes": 543,
+   "matched_score_p0.1": 0.9408,
+   "matched_score_p1": 0.9553,
+   "matched_score_median": 0.9785,
+   "matched_score_max": 0.9942,
+   "gt_unmatched_at_iou0.5": 0,
+   "fp_above_thr": 0,
+   "fp_max": 0.8152
+  },
+  "foil_damaged": {
+   "gt_boxes": 444,
+   "matched_score_p0.1": 0.9025,
+   "matched_score_p1": 0.9199,
+   "matched_score_median": 0.961,
+   "matched_score_max": 0.9849,
+   "gt_unmatched_at_iou0.5": 0,
+   "fp_above_thr": 0,
+   "fp_max": 0.0
+  }
+ },
+ "pack_level_on_val": {
+  "nominal_packs": 218,
+  "false_rejects": 2,
+  "false_reject_rate": 0.0092,
+  "defective_packs": 382,
+  "escapes": 0,
+  "escape_rate": 0.0
+ },
+ "note": "5-epoch baseline is under-confident (pill_ok scores ~0.5); thresholds are recall-driven quantiles on the synthetic validation split and must be re-derived after any retraining or re-export."
+}
+written C:\Users\NoBody\Documents\recreating blister pack project\models\exported\thresholds.json
+=== CHAIN DONE 2026-09-17T12:46:51-04:00 ===
