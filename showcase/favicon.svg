@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Blister pack icon">
+  <rect width="32" height="32" rx="6" fill="#0b0d10"/>
+  <rect x="2.5" y="8.5" width="27" height="15" rx="3.5" fill="#1b212a" stroke="#5ec8ff" stroke-width="1.2"/>
+  <g fill="#3b82f6">
+    <circle cx="7.4" cy="13.2" r="1.9"/>
+    <circle cx="13.1" cy="13.2" r="1.9"/>
+    <circle cx="18.9" cy="13.2" r="1.9"/>
+    <circle cx="24.6" cy="13.2" r="1.9"/>
+    <circle cx="7.4" cy="18.8" r="1.9"/>
+    <circle cx="13.1" cy="18.8" r="1.9"/>
+    <circle cx="24.6" cy="18.8" r="1.9"/>
+  </g>
+  <circle cx="18.9" cy="18.8" r="1.9" fill="none" stroke="#d03b3b" stroke-width="1.3"/>
+</svg>

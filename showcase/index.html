@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pharma Blister Digital Twin</title>
+<meta name="description" content="A closed-loop, deterministic digital twin of a high-speed pharmaceutical blister line: 240 Hz PhysX transport, a 1.21 ms TensorRT FP16 inspection verdict over zero-copy CUDA DLPack, and a Part 11-style append-only audit trail.">
+<meta name="author" content="Turki-Ta">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0b0d10">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Pharma Blister Digital Twin">
+<meta property="og:title" content="Pharma Blister Digital Twin">
+<meta property="og:description" content="Closed-loop cyber-physical digital twin for high-speed pharmaceutical packaging: 240 Hz PhysX, TensorRT FP16 inspection at 1.21 ms, GAMP 5 Category 4 design pattern.">
+<meta property="og:url" content="https://Turki-Ta.github.io/pharma-blister-digital-twin/">
+<meta property="og:image" content="https://Turki-Ta.github.io/pharma-blister-digital-twin/media/hero_poster.jpg">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="720">
+<meta property="og:image:alt" content="The digital-twin dashboard on a REJECT of PACK 013, showing the inspection pane and the cell overview side by side.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pharma Blister Digital Twin">
+<meta name="twitter:description" content="Closed-loop cyber-physical digital twin for high-speed pharmaceutical packaging: 240 Hz PhysX, TensorRT FP16 inspection at 1.21 ms.">
+<meta name="twitter:image" content="https://Turki-Ta.github.io/pharma-blister-digital-twin/media/hero_poster.jpg">
+
+<link rel="icon" href="./favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#hero">Skip to content</a>
+
+<header class="topnav">
+  <div class="wrap">
+    <a class="brand" href="#hero"><span class="dot" aria-hidden="true"></span>Blister&nbsp;Twin<span class="full">&nbsp;/ v1.0.0</span></a>
+    <nav class="navlinks" aria-label="Section navigation">
+      <a href="#metrics">Metrics</a>
+      <a href="#architecture">Architecture</a>
+      <a href="#assets">Assets</a>
+      <a href="#inspector">Inspector</a>
+      <a href="#handling">Handling</a>
+      <a href="#audit">Audit</a>
+      <a href="#verification">Verification</a>
+      <a href="#reproduce">Reproduce</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ====================================================================== -->
+<!-- 1. HERO                                                                -->
+<!-- ====================================================================== -->
+<section id="hero" aria-labelledby="hero-title">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <span class="tagline"><span class="pip" aria-hidden="true"></span>Cyber-physical simulation &middot; RTX 5090</span>
+        <h1 id="hero-title">A blister line that <span class="hl">inspects and rejects itself</span>, in simulation.</h1>
+        <p class="thesis">
+          A single-process digital twin of a pharmaceutical blister packaging cell runs the whole control
+          loop against synthetic physics: a strobe exposure is rendered at the inspection station, handed
+          to a TensorRT FP16 detector over a zero-copy CUDA DLPack pointer, turned into a PASS/REJECT
+          verdict against calibrated thresholds, clocked forward through an encoder shift register, and
+          actuated as a pneumatic kick that PhysX then confirms by overlap query &mdash; with every pack written
+          to an append-only audit ledger. The model was trained entirely on synthetic data generated
+          from the same asset, and its verdicts match the previous baseline pack for pack.
+        </p>
+        <div class="btnrow">
+          <a class="btn primary" href="https://github.com/Turki-Ta/pharma-blister-digital-twin">Source repository</a>
+          <a class="btn" href="https://github.com/Turki-Ta/pharma-blister-digital-twin/releases/tag/v1.0.0">Release v1.0.0</a>
+        </div>
+      </div>
+
+      <div class="hero-video">
+        <video id="heroVideo" autoplay muted loop playsinline preload="metadata"
+               poster="./media/hero_poster.jpg"
+               aria-label="Recorded dashboard of the 20-pack lockstep run: the inspection pane and the cell overview side by side, at 4x slow motion.">
+          <source src="https://github.com/Turki-Ta/pharma-blister-digital-twin/releases/download/v1.0.0/digital_twin_demo.mp4" type="video/mp4">
+          <source src="./media/digital_twin_demo.mp4" type="video/mp4">
+        </video>
+        <span class="vlabel">20-pack lockstep &middot; 273 frames &middot; 9.1 s &middot; <b>17 rejected</b></span>
+        <button class="vplay" id="heroPlay" type="button"><span>Play recorded run</span></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="ribbon" aria-label="Line telemetry">
+  <div class="wrap">
+    <p class="mono">CLOSED-LOOP DETERMINISTIC TWIN | 240 HZ PHYSX | 1.6 M/S TRANSPORT</p>
+  </div>
+</div>
+
+<!-- ====================================================================== -->
+<!-- 2. KPI GRID                                                            -->
+<!-- ====================================================================== -->
+<section id="metrics" aria-labelledby="metrics-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Measured</p>
+      <h2 id="metrics-h">Four numbers that define the loop</h2>
+      <p>Every figure below is read from a committed artifact file, named under each tile. Latency figures
+        separate the engine from the twin: the engine benchmark and the in-loop verdict are different measurements.</p>
+    </div>
+
+    <div class="kpi-grid">
+      <article class="kpi">
+        <p class="k-label">TensorRT FP16 inference latency</p>
+        <p class="k-value">1.21 ms</p>
+        <p class="k-qual">Well under the <b>25 ms</b> GAMP ceiling. Engine-only, batch 1, 500 iterations
+          after 50 warm-up (median 1.209, mean 1.218, p99 1.467 ms). The twin&rsquo;s end-to-end
+          capture-to-verdict median is <b>4.69 ms</b> (p99 11.49 ms).</p>
+        <p class="src">models/exported/export_summary.json &middot; reports/twin/twin_lockstep_20.json</p>
+      </article>
+
+      <article class="kpi">
+        <p class="k-label">Discrete PhysX collision rate</p>
+        <p class="k-value">240 Hz</p>
+        <p class="k-qual">One step is <b>6.67 mm</b> of belt travel at 1.6 m/s, so every static collider in the
+          handling path is a 30 mm thick box. Zero tunnelling or penetration observed across the
+          20/30/50-pack runs.</p>
+        <p class="src">src/simulation/live_factory_twin.py &middot; reports/final_v3.log</p>
+      </article>
+
+      <article class="kpi">
+        <p class="k-label">Parity against the v1 baseline</p>
+        <p class="k-value">100% Parity</p>
+        <p class="k-qual"><b>0 escapes, 0 false rejects</b>, pack for pack against the baseline &mdash; 20/20 and
+          30/30 verdicts matched, 17/17 and 24/24 ejections confirmed, identical actions and physical
+          outcomes.</p>
+        <p class="src">scripts/parity_v2.py &middot; reports/twin/v1/ &middot; reports/final_v3.log</p>
+      </article>
+
+      <article class="kpi">
+        <p class="k-label">Renderer &rarr; detector transfer</p>
+        <p class="k-value sm">Zero-Copy CUDA DLPack</p>
+        <p class="k-qual">Direct GPU pointer passing between the renderer, TensorRT and the controller &mdash;
+          20 frames pushed over the path in the recorded run, logged as
+          <b class="mono">capture_path: cuda-dlpack</b>. No host round-trip.</p>
+        <p class="src">reports/twin/twin_lockstep_20.json</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================================== -->
+<!-- 3. ARCHITECTURE                                                        -->
+<!-- ====================================================================== -->
+<section id="architecture" aria-labelledby="arch-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Architecture</p>
+      <h2 id="arch-h">One online loop, one offline chain</h2>
+      <p>The online loop runs every pack inside a single process at 240 Hz lockstep. The offline chain
+        builds and gates the model that the loop depends on; nothing reaches the loop without passing
+        the drift gate and the parity audit.</p>
+    </div>
+
+    <div class="chain-block">
+      <p class="chain-title"><span class="tag live">Online</span> Closed control loop &middot; per pack, lockstep</p>
+      <div class="chain">
+        <div class="node">
+          <span class="n-step">01 Expose</span>
+          <span class="n-name">Strobe exposure</span>
+          <span class="n-meta">ovrtx &middot; 50 &micro;s<br>1280&times;720 &middot; GSD 0.156 mm/px</span>
+        </div>
+        <div class="arrow" aria-hidden="true">&rarr;</div>
+        <div class="node">
+          <span class="n-step">02 Transfer</span>
+          <span class="n-name">CUDA DLPack</span>
+          <span class="n-meta">zero-copy device pointer<br>capture_path: cuda-dlpack</span>
+        </div>
+        <div class="arrow" aria-hidden="true">&rarr;</div>
+        <div class="node is-verdict">
+          <span class="n-step">03 Decide (W2)</span>
+          <span class="n-name">TensorRT verdict</span>
+          <span class="n-meta">fp16 engine &middot; 1.21 ms<br>conf_ok 0.8607 / defect 0.8525</span>
+        </div>
+        <div class="arrow" aria-hidden="true">&rarr;</div>
+        <div class="node">
+          <span class="n-step">04 Delay (W3)</span>
+          <span class="n-name">Encoder shift register</span>
+          <span class="n-meta">0.5 mm per tick<br>camera &rarr; nozzle 300 mm</span>
+        </div>
+        <div class="arrow" aria-hidden="true">&rarr;</div>
+        <div class="node is-reject">
+          <span class="n-step">05 Act</span>
+          <span class="n-name">Pneumatic reject</span>
+          <span class="n-meta">1.2 N &times; 5 steps<br>impulse 25 mN&middot;s</span>
+        </div>
+        <div class="arrow" aria-hidden="true">&rarr;</div>
+        <div class="node">
+          <span class="n-step">06 Confirm</span>
+          <span class="n-name">PhysX overlap query</span>
+          <span class="n-meta">bin volume test<br>confirmed body parked</span>
+        </div>
+        <div class="arrow" aria-hidden="true">&rarr;</div>
+        <div class="node is-audit">
+          <span class="n-step">07 Record</span>
+          <span class="n-name">Audit ledger</span>
+          <span class="n-meta">append-only JSONL<br>fsync per record</span>
+        </div>
+        <p class="loopback"><span class="ret" aria-hidden="true">&#8629;</span> The physics state that step 06 measures is the same state step 01 exposes on the next pack &mdash; the loop is closed inside one process, not stitched from replays.</p>
+      </div>
+    </div>
+
+    <div class="chain-block">
+      <p class="chain-title"><span class="tag offline">Offline</span> Model build and release gate</p>
+      <div class="chain">
+        <div class="node">
+          <span class="n-step">A Generate</span>
+          <span class="n-name">Synthetic data</span>
+          <span class="n-meta">2,400 frames &middot; seed 20260917<br>24,000 boxes from the mask</span>
+        </div>
+        <div class="arrow" aria-hidden="true">&rarr;</div>
+        <div class="node">
+          <span class="n-step">B Train</span>
+          <span class="n-name">YOLO11n</span>
+          <span class="n-meta">30 epochs &middot; batch 128<br>mAP50-95 0.9754</span>
+        </div>
+        <div class="arrow" aria-hidden="true">&rarr;</div>
+        <div class="node">
+          <span class="n-step">C Export</span>
+          <span class="n-name">ONNX &rarr; TensorRT</span>
+          <span class="n-meta">opset 17 &middot; 1&times;3&times;640&times;640<br>fp16 typed, fp32 I/O</span>
+        </div>
+        <div class="arrow" aria-hidden="true">&rarr;</div>
+        <div class="node">
+          <span class="n-step">D Calibrate</span>
+          <span class="n-name">Threshold derivation</span>
+          <span class="n-meta">600 val frames<br>miss budget 0.001, margin 0.05</span>
+        </div>
+        <div class="arrow" aria-hidden="true">&rarr;</div>
+        <div class="node">
+          <span class="n-step">E Gate</span>
+          <span class="n-name">Drift check</span>
+          <span class="n-meta">50 fresh frames &middot; seed 20260918<br>RETAIN ENGINE</span>
+        </div>
+        <div class="arrow" aria-hidden="true">&rarr;</div>
+        <div class="node is-audit">
+          <span class="n-step">F Audit</span>
+          <span class="n-name">Parity vs baseline</span>
+          <span class="n-meta">pack-for-pack replay<br>PASS</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================================== -->
+<!-- 4. ASSET COMPARISON                                                    -->
+<!-- ====================================================================== -->
+<section id="assets" aria-labelledby="assets-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Asset realism</p>
+      <h2 id="assets-h">v1 was a CAD shape. v2 is a part.</h2>
+      <p>Textures do not load on this ovrtx build, so every piece of micro-detail in v2 is real geometry with
+        per-vertex normals &mdash; which is also why the detector can see it. Drag the divider, or focus it and
+        use the arrow keys.</p>
+    </div>
+
+    <div class="split-2">
+      <div>
+        <div class="compare" id="assetCompare" style="--pos:50%">
+          <img class="base" id="cmpBase" src="./media/asset_v2_crop.jpg" width="620" height="340" decoding="async"
+               alt="A tight crop of the v2 pack, matched pixel-for-pixel to the v1 crop, showing the rounded card corners, the knurled seal texture across the whole card face and the domed, biconvex tablets.">
+          <img class="overlay" id="cmpOverlay" src="./media/asset_v1_crop.jpg" width="620" height="340" decoding="async"
+               alt="A tight crop of the v1 pack showing the card's straight, sharp-cornered edge and the octagonal facets of every dome, with the flat disc face of each tablet visible inside.">
+          <span class="cmp-tag left">Asset v1 <em>&mdash; faceted CAD</em></span>
+          <span class="cmp-tag right">Asset v2 <em>&mdash; procedural lathe profiles</em></span>
+          <button class="cmp-handle" id="cmpHandle" type="button"
+                  role="slider" aria-orientation="horizontal"
+                  aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"
+                  aria-valuetext="50 percent asset v1"
+                  aria-label="Comparison divider: asset v1 on the left, asset v2 on the right">
+            <span class="grip" aria-hidden="true">&#8646;</span>
+          </button>
+        </div>
+
+        <div class="seg" role="group" aria-label="Comparison framing">
+          <button type="button" id="viewCrop" aria-pressed="true">Crop 620 &times; 340</button>
+          <button type="button" id="viewFull" aria-pressed="false">Full render 1280 &times; 720</button>
+        </div>
+        <p class="note" style="margin-top:10px">Both images are rendered through <code>/Render/Camera</code> at the
+          identical pose; the crops use the identical box (330,190)&ndash;(950,530).</p>
+      </div>
+
+      <div>
+        <ul class="facts">
+          <li><b>Biconvex tablets.</b> 8 mm lathe meshes with a curved face that catches a central highlight, replacing v1&rsquo;s flat-topped cylinders.</li>
+          <li><b>Knurled waffle seal.</b> 1.25 mm pitch at 80 &micro;m depth, carried across the whole card face as geometry.</li>
+          <li><b>OmniGlass PVC domes.</b> Index of refraction 1.53, smooth and circular &mdash; v1&rsquo;s domes were faceted octagons.</li>
+          <li><b>Rounded, chamfered card.</b> 3 mm corner radius and a 0.3 mm chamfer on a 90 &times; 45 mm, 1.5 mm card and foil.</li>
+          <li><b>Coaxial ring light.</b> A DiskLight at 2000 nominal, randomised 0.5&ndash;1.5&times; through the synthetic data generator; v1 had only a dome and a key light.</li>
+          <li><b>Ten cavities, two rows of five.</b> 12 mm pockets, 16 mm pitch along the belt and 11 mm across it.</li>
+        </ul>
+
+        <div class="callout">
+          <b>Constraint that shaped the asset:</b> textures do not load on this ovrtx build. Anything that had to be
+          visible to the detector &mdash; the knurl, the dome curvature, the tablet crown &mdash; had to be modelled,
+          not painted. The v1 pack&rsquo;s confidences ran 0.21&ndash;0.55; the v2 run reads 0.9x.
+        </div>
+        <p class="src" style="margin-top:14px">assets/pack.json &middot; assets/pack.usda &middot; src/simulation/assets/blister_factory.py</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================================== -->
+<!-- 5. DEFECT INSPECTOR                                                    -->
+<!-- ====================================================================== -->
+<section id="inspector" aria-labelledby="insp-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">SCADA defect inspector</p>
+      <h2 id="insp-h">What the operator sees at the moment of the verdict</h2>
+      <p>Four real frames from the recorded 20-pack run, each with the picture-in-picture inset the HUD
+        generated for it and the reason string the controller actually wrote.</p>
+    </div>
+
+    <div class="tabs" role="tablist" aria-label="Defect class">
+      <button class="tab" role="tab" id="tab-cavity_empty" data-cls="cavity_empty" aria-controls="panel-cavity_empty" aria-selected="true"><span class="swatch" aria-hidden="true"></span>cavity_empty</button>
+      <button class="tab" role="tab" id="tab-pill_damaged" data-cls="pill_damaged" aria-controls="panel-pill_damaged" aria-selected="false" tabindex="-1"><span class="swatch" aria-hidden="true"></span>pill_damaged</button>
+      <button class="tab" role="tab" id="tab-foil_damaged" data-cls="foil_damaged" aria-controls="panel-foil_damaged" aria-selected="false" tabindex="-1"><span class="swatch" aria-hidden="true"></span>foil_damaged</button>
+      <button class="tab" role="tab" id="tab-nominal" data-cls="nominal" aria-controls="panel-nominal" aria-selected="false" tabindex="-1"><span class="swatch" aria-hidden="true"></span>NOMINAL 10/10</button>
+    </div>
+
+    <!-- cavity_empty -->
+    <div class="inspector" role="tabpanel" id="panel-cavity_empty" aria-labelledby="tab-cavity_empty" tabindex="0">
+      <div class="insp-main">
+        <img src="./media/hud_inspect_cavity_empty.png" width="928" height="522" loading="lazy" decoding="async"
+             alt="The inspection pane for PACK 013: a red REJECT badge, defect:cavity_empty:under_occupancy:7/10, a 7/10 cavities counter, seven blue OK boxes, three green EMPTY boxes (0.98, 0.97, 0.97) and a magnified inset of an empty dome labelled cavity_empty 0.98.">
+      </div>
+      <div class="insp-side">
+        <span class="verdict-badge reject">REJECT</span>
+        <figure class="pip-frame">
+          <img src="./media/pip_cavity_empty.png" width="268" height="188" loading="lazy" decoding="async"
+               alt="The 2x defect inset alone: a red-bordered panel headed DEFECT 2x containing a smooth empty blister dome with no tablet inside, ringed by a green detection box tagged cavity_empty 0.98.">
+          <figcaption>PIP &middot; DEFECT 2&times; inset</figcaption>
+        </figure>
+        <dl class="readout">
+          <div class="row"><dt>Pack</dt><dd>PACK 013</dd></div>
+          <div class="row"><dt>Reason</dt><dd>defect:cavity_empty:under_occupancy:7/10</dd></div>
+          <div class="row"><dt>Cavities</dt><dd>7 / 10</dd></div>
+          <div class="row"><dt>Source</dt><dd>demo frame 128</dd></div>
+        </dl>
+        <ul class="conf-list">
+          <li><span class="sw" style="background:var(--cavity-empty)"></span><span class="cname">cavity_empty</span><span class="cval">0.98 &middot; 0.97 &middot; 0.97</span></li>
+          <li><span class="sw" style="background:var(--pill-ok)"></span><span class="cname">pill_ok</span><span class="cval">7 boxes</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- pill_damaged -->
+    <div class="inspector" role="tabpanel" id="panel-pill_damaged" aria-labelledby="tab-pill_damaged" tabindex="0" hidden>
+      <div class="insp-main">
+        <img src="./media/hud_inspect_pill_damaged.png" width="928" height="522" loading="lazy" decoding="async"
+             alt="The inspection pane for PACK 005: REJECT, defect:cavity_empty,pill_damaged:under_occupancy:6/10, 6/10 cavities, with two orange DMG boxes (0.96, 0.98), two green EMPTY boxes and six blue OK boxes, and the inset magnifying a broken tablet tagged pill_damaged 0.98.">
+      </div>
+      <div class="insp-side">
+        <span class="verdict-badge reject">REJECT</span>
+        <figure class="pip-frame">
+          <img src="./media/pip_pill_damaged.png" width="268" height="188" loading="lazy" decoding="async"
+               alt="The 2x defect inset alone: a dark dome holding a bright angular tablet chunk set off-centre with a small loose fragment beside it, ringed by an orange detection box tagged pill_damaged 0.98.">
+          <figcaption>PIP &middot; DEFECT 2&times; inset</figcaption>
+        </figure>
+        <dl class="readout">
+          <div class="row"><dt>Pack</dt><dd>PACK 005</dd></div>
+          <div class="row"><dt>Reason</dt><dd>defect:cavity_empty,pill_damaged:under_occupancy:6/10</dd></div>
+          <div class="row"><dt>Cavities</dt><dd>6 / 10</dd></div>
+          <div class="row"><dt>Source</dt><dd>demo frame 55</dd></div>
+        </dl>
+        <ul class="conf-list">
+          <li><span class="sw" style="background:var(--pill-damaged)"></span><span class="cname">pill_damaged</span><span class="cval">0.98 &middot; 0.96</span></li>
+          <li><span class="sw" style="background:var(--cavity-empty)"></span><span class="cname">cavity_empty</span><span class="cval">2 boxes</span></li>
+          <li><span class="sw" style="background:var(--pill-ok)"></span><span class="cname">pill_ok</span><span class="cval">6 boxes</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- foil_damaged -->
+    <div class="inspector" role="tabpanel" id="panel-foil_damaged" aria-labelledby="tab-foil_damaged" tabindex="0" hidden>
+      <div class="insp-main">
+        <img src="./media/hud_inspect_foil_damaged.png" width="928" height="522" loading="lazy" decoding="async"
+             alt="The inspection pane for PACK 019: REJECT, defect:foil_damaged,pill_damaged:under_occupancy:7/10, 7/10 cavities, with two yellow FOIL boxes (0.98, 0.97), one orange DMG box (0.97), six blue OK boxes and an inset magnifying the torn-lidding cavity tagged foil_damaged 0.98.">
+      </div>
+      <div class="insp-side">
+        <span class="verdict-badge reject">REJECT</span>
+        <figure class="pip-frame">
+          <img src="./media/pip_foil_damaged.png" width="268" height="188" loading="lazy" decoding="async"
+               alt="The 2x defect inset alone: a cavity whose lidding shows a dark crescent-shaped gap along one edge and a dark notch at the opposite edge around a bright white polygonal tablet face, ringed by a yellow detection box tagged foil_damaged 0.98.">
+          <figcaption>PIP &middot; DEFECT 2&times; inset</figcaption>
+        </figure>
+        <dl class="readout">
+          <div class="row"><dt>Pack</dt><dd>PACK 019</dd></div>
+          <div class="row"><dt>Reason</dt><dd>defect:foil_damaged,pill_damaged:under_occupancy:7/10</dd></div>
+          <div class="row"><dt>Cavities</dt><dd>7 / 10</dd></div>
+          <div class="row"><dt>Source</dt><dd>demo frame 262</dd></div>
+        </dl>
+        <ul class="conf-list">
+          <li><span class="sw" style="background:var(--foil-damaged)"></span><span class="cname">foil_damaged</span><span class="cval">0.98 &middot; 0.97</span></li>
+          <li><span class="sw" style="background:var(--pill-damaged)"></span><span class="cname">pill_damaged</span><span class="cval">0.97</span></li>
+          <li><span class="sw" style="background:var(--pill-ok)"></span><span class="cname">pill_ok</span><span class="cval">6 boxes</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- nominal -->
+    <div class="inspector" role="tabpanel" id="panel-nominal" aria-labelledby="tab-nominal" tabindex="0" hidden>
+      <div class="insp-main">
+        <img src="./media/hud_inspect_nominal.png" width="928" height="522" loading="lazy" decoding="async"
+             alt="The inspection pane for PACK 015: a green PASS badge, reason 10/10_pill_ok, a green 10/10 cavities counter, ten blue OK boxes (0.92 to 0.97) over the pack and a green NOMINAL card reading 10 / 10 cavities pill_ok with ten green dots.">
+      </div>
+      <div class="insp-side">
+        <span class="verdict-badge pass">PASS</span>
+        <figure class="pip-frame is-pass">
+          <img src="./media/pip_nominal.png" width="268" height="188" loading="lazy" decoding="async"
+               alt="The nominal card that replaces the defect inset on a PASS: a green-bordered black panel headed NOMINAL, subtitled 10 / 10 cavities pill_ok, with ten green dots laid out in two rows of five.">
+          <figcaption>PIP &middot; NOMINAL badge</figcaption>
+        </figure>
+        <dl class="readout">
+          <div class="row"><dt>Pack</dt><dd>PACK 015</dd></div>
+          <div class="row"><dt>Reason</dt><dd>10/10_pill_ok</dd></div>
+          <div class="row"><dt>Cavities</dt><dd>10 / 10</dd></div>
+          <div class="row"><dt>Source</dt><dd>demo frame 147</dd></div>
+        </dl>
+        <ul class="conf-list">
+          <li><span class="sw" style="background:var(--pill-ok)"></span><span class="cname">pill_ok</span><span class="cval">0.92 &ndash; 0.97, 10 boxes</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="legend" aria-label="Detector class colours">
+      <span><i style="background:var(--pill-ok)"></i>pill_ok</span>
+      <span><i style="background:var(--pill-damaged)"></i>pill_damaged</span>
+      <span><i style="background:var(--cavity-empty)"></i>cavity_empty</span>
+      <span><i style="background:var(--foil-damaged)"></i>foil_damaged</span>
+    </div>
+
+    <div class="card" style="margin-top:22px">
+      <p class="chain-title" style="margin-bottom:10px">Picture-in-picture logic</p>
+      <p style="color:var(--muted);max-width:86ch;margin:0">
+        On a REJECT the HUD cuts a 2&times; magnified crop around the highest-confidence defect box and draws it
+        in a red-cased panel headed <span class="mono">DEFECT 2&times;</span>; where the reason is under-occupancy
+        and the missing tablet produced no defect box of its own, the crop is taken at the grid-expected cavity
+        instead, so the operator is always shown the cavity that caused the verdict rather than a blank corner
+        of the pack. On a PASS the same panel is replaced by the green <span class="mono">NOMINAL</span> badge
+        with one dot per satisfied cavity. The inset is drawn from the same detection list that produced the
+        verdict &mdash; it is a view of the decision, not a second one.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================================== -->
+<!-- 6. DUAL-CHUTE MATERIAL HANDLING                                        -->
+<!-- ====================================================================== -->
+<section id="handling" aria-labelledby="hand-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Dual-chute material handling</p>
+      <h2 id="hand-h">Two destinations, one rigid-body budget</h2>
+      <p>A 1.3 mm thin box travelling at roughly 3 m/s is exactly the case that makes a discrete solver
+        explode or tunnel. The handling path is built so that it cannot: every static surface is a 30 mm
+        thick invisible collider, and the outfeed is never allowed to hold the body pool.</p>
+    </div>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 730 362" role="img" aria-labelledby="chuteTitle chuteDesc" preserveAspectRatio="xMidYMid meet">
+        <title id="chuteTitle">Side view of the accept chute, drawn to scale</title>
+        <desc id="chuteDesc">A belt ending at x = 0.60 m over a nose roller; an accepted pack flies ballistically for about 11 cm and first touches a 10 degree, 0.20 m ramp whose upper lip sits at x = 0.62 m, 6 mm below the belt top; the ramp discharges into a stacking tote with 240 by 250 mm inner dimensions, 120 mm walls and a floor 0.22 m below the belt.</desc>
+
+        <!-- z = 0 datum -->
+        <line x1="20" y1="60" x2="690" y2="60" class="svg-dim"></line>
+        <text x="646" y="52" class="svg-label" text-anchor="end">z = 0 (belt top)</text>
+
+        <!-- belt -->
+        <rect x="20" y="60" width="160" height="26" fill="#191e25" stroke="#232a33"></rect>
+        <line x1="20" y1="60" x2="180" y2="60" stroke="#8a94a3" stroke-width="2"></line>
+        <text x="60" y="80" class="svg-label ink">BELT</text>
+        <!-- nose roller -->
+        <circle cx="180" cy="73" r="13" fill="#14181d" stroke="#8a94a3" stroke-width="1.5"></circle>
+        <circle cx="180" cy="73" r="3" fill="#8a94a3"></circle>
+        <!-- pack on the belt + travel arrow -->
+        <rect x="112" y="54" width="46" height="6" fill="#3b82f6"></rect>
+        <path d="M 86 47 L 106 47 M 100 43 L 106 47 L 100 51" stroke="#5ec8ff" stroke-width="1.5" fill="none"></path>
+        <text x="30" y="44" class="svg-label accent">1.6 m/s</text>
+
+        <!-- ramp collider (30 mm thick box) -->
+        <polygon points="200,66 397,101 392,130 195,95" fill="rgba(138,148,163,0.10)" stroke="#232a33" stroke-dasharray="4 3"></polygon>
+        <!-- ramp surface -->
+        <line x1="200" y1="66" x2="397" y2="101" stroke="#fab219" stroke-width="3"></line>
+        <text x="300" y="128" class="svg-label" text-anchor="middle" transform="rotate(10 300 128)">10&deg; &times; 0.20 m ramp</text>
+
+        <!-- ballistic arc -->
+        <path d="M 180 60 Q 252 63 310 85" stroke="#5ec8ff" stroke-width="1.6" stroke-dasharray="5 4" fill="none"></path>
+        <circle cx="310" cy="85" r="4" fill="#5ec8ff"></circle>
+
+        <!-- tote -->
+        <rect x="340" y="160" width="30" height="120" fill="#191e25" stroke="#232a33"></rect>
+        <rect x="610" y="160" width="30" height="120" fill="#191e25" stroke="#232a33"></rect>
+        <rect x="340" y="280" width="300" height="30" fill="#191e25" stroke="#232a33"></rect>
+        <line x1="370" y1="280" x2="610" y2="280" stroke="#8a94a3" stroke-width="1.5"></line>
+        <!-- stacked packs -->
+        <rect x="400" y="272" width="90" height="7" fill="#3b82f6" opacity="0.85"></rect>
+        <rect x="418" y="263" width="90" height="7" fill="#3b82f6" opacity="0.7"></rect>
+        <rect x="408" y="254" width="90" height="7" fill="#3b82f6" opacity="0.55"></rect>
+        <text x="470" y="302" class="svg-label ink" text-anchor="middle">STACKING TOTE</text>
+        <!-- tote dimension: inner 240 mm -->
+        <line x1="370" y1="330" x2="610" y2="330" stroke="#8a94a3" stroke-width="1"></line>
+        <path d="M 376 326 L 370 330 L 376 334 M 604 326 L 610 330 L 604 334" stroke="#8a94a3" stroke-width="1" fill="none"></path>
+        <text x="490" y="346" class="svg-label" text-anchor="middle">inner 240 mm</text>
+        <!-- floor depth -->
+        <line x1="660" y1="60" x2="660" y2="280" class="svg-dim"></line>
+        <path d="M 656 66 L 660 60 L 664 66 M 656 274 L 660 280 L 664 274" stroke="#8a94a3" stroke-width="1" fill="none"></path>
+        <text x="668" y="176" class="svg-label">0.22 m</text>
+
+        <!-- callout markers -->
+        <g class="markers">
+          <circle cx="180" cy="104" r="11" fill="#14181d" stroke="#5ec8ff"></circle><text x="180" y="108" class="svg-label accent" text-anchor="middle">1</text>
+          <line x1="180" y1="93" x2="180" y2="88" stroke="#5ec8ff"></line>
+
+          <circle cx="205" cy="38" r="11" fill="#14181d" stroke="#5ec8ff"></circle><text x="205" y="42" class="svg-label accent" text-anchor="middle">2</text>
+          <line x1="205" y1="49" x2="202" y2="62" stroke="#5ec8ff"></line>
+
+          <circle cx="248" cy="34" r="11" fill="#14181d" stroke="#5ec8ff"></circle><text x="248" y="38" class="svg-label accent" text-anchor="middle">3</text>
+          <line x1="248" y1="45" x2="250" y2="58" stroke="#5ec8ff"></line>
+
+          <circle cx="330" cy="52" r="11" fill="#14181d" stroke="#5ec8ff"></circle><text x="330" y="56" class="svg-label accent" text-anchor="middle">4</text>
+          <line x1="327" y1="62" x2="312" y2="80" stroke="#5ec8ff"></line>
+
+          <circle cx="250" cy="172" r="11" fill="#14181d" stroke="#5ec8ff"></circle><text x="250" y="176" class="svg-label accent" text-anchor="middle">5</text>
+          <line x1="250" y1="161" x2="250" y2="108" stroke="#5ec8ff"></line>
+
+          <circle cx="560" cy="210" r="11" fill="#14181d" stroke="#5ec8ff"></circle><text x="560" y="214" class="svg-label accent" text-anchor="middle">6</text>
+        </g>
+      </svg>
+      <figcaption>
+        Side view in the x&ndash;z plane, drawn to scale from the values below. Horizontal positions are
+        world x in metres from the belt origin; the tote is drawn where the ramp discharges.
+      </figcaption>
+    </figure>
+
+    <ol class="facts" style="margin-top:20px;counter-reset:none;list-style:none;padding:0">
+      <li><b>1 &mdash; Belt collider end, x = 0.60 m.</b> Past the nose roller an accepted pack stops being re-driven and becomes a free rigid body. On-belt packs are re-driven to (1.6, 0, 0) m/s on every 240 Hz step against a zero-friction belt material.</li>
+      <li><b>2 &mdash; Ramp lip, x = 0.62 m, 6 mm below the belt top.</b> The 20 mm gap and the 6 mm drop are deliberate: the pack must clear the roller before it touches anything.</li>
+      <li><b>3 &mdash; Ballistic flight, about 11 cm.</b> No contact at all between the belt and the ramp, so there is no grazing contact for the solver to resolve at the transition.</li>
+      <li><b>4 &mdash; First contact at x &asymp; 0.73 m.</b> From there the pack is in sliding contact down the ramp; ramp friction is 0.30 static / 0.25 dynamic, restitution 0.05.</li>
+      <li><b>5 &mdash; 10&deg; &times; 0.20 m stainless ramp.</b> Steeper trials at 12&ndash;16&deg; overflew the tote; 10&deg; keeps the slide inside it. The collider behind the visible surface is a 30 mm thick invisible static box.</li>
+      <li><b>6 &mdash; Stacking tote.</b> Inner 240 &times; 250 mm, 120 mm walls, floor at z = &minus;0.22 m, friction 0.60 / 0.50. Walls and floor are 30 mm thick invisible boxes for the same reason as the ramp.</li>
+    </ol>
+
+    <div class="panel-grid two">
+      <div class="card">
+        <p class="chain-title"><span class="tag live">Accept side</span> Rolling FIFO and the pool budget</p>
+        <p style="color:var(--muted);font-size:0.92rem">
+          The outfeed keeps five settled packs. When a sixth settles, the oldest &mdash; the bottom of the stack &mdash;
+          is recycled straight back into the body pool. That cap is what stops the outfeed from quietly consuming
+          the simulation: the pool of 16 is budgeted as 6 on the belt, 2 in reject transit and 1 spare held in
+          reserve, leaving at most 7 outfeed bodies. A pack is called settled when
+          <span class="mono">|v| &lt; 0.05 m/s</span> and <span class="mono">|&omega;| &lt; 1 rad/s</span> hold for
+          24 consecutive steps (0.1 s), with a 2 s dwell fallback so nothing can wedge the queue forever.
+        </p>
+        <dl class="spec" style="margin-top:14px">
+          <dt>FIFO capacity</dt><dd>5 settled packs</dd>
+          <dt>Pool budget</dt><dd>6 + 2 + 1 of 16</dd>
+          <dt>Max outfeed bodies</dt><dd>7</dd>
+          <dt>Park slots / minimum pool</dt><dd>24 / 10</dd>
+          <dt>Settle median</dt><dd>0.48 s</dd>
+          <dt>Forced / lost</dt><dd class="good">0 / 0</dd>
+        </dl>
+        <p class="note" style="margin-top:12px">0 forced and 0 lost across the seed-1 30-pack, the 50-pack, the 20-pack and the 30-pack runs.</p>
+      </div>
+
+      <div class="card">
+        <p class="chain-title"><span class="tag offline" style="color:var(--reject);border-color:rgba(208,59,59,0.45)">Reject side</span> Kick, confirm, recycle</p>
+        <figure class="diagram" style="padding:8px;background:var(--surface-2);margin-bottom:14px">
+          <svg class="plan-svg" viewBox="0 0 700 285" role="img" aria-labelledby="rejTitle rejDesc" preserveAspectRatio="xMidYMid meet">
+            <title id="rejTitle">Plan view of the reject station</title>
+            <desc id="rejDesc">Looking down on the belt: the inspection camera station at d = 0, the pneumatic nozzle 300 mm downstream, a lateral kick arrow pushing the pack off the belt into a bin volume that PhysX tests with an overlap query.</desc>
+
+            <rect x="20" y="110" width="660" height="80" fill="#191e25" stroke="#232a33"></rect>
+            <text x="20" y="102" class="svg-label">BELT (plan view)</text>
+
+            <line x1="180" y1="96" x2="180" y2="200" class="svg-dim"></line>
+            <text x="180" y="234" class="svg-label" text-anchor="middle">CAMERA d = 0</text>
+            <line x1="480" y1="96" x2="480" y2="200" class="svg-dim"></line>
+            <text x="480" y="234" class="svg-label" text-anchor="middle">NOZZLE d = 300 mm</text>
+
+            <path d="M 180 254 L 480 254 M 187 250 L 180 254 L 187 258 M 473 250 L 480 254 L 473 258" stroke="#8a94a3" stroke-width="1" fill="none"></path>
+            <text x="330" y="276" class="svg-label" text-anchor="middle">300 mm standoff</text>
+
+            <rect x="462" y="126" width="36" height="24" fill="#d03b3b"></rect>
+            <rect x="466" y="198" width="28" height="16" fill="#14181d" stroke="#8a94a3"></rect>
+            <text x="504" y="212" class="svg-label">pneumatic nozzle</text>
+
+            <path d="M 480 124 L 480 78 M 475 86 L 480 78 L 485 86" stroke="#d03b3b" stroke-width="2" fill="none"></path>
+            <text x="496" y="92" class="svg-label reject">1.2 N &times; 5 steps</text>
+            <text x="496" y="112" class="svg-label reject">&rarr; ~2.1 m/s lateral</text>
+
+            <rect x="386" y="14" width="250" height="48" fill="rgba(208,59,59,0.07)" stroke="#d03b3b" stroke-dasharray="5 4"></rect>
+            <text x="511" y="43" class="svg-label reject" text-anchor="middle">BIN VOLUME &middot; PhysX overlap</text>
+
+            <rect x="112" y="126" width="36" height="24" fill="#3b82f6"></rect>
+            <path d="M 60 138 L 92 138 M 85 133 L 92 138 L 85 143" stroke="#5ec8ff" stroke-width="1.5" fill="none"></path>
+          </svg>
+        </figure>
+        <dl class="spec">
+          <dt>Kick</dt><dd class="crit">1.2 N &times; 5 steps @ 240 Hz</dd>
+          <dt>Impulse</dt><dd>25 mN&middot;s</dd>
+          <dt>Lateral velocity</dt><dd>~2.1 m/s</dd>
+          <dt>Seeded torque (roll / yaw)</dt><dd>&plusmn;1.5e-4 / &plusmn;1.2e-3 N&middot;m</dd>
+          <dt>Confirmation</dt><dd>PhysX overlap on the bin</dd>
+          <dt>Ejections confirmed</dt><dd class="good">17/17 &middot; 24/24</dd>
+        </dl>
+        <p style="color:var(--muted);font-size:0.92rem;margin-top:14px">
+          The torque is seeded rather than random so a replay lands the pack in the same place twice. Once the
+          overlap query confirms the pack is inside the bin volume, the dynamic body is parked instantly and
+          render-only proxies carry the slide and the growing pile &mdash; the solver never pays for the heap.
+        </p>
+      </div>
+    </div>
+
+    <div class="panel-grid two">
+      <figure class="shot">
+        <img src="./media/overview_outfeed_slide.jpg" width="928" height="522" loading="lazy" decoding="async"
+             alt="The cell overview with the pack tagged 07 PASS part-way down the yellow-edged outfeed ramp and 04 PASS further along toward the tote, a green PACK 10 EJECTION CONFIRMED flash beside the reject chute, BEAM BROKEN at the infeed and the counter at ACCEPTED: 2 packs, stacking tote 0 / 5 FIFO.">
+        <figcaption><b>Overview &middot; demo frame 136</b>
+          The cell overview with the pack tagged 07 PASS part-way down the yellow-edged outfeed ramp and 04 PASS
+          further along toward the tote, a green PACK 10 EJECTION CONFIRMED flash beside the reject chute, BEAM
+          BROKEN at the infeed and the counter at ACCEPTED: 2 packs, stacking tote 0 / 5 FIFO.</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="./media/overview_outfeed_stacked.jpg" width="928" height="522" loading="lazy" decoding="async"
+             alt="The end state of the 20-pack run: the belt is empty with BEAM CLEAR at the infeed, loose rejected tablets and packs lie in the reject tote marked TOTE 17 rejected, a stack of accepted packs rests in the yellow-and-black outfeed tote, and the counter reads ACCEPTED: 3 packs, stacking tote 3 / 5 FIFO.">
+        <figcaption><b>Overview &middot; demo frame 262 &middot; end state</b>
+          The end state of the 20-pack run: the belt is empty with BEAM CLEAR at the infeed, loose rejected
+          tablets and packs lie in the reject tote marked TOTE 17 rejected, a stack of accepted packs rests in
+          the yellow-and-black outfeed tote, and the counter reads ACCEPTED: 3 packs, stacking tote 3 / 5 FIFO.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================================== -->
+<!-- 7. AUDIT VIEWER                                                        -->
+<!-- ====================================================================== -->
+<section id="audit" aria-labelledby="audit-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Traceability</p>
+      <h2 id="audit-h">21 CFR Part 11-style audit trail</h2>
+      <p>One record is written at the moment of actuation for every pack, and flushed before the next step
+        runs. These are the last three lines of the local ledger, verbatim.</p>
+    </div>
+
+    <div class="audit-grid">
+      <div>
+        <div class="recordbar" role="tablist" aria-label="Audit records">
+          <button class="tab" role="tab" id="rec-0" aria-controls="auditOut" aria-selected="false" tabindex="-1" data-rec="0">REC 1 &middot; confirm &middot; pack 27</button>
+          <button class="tab" role="tab" id="rec-1" aria-controls="auditOut" aria-selected="true" data-rec="1">REC 2 &middot; audit &middot; pack 29</button>
+          <button class="tab" role="tab" id="rec-2" aria-controls="auditOut" aria-selected="false" tabindex="-1" data-rec="2">REC 3 &middot; confirm &middot; pack 28</button>
+        </div>
+        <div class="jsonbox">
+          <pre id="auditOut" role="tabpanel" tabindex="0" aria-label="Selected audit record"><code>Loading record&hellip;</code></pre>
+        </div>
+        <p class="src" style="margin-top:10px">showcase/media/audit_sample.jsonl &mdash; the last 3 lines of
+          reports/audit_trail.jsonl, which held 1,416 records at v1.0.0.</p>
+      </div>
+
+      <div>
+        <ul class="props">
+          <li><strong>Append-only JSONL</strong>One object per line, never rewritten, never reordered. The twin
+            appends its PhysX confirmations to the same file under the same lock, which is why records for two
+            different packs can interleave.</li>
+          <li><strong>fsync per record</strong>Each line is flushed to the device before the controller returns,
+            so a record exists on disk before the actuator is allowed to fire.</li>
+          <li><strong>Two schemas</strong><span class="mono">blister.audit/1</span> for the verdict and actuation,
+            <span class="mono">blister.confirm/1</span> for the PhysX bin-overlap confirmation, carrying the
+            landing coordinates and the sim time.</li>
+          <li><strong>Engine SHA-256 pinned</strong>The hash of the TensorRT engine binary
+            (<span class="mono">c06db0d3&hellip;4078d</span>) is written into every audit record and into
+            thresholds.json, so a verdict can always be tied back to the exact model that produced it.</li>
+          <li><strong>Run, host and UTC time</strong>run_id, controller_version, host and an ISO-8601 UTC
+            timestamp on every line.</li>
+          <li><strong>Encoder ticks at trigger and action</strong>The pack&rsquo;s position in encoder counts when
+            it was photographed and when it was acted on &mdash; 0.5 mm per tick &mdash; which is what makes the
+            delay auditable rather than assumed.</li>
+          <li><strong>Fail-closed on late verdicts</strong>The inference budget is 25 ms. A verdict that arrives
+            late is not trusted: the pack is rejected and the record carries
+            <span class="mono">late_verdict</span>.</li>
+          <li class="warn-item"><strong>Not hash-chained</strong>The SHA-256 in each record identifies the model
+            binary, not the previous record. There is no record-to-record chaining, and this page does not claim
+            any.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================================== -->
+<!-- 8. VERIFICATION                                                        -->
+<!-- ====================================================================== -->
+<section id="verification" aria-labelledby="ver-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Verification</p>
+      <h2 id="ver-h">Five runs, and the gates in front of them</h2>
+      <p>All runs on 2026-09-17, pool 16, lockstep, 240 Hz physics, seed 20260911 unless the row says otherwise.</p>
+    </div>
+
+    <div class="tablewrap">
+      <table>
+        <caption>Twin run outcomes &mdash; reports/twin/*.json and reports/final_v3.log</caption>
+        <thead>
+          <tr>
+            <th scope="col">Run</th>
+            <th scope="col">Verdicts match</th>
+            <th scope="col">Ejections confirmed</th>
+            <th scope="col">Nominal passed clean</th>
+            <th scope="col">Outfeed stacked</th>
+            <th scope="col">FIFO recycles</th>
+            <th scope="col">Forced</th>
+            <th scope="col">Lost</th>
+            <th scope="col">RTF</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">20-pack recorded</th>
+            <td class="good">20/20</td><td class="good">17/17</td><td class="good">3/3</td>
+            <td>3</td><td>0</td><td class="good">0</td><td class="good">0</td><td>0.168</td>
+          </tr>
+          <tr>
+            <th scope="row">30-pack baseline</th>
+            <td class="good">30/30</td><td class="good">24/24</td><td class="good">6/6</td>
+            <td>6</td><td>1</td><td class="good">0</td><td class="good">0</td><td>0.814</td>
+          </tr>
+          <tr>
+            <th scope="row">30-pack seed 1</th>
+            <td class="dim">&mdash;</td><td class="dim">&mdash;</td><td class="dim">&mdash;</td>
+            <td>9</td><td>4</td><td class="good">0</td><td class="good">0</td><td class="dim">&mdash;</td>
+          </tr>
+          <tr>
+            <th scope="row">50-pack default seed</th>
+            <td class="dim">&mdash;</td><td class="dim">&mdash;</td><td class="dim">&mdash;</td>
+            <td>10</td><td>5</td><td class="good">0</td><td class="good">0</td><td class="dim">&mdash;</td>
+          </tr>
+          <tr>
+            <th scope="row">12-pack realtime</th>
+            <td class="good">12/12</td><td class="dim">&mdash;</td><td class="dim">&mdash;</td>
+            <td class="dim">&mdash;</td><td class="dim">&mdash;</td><td class="dim">&mdash;</td><td class="dim">&mdash;</td><td>0.416</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note" style="margin-top:10px">
+      &mdash; = not recorded in the run summary for that column. The seed-1 30-pack and the 50-pack runs both
+      reported DEMO PASS. The 12-pack <span class="mono">--realtime</span> run had 0 timeouts: its first
+      inference is slower under GPU contention with the overview renders, the fail-closed path handled it, and
+      the verdict was unchanged. Verdict latency medians: 4.69 ms (20-pack) and 4.87 ms (30-pack), against v1
+      baselines of 5.34 and 5.11 ms. Settle medians 0.483 s (20- and 30-pack), 0.5 s (seed 1), 0.488 s (50-pack).
+    </p>
+
+    <div class="panel-grid three" style="margin-top:28px">
+      <div class="card">
+        <p class="chain-title"><span class="tag live">Gate</span> Drift check</p>
+        <dl class="spec">
+          <dt>Fresh frames</dt><dd>50 &middot; seed 20260918</dd>
+          <dt>Recall, all 4 classes</dt><dd class="good">1.0</dd>
+          <dt>False positives</dt><dd class="good">0</dd>
+          <dt>False rejects / escapes</dt><dd class="good">0 / 0</dd>
+          <dt>Packs (nominal / defective)</dt><dd>15 / 35</dd>
+          <dt>IoU mean vs reference</dt><dd>0.969 vs 0.9701</dd>
+          <dt>Tolerance</dt><dd>0.02</dd>
+          <dt>Outcome</dt><dd class="good">RETAIN ENGINE</dd>
+        </dl>
+        <p class="note" style="margin-top:12px">The gate also requires the engine SHA-256 in thresholds.json to
+          equal the engine&rsquo;s own hash. The seed is never a dataset seed.</p>
+        <p class="src" style="margin-top:8px">reports/drift_check.json</p>
+      </div>
+
+      <div class="card">
+        <p class="chain-title"><span class="tag offline">Build</span> Training</p>
+        <dl class="spec">
+          <dt>Model</dt><dd>YOLO11n</dd>
+          <dt>Epochs / batch</dt><dd>30 / 128</dd>
+          <dt>Wall time</dt><dd>208.2 s</dd>
+          <dt>Steps / step median</dt><dd>450 / 250.5 ms</dd>
+          <dt>Peak allocation</dt><dd>17.61 GB</dd>
+          <dt>Non-finite / skipped</dt><dd class="good">0 / 0</dd>
+          <dt>mAP50 / mAP50-95</dt><dd>0.995 / 0.9754</dd>
+          <dt>Recall, all 4 classes</dt><dd class="good">1.0</dd>
+        </dl>
+        <p class="note" style="margin-top:12px">Batch sweep 32/64/128 all accepted; 128 chosen. bf16/tf32 at a
+          0.94 memory fraction of 32.1 GB. Trained on 1,800 synthetic frames, validated on 600.</p>
+        <p class="src" style="margin-top:8px">models/summary_yolo11n_v2.json &middot; reports/retrain_v2.log</p>
+      </div>
+
+      <div class="card">
+        <p class="chain-title"><span class="tag offline">Build</span> Export</p>
+        <dl class="spec">
+          <dt>ONNX opset / input</dt><dd>17 / 1&times;3&times;640&times;640</dd>
+          <dt>Output</dt><dd>1&times;8&times;8400</dd>
+          <dt>TensorRT / CUDA</dt><dd>11.3.0.99 / 13.0</dd>
+          <dt>Precision</dt><dd>fp16 typed, fp32 I/O</dd>
+          <dt>Engine size</dt><dd>6,501,460 B</dd>
+          <dt>Build time</dt><dd>8.7 s</dd>
+          <dt>torch vs ONNX Runtime</dt><dd class="good">200/200 boxes, IoU 1.0</dd>
+          <dt>TRT fp16 vs reference</dt><dd class="good">IoU &ge; 0.9786</dd>
+        </dl>
+        <p class="note" style="margin-top:12px">Strongly typed graph with fp32 box decode. Decoded-box parity over
+          200 reference boxes from 20 images: torch vs TensorRT fp16 min IoU 0.9786, mean 0.9990, with 0 class
+          mismatches in every comparison. Letterbox pad 114, RGB /255.</p>
+        <p class="src" style="margin-top:8px">models/exported/export_summary.json</p>
+      </div>
+    </div>
+
+    <div class="panel-grid two" style="margin-top:24px">
+      <figure class="shot">
+        <img src="./media/dashboard_v1.jpg" width="1280" height="720" loading="lazy" decoding="async"
+             alt="The v1-era dashboard on a REJECT of PACK 005 (defect:cavity_empty,pill_damaged:under_occupancy:6/10), whose per-box confidences read 0.21 to 0.55 rather than the v2 run's 0.9x, with a REJECT BIN (PhysX overlap volume) in the overview instead of a chute and tote, and a PACK HISTORY and VERDICT LATENCY panel at bottom right.">
+        <figcaption><b>v1 dashboard</b>
+          The v1-era dashboard on a REJECT of PACK 005 (defect:cavity_empty,pill_damaged:under_occupancy:6/10),
+          whose per-box confidences read 0.21&ndash;0.55 rather than the v2 run&rsquo;s 0.9x, with a REJECT BIN
+          (PhysX overlap volume) in the overview instead of a chute and tote, and a PACK HISTORY and VERDICT
+          LATENCY panel at bottom right.</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="./media/hero_poster.jpg" width="1280" height="720" loading="lazy" decoding="async"
+             alt="The full digital-twin dashboard on a REJECT of PACK 013: the inspection pane shows three EMPTY boxes among seven OK boxes with a cavity_empty 0.98 inset, and the overview pane shows orange chevrons and a KICK pack 11 label at the reject nozzle while the header reads LOCKSTEP, 4x slow motion, SIM t 1.075 s, RTF 0.16.">
+        <figcaption><b>v2 dashboard</b>
+          The full digital-twin dashboard on a REJECT of PACK 013: the inspection pane shows three EMPTY boxes
+          among seven OK boxes with a cavity_empty 0.98 inset, and the overview pane shows orange chevrons and a
+          KICK pack 11 label at the reject nozzle while the header reads LOCKSTEP, 4x slow motion, SIM t 1.075 s,
+          RTF 0.16.</figcaption>
+      </figure>
+    </div>
+
+    <div class="panel-grid two" style="margin-top:24px">
+      <div class="card">
+        <p class="chain-title"><span class="tag offline">Data</span> Synthetic dataset</p>
+        <dl class="spec">
+          <dt>Frames / seed</dt><dd>2,400 / 20260917</dd>
+          <dt>Train / val split</dt><dd>1,800 / 600</dd>
+          <dt>Labelled boxes</dt><dd>24,000</dd>
+          <dt>Mask vs projection IoU</dt><dd>median 0.839</dd>
+          <dt>Throughput</dt><dd>439.1 ms/frame</dd>
+          <dt>Total generation</dt><dd>1,083.8 s</dd>
+        </dl>
+        <p class="note" style="margin-top:12px">Val instances: pill_ok 4,558 &middot; pill_damaged 455 &middot;
+          cavity_empty 543 &middot; foil_damaged 444. Scheduler: p_nominal 0.35; per cavity p_ok 0.62,
+          p_pill_damaged 0.12, p_empty 0.14, p_foil 0.12. Labels come from the semantic mask, not the projection.</p>
+        <p class="src" style="margin-top:8px">data/run_manifest.json</p>
+      </div>
+
+      <div class="card">
+        <p class="chain-title"><span class="tag live">Loop</span> Controller and dashboard budget</p>
+        <dl class="spec">
+          <dt>Frames / inferences</dt><dd>20 / 20</dd>
+          <dt>Overflow / dropped</dt><dd class="good">0 / 0</dd>
+          <dt>Timeouts / late actuations</dt><dd class="good">0 / 0</dd>
+          <dt>Watchdog events / errors</dt><dd class="good">0 / 0</dd>
+          <dt>Audit records written</dt><dd>20</dd>
+          <dt>Verdict latency (median / p99)</dt><dd>4.69 / 11.49 ms</dd>
+          <dt>Physics / renderer steps</dt><dd>517 / 616</dd>
+          <dt>Recorded video</dt><dd>273 f &middot; 9.1 s &middot; 1080p</dd>
+        </dl>
+        <p class="note" style="margin-top:12px">Per-pack verdict latency ran 3.38&ndash;12.46 ms, the maximum being
+          the first pack. Dashboard per frame: mirror 3.99 ms, overview render 33.48 ms, HUD compose 28.77 ms,
+          encode 1.27 ms. Torch allocation stayed flat at 4.9&rarr;8.5 MB (peak 25.2 MB).</p>
+        <p class="src" style="margin-top:8px">reports/twin/twin_lockstep_20.json</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================================== -->
+<!-- 9. REPRODUCE                                                           -->
+<!-- ====================================================================== -->
+<section id="reproduce" aria-labelledby="repro-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Reproduction</p>
+      <h2 id="repro-h">The whole chain, end to end</h2>
+      <p>Windows 11, RTX 5090 (32 GB), Python 3.12 via <span class="mono">uv</span>; torch 2.10+cu130,
+        TensorRT 11.3, ultralytics 8.4.146, ovrtx 0.4.1 / ovstage 0.1.1 / ovphysx 0.5.11 in a single process
+        (Isaac Sim is not used), opencv 5.0.</p>
+    </div>
+
+    <div class="codeblock">
+      <div class="chead"><span>shell</span><span>&middot;</span><span>uv</span></div>
+<pre><code><span class="c"># environment</span>
+uv sync
+
+<span class="c"># asset and synthetic data</span>
+uv run python src/simulation/assets/blister_factory.py <span class="p">--render-check</span>
+uv run python src/simulation/sdg_pipeline.py <span class="p">--frames 2400</span>
+
+<span class="c"># train, export, calibrate</span>
+uv run python src/training/train.py <span class="p">--name yolo11n_v2 --epochs 30 --sweep-batches 32,64,128</span>
+uv run python src/export/export_engine.py <span class="p">--best models/runs/yolo11n_v2/weights/best.pt</span>
+uv run python src/inference/calibrate_thresholds.py <span class="p">--margin 0.05</span>
+
+<span class="c"># gates</span>
+uv run python src/inference/drift_check.py <span class="p">--frames 50</span>
+uv run python src/inference/controller.py <span class="p">--test</span>
+
+<span class="c"># the twin</span>
+uv run python src/simulation/live_factory_twin.py <span class="p">--demo --packs 20 --pool 16 --lockstep --record-video</span>
+uv run python src/simulation/live_factory_twin.py <span class="p">--demo --packs 30 --pool 16 --lockstep</span>
+
+<span class="c"># parity audit and the full verification sweep</span>
+uv run python scripts/parity_v2.py
+bash scripts/final_v3.sh</code></pre>
+    </div>
+
+    <p class="note" style="margin-top:14px">
+      <span class="mono">controller.py --test</span> is the controller self-test: 20 validation frames on a
+      simulated 1.6 m/s belt with injected faults. Not committed to the repository, and regenerated by the
+      commands above: <span class="mono">data/</span> (2,400 frames), the model weights, the ONNX graph and the
+      TensorRT engines. The <span class="mono">yolo11n.pt</span> base weights are downloaded by ultralytics.
+    </p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h3>Project</h3>
+        <ul>
+          <li><a href="https://github.com/Turki-Ta/pharma-blister-digital-twin">github.com/Turki-Ta/pharma-blister-digital-twin</a></li>
+          <li><a href="https://github.com/Turki-Ta/pharma-blister-digital-twin/releases/tag/v1.0.0">Release v1.0.0</a></li>
+          <li><a href="https://github.com/Turki-Ta/pharma-blister-digital-twin/releases/download/v1.0.0/digital_twin_demo.mp4">digital_twin_demo.mp4 (release asset)</a></li>
+          <li><a href="https://github.com/Turki-Ta/pharma-blister-digital-twin/releases/download/v1.0.0/twin_lockstep_20.json">twin_lockstep_20.json (release asset)</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Figures sourced from</h3>
+        <p class="sources">
+          <code>reports/twin/twin_lockstep_20.json</code><br>
+          <code>reports/final_v3.log</code><br>
+          <code>models/exported/export_summary.json</code><br>
+          video: <code>reports/twin/digital_twin_demo.mp4</code>
+        </p>
+      </div>
+    </div>
+
+    <p class="disclaimer">
+      This is an engineering demonstration built and validated in simulation. It is <b>designed as a GAMP 5
+      Category 4 (configured product) pattern</b> &mdash; thresholds derived from a frozen validation split, engine
+      identity pinned by SHA-256 into the thresholds file and every audit record, fail-closed behaviour on late
+      or slow verdicts, deterministic lockstep replays, a drift gate before any model change, and a parity audit
+      against the previous baseline. That is a design pattern claim, not a certification: no regulatory approval,
+      audit or certification of any kind is claimed or implied.
+    </p>
+  </div>
+</footer>
+
+<script id="audit-records" type="application/x-ndjson">
+{"bin_overlap":true,"encoder_ticks":7640,"landing_xyz_m":[0.4676,0.2034,-0.0056],"pack_id":27,"run_id":"78cca3e9b35243a49b89b43264e37e8b","schema":"blister.confirm/1","sim_time_s":2.3875,"source":"physx.overlap(BOX)","timestamp_utc":"2026-09-18T01:05:50.904303+00:00"}
+{"actuation":{"action":"pass","confirmed":null,"status":"passed"},"class_confidences":{"detections":[[246.72,265.05,285.64,303.95,0.97,"pill_ok"],[350.01,265.21,389.27,303.56,0.96,"pill_ok"],[298.62,336.25,337.6,374.9,0.96,"pill_ok"],[195.07,336.41,234.08,374.78,0.95,"pill_ok"],[350.23,336.06,389.49,375.14,0.95,"pill_ok"],[401.74,336.33,440.61,375.0,0.95,"pill_ok"],[246.52,335.87,285.83,374.74,0.95,"pill_ok"],[298.52,265.24,337.43,303.55,0.95,"pill_ok"],[402.21,265.21,440.92,303.42,0.93,"pill_ok"],[194.92,265.02,233.99,303.75,0.93,"pill_ok"]],"n_pill_ok_distinct":10,"per_class":{"cavity_empty":{"count":0,"max_conf":0.0},"foil_damaged":{"count":0,"max_conf":0.0},"pill_damaged":{"count":0,"max_conf":0.0},"pill_ok":{"count":10,"max_conf":0.9684}}},"controller_version":"0.1.0","encoder_ticks":{"action":7733,"trigger":7160},"engine_sha256":"c06db0d342e597a465b610482258cc1cf931f9c459bfe5905f3d53d003d4078d","frame_id":30,"host":"DESKTOP-NSCU5TS","late_verdict":false,"pack_id":29,"reason":"10/10_pill_ok","run_id":"78cca3e9b35243a49b89b43264e37e8b","schema":"blister.audit/1","thresholds":{"conf_defect":0.8525,"conf_ok":0.8607,"dedupe_iou":0.45,"inference_budget_s":0.025,"nms_iou":0.7,"source":"thresholds.json (engine c06db0d342e5)"},"timestamp_utc":"2026-09-18T01:05:50.919931+00:00","verdict":"PASS","verdict_latency_ms":4.13}
+{"bin_overlap":true,"encoder_ticks":7986,"landing_xyz_m":[0.5218,0.2715,-0.0184],"pack_id":28,"run_id":"78cca3e9b35243a49b89b43264e37e8b","schema":"blister.confirm/1","sim_time_s":2.4958,"source":"physx.overlap(BOX)","timestamp_utc":"2026-09-18T01:05:50.969891+00:00"}
+</script>
+
+<script src="./js/main.js" defer></script>
+</body>
+</html>

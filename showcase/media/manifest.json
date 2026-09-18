@@ -1,0 +1,178 @@
+[
+  {
+    "file": "asset_v1.jpg",
+    "source": "assets/v1/pack.usda rendered through /Render/Camera (1280x720) with src/simulation/ovx_runtime.Scene",
+    "what_it_shows": "The v1 pack at its authored default pose: a square-cornered white card, unpatterned apart from shading, carrying ten faceted octagonal blister domes in two rows of five, each holding a flat-topped cylindrical tablet, lit only by the dome and key lights so the background is an even grey.",
+    "width": 1280,
+    "height": 720,
+    "bytes": 22614
+  },
+  {
+    "file": "asset_v1_crop.jpg",
+    "source": "assets/v1/pack.usda rendered through /Render/Camera, cropped to (330,190)-(950,530)",
+    "what_it_shows": "A tight crop of the v1 pack showing the card's straight, sharp-cornered edge and the octagonal facets of every dome, with the flat disc face of each tablet visible inside.",
+    "width": 620,
+    "height": 340,
+    "bytes": 16900
+  },
+  {
+    "file": "asset_v2.jpg",
+    "source": "assets/pack.usda rendered through /Render/Camera (1280x720) with src/simulation/ovx_runtime.Scene",
+    "what_it_shows": "The v2 pack at the same camera and default pose: a rounded, chamfered-corner card whose seal area carries a fine regular dimple (knurl) pattern, with ten smooth circular domes in two rows of five, each holding a biconvex tablet whose curved face catches a central highlight.",
+    "width": 1280,
+    "height": 720,
+    "bytes": 36715
+  },
+  {
+    "file": "asset_v2_crop.jpg",
+    "source": "assets/pack.usda rendered through /Render/Camera, cropped to (330,190)-(950,530) (identical box to asset_v1_crop.jpg)",
+    "what_it_shows": "A tight crop of the v2 pack, matched pixel-for-pixel to the v1 crop, showing the rounded card corners, the knurled seal texture across the whole card face and the domed, biconvex tablets.",
+    "width": 620,
+    "height": 340,
+    "bytes": 26707
+  },
+  {
+    "file": "hero_poster.jpg",
+    "source": "reports/twin/digital_twin_demo.mp4 frame 128 (full 1920x1080 dashboard, downscaled to 1280 wide)",
+    "what_it_shows": "The full digital-twin dashboard on a REJECT of PACK 013: the inspection pane shows three EMPTY boxes among seven OK boxes with a cavity_empty 0.98 inset, and the overview pane shows orange chevrons and a KICK pack 11 label at the reject nozzle while the header reads LOCKSTEP, 4x slow motion, SIM t 1.075 s, RTF 0.16.",
+    "width": 1280,
+    "height": 720,
+    "bytes": 127490
+  },
+  {
+    "file": "dashboard_reject.jpg",
+    "source": "reports/twin/digital_twin_demo.mp4 frame 110 (full 1920x1080 dashboard, downscaled to 1280 wide)",
+    "what_it_shows": "The full dashboard on a REJECT of PACK 011 tagged defect:cavity_empty,foil_damaged:under_occupancy:6/10, with the defect inset reading cavity_empty 0.98, the ledger at 12 inspected / 2 passed / 10 rejected and the verdict latency panel showing median 4.7 ms against a 25 ms GAMP ceiling.",
+    "width": 1280,
+    "height": 720,
+    "bytes": 128216
+  },
+  {
+    "file": "hud_inspect_cavity_empty.png",
+    "source": "reports/twin/digital_twin_demo.mp4 frame 128, inspection pane crop x24-952 y108-630 at native 928x522",
+    "what_it_shows": "The inspection pane for PACK 013: a red REJECT badge, defect:cavity_empty:under_occupancy:7/10, a 7/10 cavities counter, seven blue OK boxes, three green EMPTY boxes (0.98, 0.97, 0.97) and a magnified inset of an empty dome labelled cavity_empty 0.98.",
+    "width": 928,
+    "height": 522,
+    "bytes": 168335
+  },
+  {
+    "file": "pip_cavity_empty.png",
+    "source": "reports/twin/digital_twin_demo.mp4 frame 128, picture-in-picture inset crop x674-942 y164-352 at native 268x188",
+    "what_it_shows": "The 2x defect inset alone: a red-bordered panel headed DEFECT 2x containing a smooth empty blister dome with no tablet inside, ringed by a green detection box tagged cavity_empty 0.98.",
+    "width": 268,
+    "height": 188,
+    "bytes": 28942
+  },
+  {
+    "file": "hud_inspect_pill_damaged.png",
+    "source": "reports/twin/digital_twin_demo.mp4 frame 55, inspection pane crop x24-952 y108-630 at native 928x522",
+    "what_it_shows": "The inspection pane for PACK 005: REJECT, defect:cavity_empty,pill_damaged:under_occupancy:6/10, 6/10 cavities, with two orange DMG boxes (0.96, 0.98), two green EMPTY boxes and six blue OK boxes, and the inset magnifying a broken tablet tagged pill_damaged 0.98.",
+    "width": 928,
+    "height": 522,
+    "bytes": 173764
+  },
+  {
+    "file": "pip_pill_damaged.png",
+    "source": "reports/twin/digital_twin_demo.mp4 frame 55, picture-in-picture inset crop x674-942 y164-352 at native 268x188",
+    "what_it_shows": "The 2x defect inset alone: a dark dome holding a bright angular tablet chunk set off-centre with a small loose fragment beside it, ringed by an orange detection box tagged pill_damaged 0.98.",
+    "width": 268,
+    "height": 188,
+    "bytes": 32419
+  },
+  {
+    "file": "hud_inspect_foil_damaged.png",
+    "source": "reports/twin/digital_twin_demo.mp4 frame 262, inspection pane crop x24-952 y108-630 at native 928x522",
+    "what_it_shows": "The inspection pane for PACK 019: REJECT, defect:foil_damaged,pill_damaged:under_occupancy:7/10, 7/10 cavities, with two yellow FOIL boxes (0.98, 0.97), one orange DMG box (0.97), six blue OK boxes and an inset magnifying the torn-lidding cavity tagged foil_damaged 0.98.",
+    "width": 928,
+    "height": 522,
+    "bytes": 169631
+  },
+  {
+    "file": "pip_foil_damaged.png",
+    "source": "reports/twin/digital_twin_demo.mp4 frame 262, picture-in-picture inset crop x674-942 y164-352 at native 268x188",
+    "what_it_shows": "The 2x defect inset alone: a cavity whose lidding shows a dark crescent-shaped gap along one edge and a dark notch at the opposite edge around a bright white polygonal tablet face, ringed by a yellow detection box tagged foil_damaged 0.98.",
+    "width": 268,
+    "height": 188,
+    "bytes": 31513
+  },
+  {
+    "file": "hud_inspect_nominal.png",
+    "source": "reports/twin/digital_twin_demo.mp4 frame 147, inspection pane crop x24-952 y108-630 at native 928x522",
+    "what_it_shows": "The inspection pane for PACK 015: a green PASS badge, reason 10/10_pill_ok, a green 10/10 cavities counter, ten blue OK boxes (0.92-0.97) over the pack and a green NOMINAL card reading 10 / 10 cavities pill_ok with ten green dots.",
+    "width": 928,
+    "height": 522,
+    "bytes": 153784
+  },
+  {
+    "file": "pip_nominal.png",
+    "source": "reports/twin/digital_twin_demo.mp4 frame 147, picture-in-picture inset crop x674-942 y164-352 at native 268x188",
+    "what_it_shows": "The nominal card that replaces the defect inset on a PASS: a green-bordered black panel headed NOMINAL, subtitled 10 / 10 cavities pill_ok, with ten green dots laid out in two rows of five.",
+    "width": 268,
+    "height": 188,
+    "bytes": 16795
+  },
+  {
+    "file": "overview_kick.jpg",
+    "source": "reports/twin/digital_twin_demo.mp4 frame 128, overview pane crop x968-1896 y108-630 at native 928x522",
+    "what_it_shows": "The cell overview at the moment of the pneumatic reject: three orange chevrons rise from a KICK pack 11 label toward the pack tagged 11 REJECT at the NOZZLE d = 300 mm station, while PACK 09 EJECTION CONFIRMED flashes green next to the chute, packs 07 PASS and 04 PASS sit on the outfeed ramp and the counter reads ACCEPTED: 2 packs, stacking tote 0 / 5 FIFO.",
+    "width": 928,
+    "height": 522,
+    "bytes": 61550
+  },
+  {
+    "file": "overview_outfeed_slide.jpg",
+    "source": "reports/twin/digital_twin_demo.mp4 frame 136, overview pane crop x968-1896 y108-630 at native 928x522",
+    "what_it_shows": "The cell overview with the pack tagged 07 PASS part-way down the yellow-edged outfeed ramp and 04 PASS further along toward the tote, a green PACK 10 EJECTION CONFIRMED flash beside the reject chute, BEAM BROKEN at the infeed and the counter at ACCEPTED: 2 packs, stacking tote 0 / 5 FIFO.",
+    "width": 928,
+    "height": 522,
+    "bytes": 60275
+  },
+  {
+    "file": "overview_outfeed_stacked.jpg",
+    "source": "reports/twin/digital_twin_demo.mp4 frame 262, overview pane crop x968-1896 y108-630 at native 928x522",
+    "what_it_shows": "The end state of the 20-pack run: the belt is empty with BEAM CLEAR at the infeed, loose rejected tablets and packs lie in the reject tote marked TOTE 17 rejected, a stack of accepted packs rests in the yellow-and-black outfeed tote, and the counter reads ACCEPTED: 3 packs, stacking tote 3 / 5 FIFO.",
+    "width": 928,
+    "height": 522,
+    "bytes": 48781
+  },
+  {
+    "file": "trigger_pack00.jpg",
+    "source": "reports/twin/trigger_pack00.png (1280x720, copied at the same size)",
+    "what_it_shows": "The raw strobe exposure the detector consumed, with no HUD overlay: the v2 pack centred against the belt, three cavities holding no tablet, one holding a broken tablet with a loose fragment beside it, and the remaining six holding intact tablets.",
+    "width": 1280,
+    "height": 720,
+    "bytes": 32714
+  },
+  {
+    "file": "overview_reject_in_flight.jpg",
+    "source": "reports/twin/overview_reject_in_flight.png (1280x720, copied at the same size)",
+    "what_it_shows": "An untagged overview render with no HUD: a grey belt slab runs across the lower-left of the frame carrying seven blister packs, a dark pedestal and arm stub stand at the upper left, and the right half of the frame is empty light-grey background.",
+    "width": 1280,
+    "height": 720,
+    "bytes": 21024
+  },
+  {
+    "file": "dashboard_v1.jpg",
+    "source": "reports/twin/v1/dashboard_frame0060_v1.png (1920x1080, downscaled to 1280 wide)",
+    "what_it_shows": "The v1-era dashboard on a REJECT of PACK 005 (defect:cavity_empty,pill_damaged:under_occupancy:6/10), whose per-box confidences read 0.21-0.55 rather than the v2 run's 0.9x, with a REJECT BIN (PhysX overlap volume) in the overview instead of a chute and tote, and a PACK HISTORY and VERDICT LATENCY panel at bottom right.",
+    "width": 1280,
+    "height": 720,
+    "bytes": 91993
+  },
+  {
+    "file": "pack_preview.jpg",
+    "source": "assets/pack_preview.png (1280x720, copied at the same size)",
+    "what_it_shows": "The checked-in preview of the v2 pack asset: the same inspection-camera framing as asset_v2.jpg, showing the rounded knurled card and ten domed cavities each holding an intact biconvex tablet.",
+    "width": 1280,
+    "height": 720,
+    "bytes": 36821
+  },
+  {
+    "file": "audit_sample.jsonl",
+    "source": "reports/audit_trail.jsonl, last 3 lines verbatim (file has 1416 lines)",
+    "what_it_shows": "Three real records from the last verification run: two blister.confirm/1 PhysX overlap confirmations for packs 27 and 28, and one blister.audit/1 PASS record for pack 29 with reason 10/10_pill_ok, verdict_latency_ms 4.13 and the thresholds and engine sha256 it was judged against.",
+    "width": null,
+    "height": null,
+    "bytes": 1877
+  }
+]

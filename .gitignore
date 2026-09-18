@@ -15,6 +15,7 @@ data_v1/
 
 # trained weights, exported models, TensorRT engines and build caches (rebuilt by src/export/export_engine.py)
 models/runs/
+models/sweep/
 models/**/*.engine
 models/**/*.onnx
 models/**/*.cache
@@ -33,3 +34,4 @@ ckpt*/
 
 # video: the demonstration MP4 ships as a release asset, not in the tree
 *.mp4
+!showcase/media/digital_twin_demo.mp4
